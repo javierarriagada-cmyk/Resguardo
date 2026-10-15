@@ -7,6 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const rutas = [
     { path: "", priority: 1 },
+    { path: "/precios", priority: 0.9 },
     { path: "/cobertura", priority: 0.8 },
     ...regiones.map((r) => ({ path: `/cobertura/${r.slug}`, priority: 0.7 })),
     { path: "/legal/privacidad", priority: 0.3 },
