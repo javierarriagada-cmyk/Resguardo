@@ -20,16 +20,22 @@ export function Footer() {
             <h4>Servicios</h4>
             <ul>
               <li>
-                <Link href="/#precios">Compra protegida</Link>
+                <Link href="/precios">Precios</Link>
               </li>
               <li>
-                <Link href="/#vender">Venta protegida</Link>
+                <Link href="/precios#compra-protegida">Compra protegida</Link>
               </li>
               <li>
-                <Link href="/#informe">Estudio de títulos</Link>
+                <Link href="/precios#venta-protegida">Venta protegida</Link>
+              </li>
+              <li>
+                <Link href="/precios#estudio-titulos">Estudio de títulos</Link>
               </li>
               <li>
                 <Link href="/#corredores">Corredores</Link>
+              </li>
+              <li>
+                <Link href="/cobertura">Cobertura por región</Link>
               </li>
             </ul>
           </nav>

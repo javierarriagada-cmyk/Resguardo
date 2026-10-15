@@ -1881,3 +1881,240 @@ footer {
   margin-top: 12px;
   max-width: 30em;
 }
+
+/* ---- Páginas interiores (precios, cobertura, guías) ---- */
+.mt-24 {
+  margin-top: 24px;
+}
+.page-hero {
+  padding: clamp(40px, 6vw, 80px) 0 clamp(40px, 5vw, 64px);
+  border-bottom: 1px solid var(--line);
+}
+.page-hero h1 {
+  margin-top: 14px;
+  max-width: 16em;
+}
+.page-hero .lead {
+  margin-top: 18px;
+  max-width: 36em;
+}
+.page-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.6fr);
+  gap: clamp(28px, 5vw, 72px);
+  align-items: end;
+}
+.sec-tight {
+  padding-top: clamp(48px, 6vw, 72px);
+}
+
+/* UF de referencia */
+.uf-ref {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 22px 24px;
+}
+.uf-ref small {
+  display: block;
+  font: 600 0.7rem/1 var(--sans);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--seal-ink);
+}
+.uf-ref strong {
+  display: block;
+  font: 500 2rem/1.1 var(--serif);
+  letter-spacing: -0.01em;
+  margin: 10px 0 8px;
+  color: var(--ink);
+}
+.uf-ref p {
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: var(--ink-2);
+}
+.price-aprox {
+  margin-top: 8px;
+  font: 500 0.95rem var(--sans);
+  color: var(--ink-2);
+}
+.price-aprox span {
+  font-size: 0.8rem;
+  color: var(--ink-3);
+}
+
+/* Tabla de costos de terceros */
+.cost-table {
+  overflow-x: auto;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+.cost-table:focus-visible {
+  outline: 2px solid var(--seal);
+  outline-offset: 3px;
+}
+.cost-table table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  font-size: 0.93rem;
+  text-align: left;
+}
+.cost-table thead th {
+  font: 600 0.72rem/1.2 var(--sans);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  background: var(--paper-2);
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--line);
+}
+.cost-table tbody th,
+.cost-table td {
+  padding: 18px 20px;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+.cost-table tbody tr:last-child th,
+.cost-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+.cost-table tbody th {
+  font: 500 1.02rem/1.35 var(--serif);
+  color: var(--ink);
+}
+.cost-table td {
+  color: var(--ink-2);
+}
+.tbd {
+  display: inline-block;
+  white-space: nowrap;
+  font: 500 0.74rem/1 var(--mono);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--a);
+  background: var(--a-soft);
+  border: 1px dashed var(--a-fill);
+  border-radius: 3px;
+  padding: 5px 7px;
+}
+
+@media (max-width: 900px) {
+  .page-hero-grid {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+}
+
+/* Ruta de navegación */
+.crumbs {
+  margin-bottom: clamp(28px, 4vw, 44px);
+}
+.crumbs ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 0;
+  font-size: 0.86rem;
+  color: var(--ink-3);
+}
+.crumbs li + li::before {
+  content: "/";
+  margin: 0 10px;
+  color: var(--line-2);
+}
+.crumbs a {
+  color: var(--ink-2);
+  text-underline-offset: 3px;
+}
+.crumbs a:hover {
+  color: var(--seal);
+}
+.crumbs [aria-current] {
+  color: var(--ink);
+}
+
+/* Conservadores por región */
+.cbr-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+.cbr {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 20px 22px;
+  min-width: 0;
+}
+.cbr-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 16px;
+}
+.cbr h3 {
+  font: 500 1.18rem/1.3 var(--serif);
+  min-width: 0;
+}
+.cbr-src {
+  font-size: 0.8rem;
+  color: var(--g);
+}
+.cbr-src a {
+  color: var(--seal);
+  text-underline-offset: 3px;
+}
+.cbr-date {
+  color: var(--ink-3);
+}
+.cbr-note {
+  margin-top: 10px;
+  font-size: 0.84rem;
+  color: var(--ink-3);
+}
+.chips {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.chips li {
+  font: 500 0.74rem/1 var(--mono);
+  color: var(--ink-2);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 6px 8px;
+}
+
+/* Llamado a la acción de cierre en páginas interiores */
+.cta-box {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px 48px;
+}
+.cta-box > div {
+  max-width: 40em;
+}
+@media (max-width: 640px) {
+  .cta-box .btn {
+    flex: 1 1 100%;
+  }
+  .cbr {
+    padding: 18px;
+  }
+}
