@@ -18,18 +18,14 @@ export function Cobertura() {
           </p>
           <div className="mt-24">
             <Link href="/cobertura" className="btn btn-quiet">
-              Ver cobertura detallada por región →
+              Ver cobertura por región
             </Link>
           </div>
         </div>
         <ul className="regions">
           {regionesData.map((reg) => (
             <li key={reg.slug}>
-              <Link
-                href={`/cobertura/${reg.slug}`}
-                className="reg"
-                style={{ textDecoration: "none" }}
-              >
+              <Link href={`/cobertura/${reg.slug}`} className="reg">
                 {reg.nombre} <span>{reg.numero}</span>
               </Link>
             </li>

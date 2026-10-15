@@ -8,96 +8,106 @@ async function axe(page: Page) {
   expect(r.violations, JSON.stringify(r.violations, null, 2)).toEqual([]);
 }
 
-test("índice /cobertura renderiza regiones y no tiene violaciones axe", async ({ page }) => {
+async function sinDesborde(page: Page) {
+  const { scroll, ancho } = await page.evaluate(() => ({
+    scroll: document.documentElement.scrollWidth,
+    ancho: window.innerWidth,
+  }));
+  expect(scroll, "desborde horizontal").toBeLessThanOrEqual(ancho);
+}
+
+const REGIONES = [
+  { slug: "metropolitana", articulo: "la Región Metropolitana", verificado: "conservador.cl" },
+  { slug: "valparaiso", articulo: "la Región de Valparaíso", verificado: "cbrvalpo.cl" },
+  {
+    slug: "la-araucania",
+    articulo: "la Región de La Araucanía",
+    verificado: "segundoconservadortemuco.cl",
+  },
+  { slug: "aysen", articulo: "la Región de Aysén", verificado: null },
+];
+
+test("índice /cobertura: 16 regiones, sin desborde y sin violaciones axe", async ({ page }) => {
   await page.goto("/cobertura");
-  await expect(page.getByRole("heading", { level: 1 })).toContainText(
-    "Estudio de títulos e instrucciones notariales",
-  );
-  const regionesList = page.locator(".regions li");
-  await expect(regionesList).toHaveCount(16);
+  await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+  await expect(page.locator("main .regions li")).toHaveCount(16);
+  await sinDesborde(page);
   await axe(page);
 });
 
-test.describe("páginas regionales /cobertura/[region] con axe y contenido único", () => {
-  const regionesAProbar = [
-    {
-      slug: "metropolitana",
-      nombre: "Metropolitana",
-      nombreConArticulo: "la Región Metropolitana",
-      titular: "Estudio de títulos y cierre legal en la Región Metropolitana",
-      cbrPrueba: "Conservador de Bienes Raíces de Santiago",
-      fuenteTexto: "Fuente: conservador.cl",
-    },
-    {
-      slug: "valparaiso",
-      nombre: "Valparaíso",
-      nombreConArticulo: "la Región de Valparaíso",
-      titular: "Estudio de títulos y custodia notarial en la Región de Valparaíso",
-      cbrPrueba: "Conservador de Bienes Raíces de Viña del Mar",
-      fuenteTexto: "Fuente: cbrvina.cl",
-    },
-    {
-      slug: "biobio",
-      nombre: "Biobío",
-      nombreConArticulo: "la Región del Biobío",
-      titular: "Servicios legales inmobiliarios en la Región del Biobío",
-      cbrPrueba: "Conservador de Bienes Raíces de Concepción",
-      fuenteTexto: "Fuente: cbrconcepcion.cl",
-    },
-  ];
+for (const r of REGIONES) {
+  test(`región ${r.slug}: contenido, fuentes, JSON-LD, sin desborde y axe`, async ({ page }) => {
+    await page.goto(`/cobertura/${r.slug}`);
 
-  for (const reg of regionesAProbar) {
-    test(`región ${reg.slug} sin violaciones axe y con datos específicos`, async ({ page }) => {
-      await page.goto(`/cobertura/${reg.slug}`);
+    await expect(
+      page.getByRole("heading", {
+        level: 2,
+        name: `Conservadores de Bienes Raíces en ${r.articulo}`,
+      }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("heading", { level: 2, name: `Preguntas frecuentes en ${r.articulo}` }),
+    ).toBeVisible();
 
-      // Verificar H1 específico
-      await expect(page.getByRole("heading", { level: 1 })).toHaveText(reg.titular);
+    // Lo verificado enlaza a su fuente; lo no verificado muestra un aviso visible (no depende del flag de provisorios).
+    if (r.verificado) {
+      await expect(
+        page.getByRole("link", { name: new RegExp(`Fuente: ${r.verificado}`) }),
+      ).toBeVisible();
+    }
+    const cards = page.locator(".cbr");
+    const total = await cards.count();
+    const conFuente = await page.locator(".cbr .cbr-src").count();
+    await expect(page.locator(".cbr .tbd")).toHaveCount(total - conFuente);
+    await expect(page.locator(".tbd").first()).toHaveText("Territorio por confirmar");
 
-      // Verificar presencia del CBR representativo y texto de la fuente
-      await expect(page.getByRole("heading", { name: reg.cbrPrueba })).toBeVisible();
-      await expect(page.getByText(reg.fuenteTexto)).toBeVisible();
+    const nav = page.getByRole("navigation", { name: "Ruta de navegación" });
+    await expect(nav.getByRole("link", { name: "Cobertura" })).toHaveAttribute(
+      "href",
+      "/cobertura",
+    );
 
-      // Verificar Breadcrumb semántico
-      const breadcrumb = page.getByRole("navigation", { name: "Breadcrumb" });
-      await expect(breadcrumb).toBeVisible();
-      await expect(breadcrumb).toContainText("Inicio");
-      await expect(breadcrumb).toContainText("Cobertura");
-      await expect(breadcrumb).toContainText(reg.nombre);
+    const ld = (await page.locator('script[type="application/ld+json"]').allTextContents()).map(
+      (t) => JSON.parse(t),
+    );
+    const migas = ld.find((j) => j["@type"] === "BreadcrumbList");
+    expect(migas.itemListElement).toHaveLength(3);
+    expect(migas.itemListElement[2].item).toContain(`/cobertura/${r.slug}`);
 
-      // Verificar JSON-LD BreadcrumbList y Service
-      const ldTexts = await page.locator('script[type="application/ld+json"]').allTextContents();
-      const ldParsed = ldTexts.map((t) => JSON.parse(t));
-      const breadcrumbLd = ldParsed.find((item) => item["@type"] === "BreadcrumbList");
-      expect(breadcrumbLd).toBeDefined();
-      expect(breadcrumbLd.itemListElement.length).toBe(3);
+    await expect(page.getByRole("link", { name: "Iniciar diagnóstico" })).toHaveAttribute(
+      "href",
+      "/#diagnostico",
+    );
+    await sinDesborde(page);
+    await axe(page);
+  });
+}
 
-      const serviceLd = ldParsed.find((item) => item["@type"] === "Service");
-      expect(serviceLd).toBeDefined();
-      expect(serviceLd.name).toBe(reg.titular);
-
-      // Verificar CTA al diagnóstico con el artículo
-      const cta = page.getByRole("link", {
-        name: new RegExp(`Iniciar diagnóstico en ${reg.nombreConArticulo}`, "i"),
-      });
-      await expect(cta).toBeVisible();
-      await expect(cta).toHaveAttribute("href", "/#diagnostico");
-
-      // Verificar cero violaciones axe
-      await axe(page);
-    });
+test("ninguna región repite descripción ni preguntas de otra", async ({ request }) => {
+  const vistos = new Map<string, string>();
+  const html = await (await request.get("/sitemap.xml")).text();
+  const slugs = [...html.matchAll(/\/cobertura\/([a-z-]+)<\/loc>/g)].map((m) => m[1] as string);
+  expect(slugs).toHaveLength(16);
+  for (const slug of slugs) {
+    const pagina = await (await request.get(`/cobertura/${slug}`)).text();
+    const textos = [...pagina.matchAll(/<summary><span>([^<]+)<\/span>/g)].map(
+      (m) => m[1] as string,
+    );
+    const lead = pagina.match(/<p class="lead mt-18">([^<]+)<\/p>/)?.[1];
+    for (const t of [...textos, lead ?? ""]) {
+      expect(vistos.get(t), `texto repetido en ${slug}: ${t}`).toBeUndefined();
+      vistos.set(t, slug);
+    }
   }
 });
 
-test("navegación desde la portada hacia /cobertura y hacia /cobertura/metropolitana", async ({
-  page,
-}) => {
+test("la portada enlaza al índice y a cada región", async ({ page }) => {
   await page.goto("/");
-  const linkCobertura = page.getByRole("link", { name: /Ver cobertura detallada/i });
-  await linkCobertura.click();
+  await page.getByRole("link", { name: "Ver cobertura por región" }).click();
   await expect(page).toHaveURL("/cobertura");
-
-  const linkMetropolitana = page.getByRole("link", { name: /Metropolitana RM/i });
-  await linkMetropolitana.click();
+  await page
+    .locator("main .regions")
+    .getByRole("link", { name: /Metropolitana/ })
+    .click();
   await expect(page).toHaveURL("/cobertura/metropolitana");
-  await expect(page.getByRole("heading", { level: 1 })).toContainText("Región Metropolitana");
 });

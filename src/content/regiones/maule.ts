@@ -5,53 +5,44 @@ export const maule: RegionData = {
   nombre: "Maule",
   nombreConArticulo: "la Región del Maule",
   numero: "VII",
-  titular: "Compraventas protegidas y estudio registral en la Región del Maule",
-  bajada:
-    "Cierre transparente de operaciones inmobiliarias en Talca, Curicó, Linares, Cauquenes y Constitución.",
+  titular: "Compraventas en la Región del Maule, con un precio fijo y conocido",
+  bajada: "Para propiedades en Talca, Curicó, Linares, Constitución, Cauquenes y Parral.",
   descripcion:
-    "El mercado maulino abarca zonas urbanas en expansión y un amplio sector agrícola. Analizamos los títulos en los Conservadores de Talca, Curicó, Linares, Cauquenes, Constitución, San Javier, Parral y Molinetes.",
+    "Si la propiedad es heredada y la venden varios hermanos, antes de la promesa revisamos que la posesión efectiva y la inscripción especial de herencia estén hechas, porque sin ellas los herederos no pueden vender.",
   conservadores: [
+    {
+      nombre: "Conservador de Bienes Raíces de Talca",
+      comunas: ["Talca", "Pelarco", "Pencahue", "San Clemente", "Río Claro"],
+    },
     {
       nombre: "Conservador de Bienes Raíces de Curicó",
       comunas: ["Curicó", "Rauco", "Romeral", "Teno"],
-      fuente: "https://www.cbrcurico.cl",
-      verificado: true,
     },
     {
       nombre: "Conservador de Bienes Raíces de Linares",
       comunas: ["Linares", "Colbún", "Yerbas Buenas"],
-      fuente: "https://www.cbrlinares.cl",
-      verificado: true,
-    },
-    {
-      nombre: "Conservador de Bienes Raíces de Talca",
-      comunas: ["Talca", "Pelarco", "Pencahue", "San Clemente", "Río Claro"],
-      verificado: false,
-    },
-    {
-      nombre: "Conservador de Bienes Raíces de Cauquenes",
-      comunas: ["Cauquenes"],
-      verificado: false,
     },
     {
       nombre: "Conservador de Bienes Raíces de Constitución",
       comunas: ["Constitución", "Empedrado"],
-      verificado: false,
+    },
+    {
+      nombre: "Conservador de Bienes Raíces de Cauquenes",
+      comunas: ["Cauquenes"],
     },
     {
       nombre: "Conservador de Bienes Raíces de Parral",
       comunas: ["Parral", "Retiro"],
-      verificado: false,
     },
   ],
   faq: [
     {
-      q: "¿Cuánto demora la inscripción en los Conservadores de Talca y Curicó?",
-      a: "Por lo general, las inscripciones de dominio y alzamientos en Talca y Curicó demoran entre 5 y 10 días hábiles una vez ingresada la escritura.",
+      q: "Los vendedores son herederos. ¿Qué tiene que estar listo?",
+      a: "La posesión efectiva (ante el Registro Civil si no hay testamento, o ante el tribunal si lo hay, según la Ley 19.903) y la inscripción especial de herencia en el Conservador (Código Civil, art. 688). Si falta algo, te decimos cuánto falta antes de que firmes nada.",
     },
     {
-      q: "¿Se realiza revisión de sucesiones y herencias en la Región del Maule?",
-      a: "Sí. Verificamos la Posesión Efectiva (Registro Civil o Tribunal), pago o exención del Impuesto a las Herencias ante el SII e Inscripción Especial de Herencia en el CBR.",
+      q: "¿Firman todos los herederos?",
+      a: "Sí, todos los que figuran como dueños en la inscripción, personalmente o mediante un mandatario con poder suficiente. Si hay un heredero menor de edad, la venta puede necesitar autorización judicial.",
     },
   ],
 };

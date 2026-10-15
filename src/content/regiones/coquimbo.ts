@@ -5,54 +5,49 @@ export const coquimbo: RegionData = {
   nombre: "Coquimbo",
   nombreConArticulo: "la Región de Coquimbo",
   numero: "IV",
-  titular: "Estudio de títulos y resguardo de fondos en la Región de Coquimbo",
+  titular: "Compraventas en la Región de Coquimbo, de La Serena al Valle del Elqui",
   bajada:
-    "Acompañamiento legal para compraventas en La Serena, Coquimbo, Ovalle, Illapel y el Valle del Elqui.",
+    "Para departamentos en la costa, casas en Ovalle e Illapel y parcelas en el Valle del Elqui.",
   descripcion:
-    "La Región de Coquimbo presenta un activo mercado residencial y vacacional. Analizamos la legalidad de parcelaciones, recepciones finales municipales y antecedentes registrales en los Conservadores locales.",
+    "Si compras una parcela de agrado, revisamos que el lote venga de una subdivisión aprobada y que la superficie calce con el plano archivado en el Conservador.",
   conservadores: [
     {
       nombre: "Conservador de Bienes Raíces de La Serena",
-      comunas: ["La Serena"],
-      fuente: "https://www.cbrlaserena.cl",
-      verificado: true,
+      comunas: ["La Serena", "La Higuera"],
+      fuente: {
+        url: "https://cbrls.cl/",
+        consultada: "2026-10-15",
+      },
     },
     {
       nombre: "Conservador de Bienes Raíces de Coquimbo",
       comunas: ["Coquimbo"],
-      fuente: "https://www.cbrcoquimbo.cl",
-      verificado: true,
     },
     {
       nombre: "Conservador de Bienes Raíces de Ovalle",
       comunas: ["Ovalle", "Monte Patria", "Punitaqui", "Río Hurtado"],
-      fuente: "https://www.cbrovalle.cl",
-      verificado: true,
     },
     {
       nombre: "Conservador de Bienes Raíces de Vicuña",
       comunas: ["Vicuña", "Paihuano"],
-      verificado: false,
     },
     {
       nombre: "Conservador de Bienes Raíces de Illapel",
       comunas: ["Illapel", "Salamanca"],
-      verificado: false,
     },
     {
       nombre: "Conservador de Bienes Raíces de Los Vilos",
       comunas: ["Los Vilos", "Canela"],
-      verificado: false,
     },
   ],
   faq: [
     {
-      q: "¿Qué resguardos especiales se aplican a parcelas en el Valle del Elqui?",
-      a: "Revisamos el cumplimiento del DL 3.516 sobre división de predios rústicos, resoluciones del SAG y certificaciones del Servicio de Impuestos Internos.",
+      q: "¿Qué revisamos en una parcela del Valle del Elqui?",
+      a: "Que la subdivisión respete el DL 3.516, art. 1, que fija en media hectárea el mínimo de los lotes rústicos, y que el plano esté certificado por el SAG y archivado en el Conservador. Si el lote es menor, puede tener problemas para obtener permisos o un crédito.",
     },
     {
-      q: "¿Cuánto tarda la inscripción en La Serena y Coquimbo?",
-      a: "En promedio, el proceso de inscripción en los CBR de La Serena y Coquimbo demora entre 5 y 10 días hábiles tras el ingreso formal de la escritura.",
+      q: "Compro un departamento para arrendar en la costa. ¿Qué pido?",
+      a: "Además de los certificados de dominio y de hipotecas y gravámenes, el reglamento de copropiedad (hoy regido por la Ley 21.442) y un certificado de la administración sobre la deuda de gastos comunes.",
     },
   ],
 };

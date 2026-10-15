@@ -5,43 +5,37 @@ export const antofagasta: RegionData = {
   nombre: "Antofagasta",
   nombreConArticulo: "la Región de Antofagasta",
   numero: "II",
-  titular: "Estudio de títulos y firma protegida en la Región de Antofagasta",
+  titular: "Compraventas en la Región de Antofagasta, con un solo equipo de principio a fin",
   bajada:
-    "Cierre legal transparente para compraventas en Antofagasta, Calama, Tocopilla y comunas mineras.",
+    "Para propiedades en Antofagasta, Calama, Tocopilla, Mejillones, Taltal y San Pedro de Atacama.",
   descripcion:
-    "El mercado inmobiliario en Antofagasta y Calama requiere revisar cadenas de dominio, gravámenes de 30 años y vigencias en toda la región.",
+    "Si trabajas por turnos o vives en otra ciudad, ordenamos el proceso para que solo tengas que ir a la notaría a firmar. En los terrenos fuera del radio urbano revisamos además el origen del título y si hay restricciones legales.",
   conservadores: [
     {
       nombre: "Conservador de Bienes Raíces de Antofagasta",
       comunas: ["Antofagasta", "Mejillones"],
-      fuente: "https://www.cbrantofagasta.cl",
-      verificado: true,
     },
     {
       nombre: "Conservador de Bienes Raíces de Calama",
       comunas: ["Calama", "Ollagüe", "San Pedro de Atacama"],
-      fuente: "https://www.cbrcalama.cl",
-      verificado: true,
     },
     {
       nombre: "Conservador de Bienes Raíces de Tocopilla",
       comunas: ["Tocopilla", "María Elena"],
-      verificado: false,
     },
     {
       nombre: "Conservador de Bienes Raíces de Taltal",
       comunas: ["Taltal"],
-      verificado: false,
     },
   ],
   faq: [
     {
-      q: "¿Qué se debe considerar al comprar terrenos o casas en San Pedro de Atacama?",
-      a: "Es fundamental revisar si el inmueble se encuentra sujeto a la Ley Indígena (N° 19.253) o a limitaciones de Bienes Nacionales, verificando la validez del título de propiedad en el CBR de Calama.",
+      q: "¿Qué cambia si compro un terreno en San Pedro de Atacama?",
+      a: "Revisamos si el terreno es tierra indígena. La Ley 19.253, art. 13, impide enajenar, embargar o gravar esas tierras, salvo entre comunidades o personas indígenas de una misma etnia. Si aplica, te lo decimos antes de que pagues nada.",
     },
     {
-      q: "¿Cuál es el tiempo de respuesta del CBR de Antofagasta?",
-      a: "Para certificados de dominio y gravámenes la entrega suele ser digital en 3 a 5 días hábiles, mientras que la inscripción de la escritura final toma entre 7 y 12 días hábiles.",
+      q: "Trabajo por turnos. ¿Cómo coordinamos la firma?",
+      a: "Elegimos contigo la notaría, y cada parte puede firmar en un día distinto mientras la escritura esté abierta. Si no puedes ir, puedes dar un poder por escritura pública a un mandatario. El resto lo hacemos a distancia.",
     },
   ],
 };

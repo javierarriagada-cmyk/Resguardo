@@ -1,6 +1,13 @@
 import { expect, test, type Page } from "@playwright/test";
 
-const RUTAS = ["/", "/precios", "/legal/privacidad", "/legal/terminos"];
+const RUTAS = [
+  "/",
+  "/precios",
+  "/cobertura",
+  "/cobertura/metropolitana",
+  "/legal/privacidad",
+  "/legal/terminos",
+];
 
 /**
  * Registra cualquier violación de CSP y cualquier error de consola. No filtra nada:

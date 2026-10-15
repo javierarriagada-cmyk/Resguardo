@@ -5,47 +5,41 @@ export const nuble: RegionData = {
   nombre: "Ñuble",
   nombreConArticulo: "la Región de Ñuble",
   numero: "XVI",
-  titular: "Estudio de títulos y resguardo notarial en la Región de Ñuble",
+  titular: "Compraventas en la Región de Ñuble, de Chillán a la costa",
   bajada:
-    "Acompañamiento especializado para compraventas en Chillán, Chillán Viejo, San Carlos, Bulnes y toda la provincia del Diguillín, Punilla e Itata.",
+    "Para propiedades en Chillán, Chillán Viejo, San Carlos, Bulnes, Yungay, Quirihue y Cobquecura.",
   descripcion:
-    "La Región de Ñuble consolida su institucionalidad registral propia. Analizamos en detalle las cadenas de dominio, inscripciones de herencia y gravámenes en los Conservadores locales.",
+    "Ñuble es región desde 2018 (Ley 21.033). Los títulos anteriores pueden citar a la antigua provincia de Ñuble de la Región del Biobío. No es un error: lo que importa es que la inscripción esté en el Conservador que corresponde a la comuna.",
   conservadores: [
     {
       nombre: "Conservador de Bienes Raíces de Chillán",
       comunas: ["Chillán", "Chillán Viejo", "Pinto", "Coihueco"],
-      fuente: "https://www.cbrchillan.cl",
-      verificado: true,
     },
     {
       nombre: "Conservador de Bienes Raíces de San Carlos",
       comunas: ["San Carlos", "San Nicolás"],
-      verificado: false,
     },
     {
       nombre: "Conservador de Bienes Raíces de Bulnes",
       comunas: ["Bulnes", "San Ignacio"],
-      verificado: false,
     },
     {
       nombre: "Conservador de Bienes Raíces de Yungay",
       comunas: ["Yungay", "Pemuco", "El Carmen", "Tucapel"],
-      verificado: false,
     },
     {
       nombre: "Conservador de Bienes Raíces de Quirihue",
       comunas: ["Quirihue", "Cobquecura", "Ninhue"],
-      verificado: false,
     },
   ],
   faq: [
     {
-      q: "¿Qué aspectos son claves al comprar en zonas turísticas o costeras como Cobquecura o Pinto?",
-      a: "Revisamos los deslindes, permisos municipales y ausencia de prohibiciones o litigios pendientes.",
+      q: "Mis títulos dicen “Región del Biobío”. ¿Hay que corregirlos?",
+      a: "No. La creación de la región no obliga a rectificar las inscripciones. Revisamos que la propiedad esté bien individualizada y que la cadena de inscripciones esté completa.",
     },
     {
-      q: "¿Cuándo se liberan los fondos en una compraventa en Chillán?",
-      a: "La custodia notarial entrega los vale vista al vendedor únicamente cuando disponemos de la copia autorizada con la inscripción vigente emitida por el CBR de Chillán.",
+      q: "Compro un terreno en la costa de Cobquecura. ¿Qué revisamos?",
+      a: "El dominio y los gravámenes, los deslindes y el acceso. Si el terreno da al mar, revisamos que la venta no incluya la playa de mar, que es un bien nacional de uso público (Código Civil, arts. 589 y 594).",
     },
   ],
 };

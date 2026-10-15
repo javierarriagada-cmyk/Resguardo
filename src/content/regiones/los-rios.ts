@@ -5,53 +5,44 @@ export const losRios: RegionData = {
   nombre: "Los Ríos",
   nombreConArticulo: "la Región de Los Ríos",
   numero: "XIV",
-  titular: "Acompañamiento registral y legal en la Región de Los Ríos",
-  bajada:
-    "Estudio de títulos en compraventas de propiedades urbanas y rurales en Valdivia, Panguipulli, La Unión, Río Bueno y Mariquina.",
+  titular: "Compraventas en la Región de Los Ríos, en Valdivia y en los lagos",
+  bajada: "Para propiedades en Valdivia, Panguipulli, La Unión, Río Bueno, Los Lagos y Futrono.",
   descripcion:
-    "La Región de Los Ríos destaca por su mercado residencial, parcelaciones de agrado y desarrollos turísticos. Evaluamos títulos de 10 años, recepciones municipales y regulaciones de bienes rústicos en los Conservadores de la región.",
+    "Si compras una parcela o una casa junto a los lagos Ranco, Panguipulli o Calafquén, revisamos con más cuidado los accesos, las servidumbres y si el lote viene de una subdivisión aprobada.",
   conservadores: [
     {
       nombre: "Conservador de Bienes Raíces de Valdivia",
       comunas: ["Valdivia", "Corral"],
-      fuente: "https://www.cbrvaldivia.cl",
-      verificado: true,
     },
     {
       nombre: "Conservador de Bienes Raíces de Panguipulli",
       comunas: ["Panguipulli"],
-      fuente: "https://www.cbrpanguipulli.cl",
-      verificado: true,
     },
     {
       nombre: "Conservador de Bienes Raíces de La Unión",
       comunas: ["La Unión"],
-      verificado: false,
     },
     {
       nombre: "Conservador de Bienes Raíces de Río Bueno",
       comunas: ["Río Bueno", "Lago Ranco"],
-      verificado: false,
     },
     {
       nombre: "Conservador de Bienes Raíces de Los Lagos",
       comunas: ["Los Lagos", "Futrono"],
-      verificado: false,
     },
     {
       nombre: "Conservador de Bienes Raíces de Paillaco",
       comunas: ["Paillaco"],
-      verificado: false,
     },
   ],
   faq: [
     {
-      q: "¿Qué aspectos se examinan en propiedades ubicadas en cuencas de lagos como Ranco o Panguipulli?",
-      a: "Revisamos los deslindes ribereños, servidumbres de tránsito, certificaciones de Bienes Nacionales y cumplimiento de subdivisiones agrícolas.",
+      q: "¿Qué revisamos en una parcela junto a un lago?",
+      a: "El dominio, el plano de subdivisión archivado, los deslindes con el lago y el camino de acceso. Si el acceso cruza otros predios, verificamos que la servidumbre esté inscrita.",
     },
     {
-      q: "¿Cuál es el tiempo de tramitación en el CBR de Valdivia?",
-      a: "El CBR de Valdivia realiza las inscripciones habitualmente en un plazo de 6 a 10 días hábiles desde el ingreso formal.",
+      q: "Mis títulos dicen “Región de Los Lagos”. ¿Está mal?",
+      a: "No. Los Ríos se creó en 2007 (Ley 20.174) y los títulos anteriores citan la región de entonces. Lo importante es que la cadena de inscripciones esté completa en el Conservador que corresponde a la comuna.",
     },
   ],
 };

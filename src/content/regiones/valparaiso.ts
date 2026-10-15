@@ -5,64 +5,58 @@ export const valparaiso: RegionData = {
   nombre: "Valparaíso",
   nombreConArticulo: "la Región de Valparaíso",
   numero: "V",
-  titular: "Estudio de títulos y custodia notarial en la Región de Valparaíso",
+  titular:
+    "Compraventas en la Región de Valparaíso, con el Conservador que corresponde a cada comuna",
   bajada:
-    "Acompañamos tus transacciones en Viña del Mar, Valparaíso, Concón, Quilpué, Quillota, San Antonio y Los Andes.",
+    "Para propiedades en Valparaíso, Viña del Mar, Quilpué, Villa Alemana, Quillota, San Antonio y Los Andes.",
   descripcion:
-    "La Región de Valparaíso cuenta con una gran diversidad de Conservadores. Revisamos cuidadosamente certificados de deslindes, recepciones municipales y gravámenes en Viña del Mar, Valparaíso, Marga Marga y el Litoral Central.",
+    "En la región hay muchos Conservadores y comunas vecinas que no comparten registro: Valparaíso y Viña del Mar, por ejemplo, tienen Conservadores distintos. Antes de pedir un certificado confirmamos cuál es el competente, para no pagar documentos que no sirven.",
   conservadores: [
+    {
+      nombre: "Conservador de Bienes Raíces de Valparaíso",
+      comunas: ["Valparaíso"],
+      fuente: {
+        url: "https://www.cbrvalpo.cl/acerca.php",
+        consultada: "2026-10-15",
+      },
+    },
     {
       nombre: "Conservador de Bienes Raíces de Viña del Mar",
       comunas: ["Viña del Mar", "Concón"],
-      fuente: "https://www.cbrvina.cl",
-      verificado: true,
     },
     {
       nombre: "Conservador de Bienes Raíces de Quilpué",
       comunas: ["Quilpué"],
-      fuente: "https://www.cbrquilpue.cl",
-      verificado: true,
-    },
-    {
-      nombre: "Conservador de Bienes Raíces de San Antonio",
-      comunas: ["San Antonio", "Santo Domingo", "Cartagena"],
-      fuente: "https://www.cbrsanantonio.cl",
-      verificado: true,
-    },
-    {
-      nombre: "Conservador de Bienes Raíces de Valparaíso",
-      comunas: ["Valparaíso", "Juan Fernández"],
-      verificado: false,
     },
     {
       nombre: "Conservador de Bienes Raíces de Villa Alemana",
       comunas: ["Villa Alemana"],
-      verificado: false,
     },
     {
       nombre: "Conservador de Bienes Raíces de Quillota",
       comunas: ["Quillota", "La Cruz", "La Calera", "Nogales", "Hijuelas"],
-      verificado: false,
+    },
+    {
+      nombre: "Conservador de Bienes Raíces de San Antonio",
+      comunas: ["San Antonio", "Santo Domingo", "Cartagena"],
     },
     {
       nombre: "Conservador de Bienes Raíces de Los Andes",
       comunas: ["Los Andes", "Calle Larga", "San Esteban", "Rinconada"],
-      verificado: false,
     },
     {
       nombre: "Conservador de Bienes Raíces de San Felipe",
       comunas: ["San Felipe", "Putaendo", "Santa María", "Panquehue", "Llaillay", "Catemu"],
-      verificado: false,
     },
   ],
   faq: [
     {
-      q: "¿Cómo es el flujo con la notaría e instrucción en Viña del Mar y Valparaíso?",
-      a: "Acordamos el borrador con las partes, se coordina la firma en la notaría elegida en Viña del Mar o Valparaíso con entrega de vale vista bajo instrucción notarial.",
+      q: "Mi casa está en un cerro de Valparaíso. ¿Hay algo especial?",
+      a: "A veces los deslindes antiguos no calzan con lo construido o hay ampliaciones sin recepción municipal. Comparamos la inscripción con el plano y con los certificados municipales, y te decimos qué hay que regularizar antes de firmar.",
     },
     {
-      q: "¿Se revisa el pago de contribuciones y aseo en propiedades de la costa?",
-      a: "Sí, auditamos la deuda de contribuciones ante Tesorería y los certificados de derechos de aseo municipal antes de autorizar la escritura.",
+      q: "¿Quién paga las contribuciones atrasadas?",
+      a: "Las partes lo acuerdan en la promesa. Pedimos el certificado de deuda de contribuciones de la Tesorería para saber si hay deuda y dejar escrito quién la paga, normalmente con cargo al precio.",
     },
   ],
 };

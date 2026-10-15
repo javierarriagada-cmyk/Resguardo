@@ -5,42 +5,36 @@ export const magallanes: RegionData = {
   nombre: "Magallanes",
   nombreConArticulo: "la Región de Magallanes",
   numero: "XII",
-  titular: "Estudio de títulos y firma respaldada en Magallanes y Antártica Chilena",
-  bajada:
-    "Acompañamiento en compraventas urbanas y rústicas en Punta Arenas, Puerto Natales, Porvenir y Cabo de Hornos.",
+  titular: "Compraventas en la Región de Magallanes y de la Antártica Chilena",
+  bajada: "Para propiedades en Punta Arenas, Puerto Natales, Porvenir y Puerto Williams.",
   descripcion:
-    "En la región austral de Chile revisamos detenidamente la legalidad de los títulos, servidumbres y gravámenes en los Conservadores de Punta Arenas, Puerto Natales, Porvenir y Cabo de Hornos.",
+    "Además de casas y departamentos en Punta Arenas, en la región se venden predios rurales de gran superficie, a veces con servidumbres antiguas o con un origen fiscal. Revisamos la cadena de dominio completa y los planos archivados.",
   conservadores: [
     {
       nombre: "Conservador de Bienes Raíces de Punta Arenas",
       comunas: ["Punta Arenas", "San Gregorio", "Laguna Blanca", "Río Verde"],
-      fuente: "https://www.cbrpuntaarenas.cl",
-      verificado: true,
     },
     {
-      nombre: "Conservador de Bienes Raíces y Letras de Puerto Natales",
+      nombre: "Conservador de Bienes Raíces de Puerto Natales",
       comunas: ["Natales", "Torres del Paine"],
-      verificado: false,
     },
     {
-      nombre: "Conservador de Bienes Raíces y Letras de Porvenir",
+      nombre: "Conservador de Bienes Raíces de Porvenir",
       comunas: ["Porvenir", "Primavera", "Timaukel"],
-      verificado: false,
     },
     {
-      nombre: "Conservador de Bienes Raíces y Letras de Cabo de Hornos",
+      nombre: "Conservador de Bienes Raíces de Cabo de Hornos",
       comunas: ["Cabo de Hornos", "Antártica"],
-      verificado: false,
     },
   ],
   faq: [
     {
-      q: "¿Cuánto tiempo toma inscribir una propiedad en el CBR de Punta Arenas?",
-      a: "El Conservador de Punta Arenas suele demorar entre 5 y 10 días hábiles en procesar e inscribir la escritura de compraventa.",
+      q: "Compro un predio rural grande. ¿Qué revisamos?",
+      a: "Al menos diez años de títulos, como suelen exigir los bancos; los gravámenes, los planos archivados y las servidumbres inscritas. Si el predio viene de una transferencia fiscal, las condiciones del título original.",
     },
     {
-      q: "¿Cómo opera la garantía de la custodia del pago en Magallanes?",
-      a: "El comprador emite el vale vista a nombre del vendedor pero la notaría de Punta Arenas o Puerto Natales lo retiene bajo la condición expresada en la instrucción de inscribir la propiedad a su nombre.",
+      q: "¿El vale vista queda a mi nombre o al del vendedor?",
+      a: "Normalmente se toma a nombre del vendedor y queda en la notaría con una instrucción escrita. La notaría lo entrega solo cuando se cumple lo pactado, por lo general la inscripción a tu nombre.",
     },
   ],
 };

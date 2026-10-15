@@ -5,53 +5,45 @@ export const ohiggins: RegionData = {
   nombre: "O’Higgins",
   nombreConArticulo: "la Región de O’Higgins",
   numero: "VI",
-  titular: "Estudio de títulos y resguardo legal en la Región de O’Higgins",
+  titular: "Compraventas en la Región de O’Higgins, en la ciudad y en el campo",
   bajada:
-    "Acompañamiento en Rancagua, Machalí, San Fernando, Pichilemu y comunas agrícolas de Cachapoal, Colchagua y Cardenal Caro.",
+    "Para propiedades en Rancagua, Machalí, San Fernando, Santa Cruz, Pichilemu y las comunas agrícolas de Colchagua y Cachapoal.",
   descripcion:
-    "En la Región de O’Higgins es habitual encontrar propiedades urbanas y terrenos agrícolas o loteos rústicos. Auditamos títulos de 10 años, derechos de aguas y gravámenes registrales en los Conservadores locales.",
+    "Si compras un terreno agrícola o una parcela, además del dominio revisamos los derechos de agua, las servidumbres de paso y si la subdivisión del predio está aprobada.",
   conservadores: [
     {
       nombre: "Conservador de Bienes Raíces de Rancagua",
       comunas: ["Rancagua", "Machalí", "Graneros"],
-      fuente: "https://www.cbrrancagua.cl",
-      verificado: true,
     },
     {
       nombre: "Conservador de Bienes Raíces de San Fernando",
       comunas: ["San Fernando", "Chimbarongo"],
-      fuente: "https://www.cbrsanfernando.cl",
-      verificado: true,
     },
     {
       nombre: "Conservador de Bienes Raíces de Rengo",
       comunas: ["Rengo", "Malloa", "Requínoa"],
-      verificado: false,
-    },
-    {
-      nombre: "Conservador de Bienes Raíces de Pichilemu",
-      comunas: ["Pichilemu", "Marchigüe", "La Estrella"],
-      verificado: false,
     },
     {
       nombre: "Conservador de Bienes Raíces de Santa Cruz",
       comunas: ["Santa Cruz", "Palmilla", "Chépica"],
-      verificado: false,
     },
     {
       nombre: "Conservador de Bienes Raíces de San Vicente de Tagua Tagua",
       comunas: ["San Vicente", "Pichidegua"],
-      verificado: false,
+    },
+    {
+      nombre: "Conservador de Bienes Raíces de Pichilemu",
+      comunas: ["Pichilemu", "Marchigüe", "La Estrella"],
     },
   ],
   faq: [
     {
-      q: "¿Qué precauciones se deben tomar al comprar parcelas en Machalí o Pichilemu?",
-      a: "Revisamos que la subdivisión cumpla con la normativa del SAG, no existan prohibiciones SERVIU o hipotecas agrícolas pendientes y se cuente con rol individualizado del SII.",
+      q: "La parcela tiene un camino de acceso por el campo del vecino. ¿Es un problema?",
+      a: "Puede serlo si esa servidumbre de tránsito no está constituida ni inscrita. La buscamos en los títulos y, si no existe, te decimos cómo constituirla antes de comprar.",
     },
     {
-      q: "¿Cómo se gestiona el envío de la escritura a las notarías de Rancagua?",
-      a: "Acordamos el texto final con ambas partes, coordinamos la firma presencial y aseguramos la custodia del dinero bajo instrucción notarial.",
+      q: "¿El rol de avalúo tiene que estar separado?",
+      a: "Si compras un lote que salió de una subdivisión, conviene que tenga su propio rol en el SII. Si todavía está en trámite, lo dejamos escrito en la promesa y en la escritura.",
     },
   ],
 };

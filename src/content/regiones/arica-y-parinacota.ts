@@ -5,32 +5,29 @@ export const aricaParinacota: RegionData = {
   nombre: "Arica y Parinacota",
   nombreConArticulo: "la Región de Arica y Parinacota",
   numero: "XV",
-  titular: "Estudio de títulos y escrituras en la Región de Arica y Parinacota",
+  titular: "Compraventas en la Región de Arica y Parinacota, de la revisión a la inscripción",
   bajada:
-    "Acompañamos tu compraventa en el extremo norte de Chile, coordinando revisiones registrales y notariales en Arica y Putre.",
+    "Estudio de títulos, escritura e instrucción notarial para propiedades en Arica, Camarones, Putre y General Lagos.",
   descripcion:
-    "La Región de Arica y Parinacota cuenta con particularidades territoriales y fronterizas en sus títulos. Revisamos la cadena de dominio y prohibiciones en los Conservadores locales antes de enviar la escritura a notaría.",
+    "Es una región fronteriza con Perú y Bolivia, y eso tiene consecuencias legales para algunos compradores. Revisamos la cadena de dominio, los gravámenes y las prohibiciones inscritas, y te decimos si la operación tiene alguna restricción antes de que pagues.",
   conservadores: [
     {
       nombre: "Conservador de Bienes Raíces de Arica",
       comunas: ["Arica", "Camarones"],
-      fuente: "https://www.cbrarica.cl",
-      verificado: true,
     },
     {
       nombre: "Conservador de Bienes Raíces de Putre",
       comunas: ["Putre", "General Lagos"],
-      verificado: false,
     },
   ],
   faq: [
     {
-      q: "¿Cuánto demora la inscripción en el Conservador de Bienes Raíces de Arica?",
-      a: "El Conservador de Arica suele tramitar las inscripciones de compraventa en un plazo aproximado de 5 a 10 días hábiles, siempre que la carpeta registral no presente reparos o falta de certificados municipales.",
+      q: "¿Puede cualquier persona comprar una propiedad en zona fronteriza?",
+      a: "No siempre. El DL 1.939, art. 7, prohíbe a los nacionales de países limítrofes adquirir el dominio u otros derechos reales sobre inmuebles ubicados en zonas declaradas fronterizas, salvo que se les autorice. Si el comprador es peruano, boliviano o argentino, lo revisamos antes de redactar la promesa.",
     },
     {
-      q: "¿Cómo se gestionan las propiedades ubicadas en zonas fronterizas en Parinacota?",
-      a: "En comunas como Putre o General Lagos, la pauta de estudio revisa restricciones especiales relativas a adquirentes extranjeros y normas de fronteras vigentes en la legislación chilena.",
+      q: "Vivo en otra región. ¿Tengo que viajar a Arica?",
+      a: "Solo para firmar en la notaría, y ni siquiera eso si das un poder por escritura pública a un mandatario. Las partes pueden firmar en días distintos en la misma notaría. El estudio, la redacción y el seguimiento se hacen a distancia.",
     },
   ],
 };

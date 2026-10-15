@@ -5,32 +5,28 @@ export const tarapaca: RegionData = {
   nombre: "Tarapacá",
   nombreConArticulo: "la Región de Tarapacá",
   numero: "I",
-  titular: "Revisión de títulos y escrituras en la Región de Tarapacá",
-  bajada:
-    "Acompañamos tus operaciones en Iquique, Alto Hospicio y la Provincia del Tamarugal con estudio riguroso de títulos.",
+  titular: "Compraventas en la Región de Tarapacá con el pago en custodia",
+  bajada: "Para propiedades en Iquique, Alto Hospicio y las comunas de la provincia del Tamarugal.",
   descripcion:
-    "En la Región de Tarapacá, el dinámico mercado de Iquique y Alto Hospicio requiere revisar cuidadosamente los deslindes, inscripciones de dominio y gravámenes en los Conservadores competentes.",
+    "Si la vivienda que compras en Iquique o Alto Hospicio se adquirió con subsidio habitacional, revisamos con especial cuidado las prohibiciones de enajenar inscritas a favor del SERVIU y si siguen vigentes o ya se alzaron.",
   conservadores: [
     {
       nombre: "Conservador de Bienes Raíces de Iquique",
       comunas: ["Iquique", "Alto Hospicio"],
-      fuente: "https://www.cbriquique.cl",
-      verificado: true,
     },
     {
       nombre: "Conservador de Bienes Raíces de Pozo Almonte",
       comunas: ["Pozo Almonte", "Camiña", "Colchane", "Huara", "Pica"],
-      verificado: false,
     },
   ],
   faq: [
     {
-      q: "¿Qué aspectos se revisan en los títulos de Alto Hospicio?",
-      a: "En Alto Hospicio se verifica especialmente la regularidad de las transferencias originales del Serviu o Bienes Nacionales, asegurando que no existan prohibiciones de enajenar vigentes.",
+      q: "Compro una vivienda que tuvo subsidio. ¿Qué miramos?",
+      a: "El Registro de Prohibiciones del Conservador. Si hay una prohibición vigente a favor del SERVIU, la venta necesita su autorización o el alzamiento previo. Te decimos cuál de las dos corresponde antes de firmar la promesa.",
     },
     {
-      q: "¿Cómo se custodia el pago en una compraventa en Iquique?",
-      a: "El pago queda resguardado mediante instrucciones notariales con vale vista en la notaría acordada de Iquique, liberándose únicamente tras la inscripción conforme en el CBR de Iquique.",
+      q: "¿Dónde queda el dinero mientras se inscribe?",
+      a: "En la notaría, con un vale vista y una instrucción notarial escrita. La notaría lo entrega al vendedor solo cuando se cumplen las condiciones pactadas, normalmente la inscripción del dominio a nombre del comprador.",
     },
   ],
 };

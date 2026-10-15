@@ -1,239 +1,171 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Breadcrumb } from "@/components/Breadcrumb";
-import { Prov } from "@/components/ui/Prov";
-import { getAllRegiones, getRegionBySlug } from "@/content/regiones";
+import { JsonLd } from "@/components/JsonLd";
+import { Icon } from "@/components/ui/Icons";
+import { getAllRegiones, getRegionBySlug, type ConservadorData } from "@/content/regiones";
 import { empresa } from "@/content/empresa";
-import type { Metadata } from "next";
 
-function obtenerDominio(url: string): string {
-  try {
-    const parsed = new URL(url);
-    return parsed.hostname.replace(/^www\./, "");
-  } catch {
-    return url;
-  }
-}
+type Props = { params: Promise<{ region: string }> };
+
+export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return getAllRegiones().map((r) => ({
-    region: r.slug,
-  }));
+  return getAllRegiones().map((r) => ({ region: r.slug }));
 }
 
-export async function generateMetadata(props: {
-  params: Promise<{ region: string }>;
-}): Promise<Metadata> {
-  const params = await props.params;
-  const regionData = getRegionBySlug(params.region);
-  if (!regionData) return {};
-
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const region = getRegionBySlug((await params).region);
+  if (!region) return {};
+  const url = `/cobertura/${region.slug}`;
   return {
-    title: `${regionData.titular} | Resguardo`,
-    description: regionData.descripcion,
-    alternates: {
-      canonical: `${empresa.url}/cobertura/${regionData.slug}`,
-    },
+    title: region.titular,
+    description: region.bajada,
+    alternates: { canonical: url },
     openGraph: {
-      title: `${regionData.titular} | Resguardo`,
-      description: regionData.descripcion,
-      url: `${empresa.url}/cobertura/${regionData.slug}`,
+      title: `${region.titular} · Resguardo`,
+      description: region.bajada,
+      url,
       locale: "es_CL",
       type: "website",
     },
   };
 }
 
-export default async function RegionPage(props: { params: Promise<{ region: string }> }) {
-  const params = await props.params;
-  const regionData = getRegionBySlug(params.region);
+function dominio(url: string): string {
+  return new URL(url).hostname.replace(/^www\./, "");
+}
 
-  if (!regionData) {
-    notFound();
-  }
+function fechaCorta(iso: string): string {
+  const [a, m, d] = iso.split("-");
+  return `${d}-${m}-${a}`;
+}
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: regionData.titular,
-    description: regionData.descripcion,
-    provider: {
-      "@type": "LegalService",
-      name: empresa.nombre,
-      url: empresa.url,
-    },
-    areaServed: {
-      "@type": "AdministrativeArea",
-      name: regionData.nombre,
-    },
-  };
+function Conservador({ cbr }: { cbr: ConservadorData }) {
+  return (
+    <li className="cbr">
+      <div className="cbr-head">
+        <h3>{cbr.nombre}</h3>
+        {cbr.fuente ? (
+          <p className="cbr-src">
+            Territorio verificado ·{" "}
+            <a href={cbr.fuente.url} rel="noopener noreferrer" target="_blank">
+              Fuente: {dominio(cbr.fuente.url)}
+              <span className="sr-only"> (abre en una pestaña nueva)</span>
+            </a>{" "}
+            <span className="cbr-date">consultada el {fechaCorta(cbr.fuente.consultada)}</span>
+          </p>
+        ) : (
+          <span className="tbd">Territorio por confirmar</span>
+        )}
+      </div>
+      <ul className="chips" aria-label={`Comunas de ${cbr.nombre}`}>
+        {cbr.comunas.map((c) => (
+          <li key={c}>{c}</li>
+        ))}
+      </ul>
+      {cbr.nota ? <p className="cbr-note">{cbr.nota}</p> : null}
+    </li>
+  );
+}
+
+export default async function RegionPage({ params }: Props) {
+  const region = getRegionBySlug((await params).region);
+  if (!region) notFound();
+
+  const url = `/cobertura/${region.slug}`;
+  const pendientes = region.conservadores.some((c) => !c.fuente);
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: region.titular,
+          description: region.bajada,
+          url: `${empresa.url}${url}`,
+          provider: { "@id": `${empresa.url}/#organizacion` },
+          areaServed: { "@type": "AdministrativeArea", name: `Región ${region.nombre}` },
+        }}
       />
       <Header />
-      <Breadcrumb
-        items={[
-          { name: "Inicio", url: "/" },
-          { name: "Cobertura", url: "/cobertura" },
-          { name: regionData.nombre, url: `/cobertura/${regionData.slug}` },
-        ]}
-      />
-      <main id="contenido" className="wrap mt-32 mb-64">
-        <header className="max-w-prose">
-          <p className="kicker">
-            Región {regionData.nombre} ({regionData.numero})
-          </p>
-          <h1 className="mt-14">{regionData.titular}</h1>
-          <p className="lead mt-18">{regionData.bajada}</p>
-        </header>
-
-        <section className="mt-32 max-w-prose">
-          <p>{regionData.descripcion}</p>
-        </section>
-
-        <section className="mt-44" aria-labelledby="cbr-heading">
-          <h2 id="cbr-heading">Conservadores de Bienes Raíces en {regionData.nombre}</h2>
-          <p className="lead mt-14">
-            Revisamos la carpeta registral en cada uno de los Conservadores con jurisdicción en la
-            región.
-          </p>
-
-          <div className="mt-24" style={{ display: "grid", gap: "20px" }}>
-            {regionData.conservadores.map((cbr) => (
-              <article
-                key={cbr.nombre}
-                style={{
-                  backgroundColor: "var(--card)",
-                  border: "1px solid var(--line)",
-                  borderRadius: "var(--radius)",
-                  padding: "24px",
-                  boxShadow: "var(--shadow)",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "flex-start",
-                    flexWrap: "wrap",
-                    gap: "12px",
-                  }}
-                >
-                  <div style={{ flex: "1 1 300px" }}>
-                    <h3 style={{ fontSize: "18px", fontWeight: 600, margin: 0 }}>{cbr.nombre}</h3>
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "8px",
-                        flexWrap: "wrap",
-                        marginTop: "12px",
-                      }}
-                    >
-                      <span style={{ fontSize: "13px", color: "var(--ink-2)" }}>Comunas:</span>
-                      <ul
-                        style={{
-                          display: "inline-flex",
-                          flexWrap: "wrap",
-                          gap: "6px",
-                          listStyle: "none",
-                          padding: 0,
-                          margin: 0,
-                        }}
-                      >
-                        {cbr.comunas.map((comuna) => (
-                          <li
-                            key={comuna}
-                            style={{
-                              fontFamily: "var(--mono)",
-                              fontSize: "12px",
-                              backgroundColor: "var(--paper-2)",
-                              border: "1px solid var(--line)",
-                              borderRadius: "var(--radius)",
-                              padding: "2px 8px",
-                              color: "var(--ink)",
-                            }}
-                          >
-                            {comuna}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                  <div>
-                    {cbr.verificado && cbr.fuente ? (
-                      <a
-                        href={cbr.fuente}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{
-                          fontSize: "13px",
-                          color: "var(--seal)",
-                          textDecoration: "underline",
-                          fontFamily: "var(--sans)",
-                        }}
-                      >
-                        Fuente: {obtenerDominio(cbr.fuente)}
-                      </a>
-                    ) : (
-                      <Prov>Datos del Conservador por confirmar</Prov>
-                    )}
-                  </div>
-                </div>
-              </article>
-            ))}
+      <main id="contenido">
+        <section className="page-hero" aria-labelledby="reg-t">
+          <div className="wrap">
+            <Breadcrumb
+              items={[
+                { name: "Inicio", url: "/" },
+                { name: "Cobertura", url: "/cobertura" },
+                { name: region.nombre, url },
+              ]}
+            />
+            <p className="kicker">
+              Región {region.numero} · {region.nombre}
+            </p>
+            <h1 id="reg-t">{region.titular}</h1>
+            <p className="lead">{region.bajada}</p>
           </div>
         </section>
 
-        {regionData.faq.length > 0 && (
-          <section className="mt-64" aria-labelledby="faq-local-heading">
-            <h2 id="faq-local-heading">Preguntas frecuentes en {regionData.nombre}</h2>
-            <dl className="mt-24" style={{ display: "grid", gap: "20px" }}>
-              {regionData.faq.map((item) => (
-                <div
-                  key={item.q}
-                  style={{
-                    backgroundColor: "var(--card)",
-                    border: "1px solid var(--line)",
-                    borderRadius: "var(--radius)",
-                    padding: "20px",
-                    boxShadow: "var(--shadow)",
-                  }}
-                >
-                  <dt style={{ fontWeight: 600, fontSize: "16px", color: "var(--ink)" }}>
-                    {item.q}
-                  </dt>
-                  <dd style={{ marginTop: "8px", color: "var(--ink-2)", marginInlineStart: 0 }}>
-                    {item.a}
-                  </dd>
-                </div>
+        <section className="sec-tight" aria-labelledby="cbr-t">
+          <div className="wrap cover-grid">
+            <div>
+              <p className="kicker">Conservadores</p>
+              <h2 id="cbr-t" className="mt-14">
+                Conservadores de Bienes Raíces en {region.nombreConArticulo}
+              </h2>
+              <p className="lead mt-18">{region.descripcion}</p>
+              {pendientes ? (
+                <p className="note">
+                  La lista aún no es exhaustiva. Antes de pedir un certificado confirmamos el
+                  Conservador competente para la comuna de tu propiedad.
+                </p>
+              ) : null}
+            </div>
+            <ul className="cbr-list">
+              {region.conservadores.map((c) => (
+                <Conservador key={c.nombre} cbr={c} />
               ))}
-            </dl>
-          </section>
-        )}
+            </ul>
+          </div>
+        </section>
 
-        <section
-          className="mt-64"
-          style={{
-            backgroundColor: "var(--paper-2)",
-            border: "1px solid var(--line)",
-            borderRadius: "var(--radius-lg)",
-            padding: "32px",
-          }}
-        >
-          <h2>¿Vas a comprar o vender una propiedad en {regionData.nombreConArticulo}?</h2>
-          <p className="lead mt-14">
-            Te guiamos desde el diagnóstico inicial hasta la entrega del dominio en el Conservador.
-          </p>
-          <div className="mt-24">
+        <section className="band" aria-labelledby="faq-t">
+          <div className="wrap faq-grid">
+            <div>
+              <p className="kicker">Preguntas frecuentes</p>
+              <h2 id="faq-t" className="mt-14">
+                Preguntas frecuentes en {region.nombreConArticulo}
+              </h2>
+            </div>
+            <div className="faq">
+              {region.faq.map((item, i) => (
+                <details key={item.q} open={i === 0}>
+                  <summary>
+                    <span>{item.q}</span>
+                    <Icon name="plus" />
+                  </summary>
+                  <p>{item.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section aria-labelledby="cta-t">
+          <div className="wrap cta-box">
+            <div>
+              <h2 id="cta-t">¿Compras o vendes en {region.nombreConArticulo}?</h2>
+              <p className="lead mt-14">
+                Cuéntanos tu caso en el diagnóstico y te decimos qué revisar primero.
+              </p>
+            </div>
             <Link href="/#diagnostico" className="btn btn-primary">
-              Iniciar diagnóstico en {regionData.nombreConArticulo}
+              Iniciar diagnóstico
             </Link>
           </div>
         </section>

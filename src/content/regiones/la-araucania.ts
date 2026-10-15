@@ -5,54 +5,53 @@ export const laAraucania: RegionData = {
   nombre: "La Araucanía",
   nombreConArticulo: "la Región de La Araucanía",
   numero: "IX",
-  titular: "Estudio de títulos y resguardo notarial en la Región de La Araucanía",
+  titular: "Compraventas en la Región de La Araucanía, con la Ley Indígena en el radar",
   bajada:
-    "Acompañamiento en compraventas en Temuco, Padre Las Casas, Villarrica, Pucón, Angol y Lautaro.",
+    "Para propiedades en Temuco, Padre Las Casas, Villarrica, Pucón, Angol, Victoria y Lautaro.",
   descripcion:
-    "La Región de La Araucanía combina sectores urbanos con alta demanda lacustre y rural. Verificamos la calidad del título, deslindes, exención o sujeción a la Ley Indígena N° 19.253 y gravámenes en los Conservadores locales.",
+    "En La Araucanía, una parte del territorio son tierras indígenas protegidas por la Ley 19.253. Antes de comprar un terreno rural o en sectores lacustres verificamos su calidad jurídica, porque esas tierras tienen limitaciones legales para venderse.",
   conservadores: [
     {
       nombre: "Conservador de Bienes Raíces de Temuco",
-      comunas: ["Temuco", "Padre Las Casas", "Vilcún"],
-      fuente: "https://www.cbrtemuco.cl",
-      verificado: true,
+      comunas: ["Temuco", "Vilcún"],
+    },
+    {
+      nombre: "Segundo Conservador de Bienes Raíces de Temuco",
+      comunas: ["Padre Las Casas", "Freire"],
+      fuente: {
+        url: "https://segundoconservadortemuco.cl/informacion/conservador.php",
+        consultada: "2026-10-15",
+      },
     },
     {
       nombre: "Conservador de Bienes Raíces de Villarrica",
       comunas: ["Villarrica"],
-      fuente: "https://www.cbrvillarrica.cl",
-      verificado: true,
     },
     {
       nombre: "Conservador de Bienes Raíces de Pucón",
       comunas: ["Pucón"],
-      fuente: "https://www.cbrpucon.cl",
-      verificado: true,
     },
     {
       nombre: "Conservador de Bienes Raíces de Angol",
       comunas: ["Angol", "Renaico"],
-      verificado: false,
     },
     {
       nombre: "Conservador de Bienes Raíces de Lautaro",
       comunas: ["Lautaro", "Galvarino", "Perquenco"],
-      verificado: false,
     },
     {
       nombre: "Conservador de Bienes Raíces de Victoria",
       comunas: ["Victoria", "Curacautín"],
-      verificado: false,
     },
   ],
   faq: [
     {
-      q: "¿Por qué es crucial revisar la calidad indígena del predio en La Araucanía?",
-      a: "Si un predio reviste calidad indígena conforme a la Ley 19.253, existen restricciones legales estrictas para su enajenación o gravamen. El estudio confirma previamente la libre disposición.",
+      q: "¿Por qué importa si un terreno es tierra indígena?",
+      a: "Porque la Ley 19.253, art. 13, prohíbe enajenar, embargar, gravar o adquirir por prescripción las tierras indígenas, salvo entre comunidades o personas indígenas de una misma etnia. Si el terreno lo es, una compra fuera de esa regla no es válida.",
     },
     {
-      q: "¿Cómo opera la instrucción notarial en compraventas en Villarrica y Pucón?",
-      a: "El vale vista con el saldo o pie queda resguardado en la notaría de Villarrica o Pucón y solo se entrega al vendedor cuando el Conservador emite la inscripción libre de reparos.",
+      q: "Compro en Padre Las Casas. ¿Es el mismo Conservador que Temuco?",
+      a: "No. Padre Las Casas y Freire se inscriben en el Segundo Conservador de Temuco, según su propio sitio. Pedimos los certificados en el oficio que corresponde.",
     },
   ],
 };
