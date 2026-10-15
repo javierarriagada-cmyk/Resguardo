@@ -7,9 +7,9 @@ const menu = [
   ["/#como", "Cómo funciona"],
   ["/#informe", "Informe semáforo"],
   ["/precios", "Precios"],
+  ["/guias", "Guías"],
   ["/#vender", "Vendedores"],
   ["/#corredores", "Corredores"],
-  ["/#faq", "Preguntas"],
 ] as const;
 
 export function BrandMark() {
