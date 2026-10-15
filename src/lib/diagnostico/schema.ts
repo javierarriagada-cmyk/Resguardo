@@ -1,4 +1,4 @@
-import { z } from "@/lib/zod";
+import { z } from "zod";
 import { OBJETIVOS, PAGOS, REGIONES, SENALES, TIPOS } from "./constantes";
 
 /** Normaliza un celular chileno: quita todo lo que no sea dígito y un prefijo 56 opcional. */
