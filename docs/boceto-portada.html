@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resguardo · Compra o vende tu propiedad con la plata en custodia y los títulos revisados</title>
+<meta name="description" content="Estudio de títulos con informe semáforo, escritura, instrucción notarial con vale vista en custodia y seguimiento hasta la inscripción en el Conservador. En todo Chile. Si la operación no se concreta, no pagas honorarios.">
+<meta name="theme-color" content="#F4F1EA">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&family=Instrument+Sans:wght@400..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!--
+  BOCETO DE PORTADA · Resguardo (nombre provisorio) · v4 propuesta de estudio
+  Todo texto marcado con .prov o "por confirmar" es provisorio y debe validarse antes de publicar.
+  Tipografías (SIL Open Font License): Newsreader (titulares), Instrument Sans (texto/UI), IBM Plex Mono (datos registrales).
+-->
+<style>
+:root{
+  --paper:#F4F1EA; --paper-2:#ECE7DC; --card:#FFFFFF; --line:#DDD6C8; --line-2:#C9C0AE;
+  --ink:#14171F; --ink-2:#434957; --ink-3:#62677A;
+  --seal:#2E3C96; --seal-ink:#1F2A72; --seal-soft:#E7E9F6;
+  --g:#1D6B45; --g-soft:#E3F0E8; --a:#875700; --a-fill:#BF820C; --a-soft:#FBF1DC; --r:#A8231B; --r-soft:#F8E4E1;
+  --wa:#127A3F;
+  --radius:6px; --radius-lg:14px;
+  --shadow:0 1px 0 rgba(20,23,31,.04),0 12px 32px -12px rgba(20,23,31,.18);
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"Instrument Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --max:1200px; --gut:24px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:88px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+p{margin:0}
+h1,h2,h3,h4{margin:0;font-weight:500;letter-spacing:-.015em}
+h1,h2{font-family:var(--serif);font-optical-sizing:auto}
+h1{font-size:clamp(2.6rem,1.4rem + 4.2vw,4.75rem);line-height:1.02;letter-spacing:-.025em}
+h2{font-size:clamp(2rem,1.3rem + 2.2vw,3.1rem);line-height:1.08}
+h3{font:600 1.125rem/1.35 var(--sans);letter-spacing:-.005em}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+.skip{position:absolute;left:12px;top:-60px;background:var(--ink);color:#fff;padding:10px 14px;border-radius:var(--radius);z-index:100}
+.skip:focus{top:12px}
+:focus-visible{outline:3px solid var(--seal);outline-offset:3px;border-radius:4px}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.kicker{font:600 .78rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--seal)}
+.lead{font-size:clamp(1.06rem,1rem + .3vw,1.22rem);line-height:1.55;color:var(--ink-2)}
+.prov{display:inline-block;font:600 .66rem/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--a);background:var(--a-soft);border:1px dashed #D9B56A;padding:3px 6px;border-radius:3px;vertical-align:.15em;white-space:nowrap}
+section{padding:clamp(72px,9vw,128px) 0}
+
+.btn{--h:52px;white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:var(--h);padding:0 22px;border-radius:var(--radius);border:1.5px solid transparent;font:600 1rem/1 var(--sans);text-decoration:none;cursor:pointer;transition:background .15s,border-color .15s}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-primary{background:var(--seal);color:#fff}
+.btn-primary:hover{background:var(--seal-ink)}
+.btn-quiet{background:transparent;color:var(--ink);border-color:var(--line-2)}
+.btn-quiet:hover{border-color:var(--ink)}
+.btn-wa svg{color:var(--wa)}
+.btn-sm{--h:42px;padding:0 16px;font-size:.94rem}
+.link{font-weight:600;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+
+.hdr{position:sticky;top:0;z-index:40;background:rgba(244,241,234,.92);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid transparent;transition:border-color .2s}
+.hdr.scrolled{border-bottom-color:var(--line)}
+.nav{display:flex;align-items:center;gap:32px;height:76px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex:none}
+.brand svg{flex:none}
+.brand-word{font:500 1.5rem/1 var(--serif);letter-spacing:-.02em}
+.menu{display:flex;gap:24px;margin:0 0 0 auto;padding:0;list-style:none;font-size:.95rem;white-space:nowrap}
+.menu a{text-decoration:none;color:var(--ink-2)}
+.menu a:hover{color:var(--ink)}
+.nav-cta{display:flex;gap:16px;align-items:center}
+.tel{font:500 .88rem var(--mono);color:var(--ink-2);text-decoration:none;white-space:nowrap}
+
+.hero{padding:clamp(40px,6vw,80px) 0 clamp(64px,8vw,112px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(40px,6vw,88px);align-items:start}
+.persona{display:inline-flex;gap:4px;padding:4px;border:1px solid var(--line);border-radius:999px;background:var(--card);margin-bottom:28px}
+.persona button{min-height:40px;padding:0 18px;border:0;border-radius:999px;background:transparent;font:600 .92rem var(--sans);color:var(--ink-2);cursor:pointer}
+.persona button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.hero h1 em{font-style:italic;font-weight:400;color:var(--seal)}
+.hero .lead{max-width:34em;margin:26px 0 34px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.promises{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:44px 0 0;padding:0;list-style:none;border-top:1px solid var(--line)}
+.promises li{padding:18px 18px 0 0;font-size:.92rem;line-height:1.45;color:var(--ink-2)}
+.promises li+li{padding-left:18px;border-left:1px solid var(--line)}
+.promises b{display:block;color:var(--ink);font-weight:600;margin-bottom:4px}
+.fn{font-size:.8rem;color:var(--ink-3);margin-top:16px}
+
+.file{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow);overflow:hidden}
+.file::before{content:"";position:absolute;inset:0 0 auto 0;height:6px;background:repeating-linear-gradient(90deg,var(--seal) 0 28px,transparent 28px 34px)}
+.file-head{display:flex;justify-content:space-between;gap:16px;padding:28px 26px 18px;border-bottom:1px solid var(--line)}
+.file-head small{display:block;font:600 .72rem/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px}
+.file-head h2{font-size:1.5rem;line-height:1.15}
+.file-head .meta{font-family:var(--mono);font-size:.78rem;color:var(--ink-3);margin-top:6px}
+.sample{align-self:flex-start;font:600 .68rem/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);border:1px solid var(--line-2);padding:6px 8px;border-radius:3px;white-space:nowrap}
+.track{list-style:none;margin:0;padding:20px 26px 6px}
+.track li{position:relative;display:grid;grid-template-columns:28px 1fr auto;gap:12px;align-items:start;padding:0 0 18px}
+.track li::before{content:"";position:absolute;left:13px;top:28px;bottom:0;width:2px;background:var(--line)}
+.track li:last-child::before{display:none}
+.track li.done::before{background:var(--seal)}
+.dot{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;border:2px solid var(--line-2);background:var(--card);position:relative;z-index:1}
+.done .dot{background:var(--seal);border-color:var(--seal);color:#fff}
+.now .dot{border-color:var(--seal);box-shadow:0 0 0 5px var(--seal-soft)}
+.now .dot::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--seal)}
+.dot svg{width:14px;height:14px}
+.track b{display:block;font-weight:600;font-size:.98rem;line-height:1.3}
+.track span{display:block;font-size:.86rem;color:var(--ink-3);line-height:1.4;margin-top:2px}
+.track time,.track .when{font:500 .76rem/1.6 var(--mono);color:var(--ink-3);white-space:nowrap;margin:0}
+.chip{display:inline-flex;align-items:center;gap:6px;font:600 .74rem/1 var(--sans);padding:5px 9px 5px 6px;border-radius:999px;margin-top:8px;font-style:normal}
+.chip.a{background:var(--a-soft);color:var(--a)}
+.chip svg{width:14px;height:14px}
+.money{margin:4px 18px 18px;padding:18px 20px;border-radius:10px;background:var(--seal-soft);display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;position:relative}
+.money small{display:block;font:600 .7rem/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--seal-ink)}
+.money strong{display:block;font:500 1.65rem/1.15 var(--serif);margin:6px 0 4px;color:var(--ink)}
+.money p{font-size:.86rem;color:var(--ink-2);line-height:1.45}
+.stamp{width:96px;height:96px;flex:none;color:var(--seal);transform:rotate(-9deg)}
+
+.truth{background:var(--ink);color:#E9E7E1}
+.truth .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.truth .wrap>div{padding:30px 24px 30px 0}
+.truth .wrap>div+div{padding-left:24px;border-left:1px solid #2C303B}
+.truth b{display:block;font:500 1.25rem/1.25 var(--serif);color:#fff;margin-bottom:6px}
+.truth span{font-size:.88rem;color:#B9BBC3;line-height:1.45}
+.truth .prov{background:#3A3220;color:#F2C873;border-color:#7A6430}
+
+.sec-head{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(24px,5vw,80px);align-items:end;margin-bottom:clamp(40px,5vw,64px)}
+.sec-head h2{margin-top:14px}
+.sec-head .lead{max-width:36em}
+
+.risks{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.risk{display:grid;grid-template-columns:72px minmax(0,4fr) minmax(0,5fr);gap:24px;padding:26px 0;border-bottom:1px solid var(--line)}
+.risk .n{font:400 1.05rem/1.4 var(--mono);color:var(--ink-3)}
+.risk h3{font:500 1.45rem/1.2 var(--serif);letter-spacing:-.01em}
+.risk p{color:var(--ink-2);font-size:.98rem}
+.risk .how{display:block;margin-top:10px;font-size:.86rem;color:var(--ink-3)}
+.risk .how b{color:var(--ink-2);font-weight:600}
+
+.band{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));margin:0;padding:0;list-style:none}
+.steps li{padding:0 22px 0 0}
+.steps li+li{padding-left:22px;border-left:1px solid var(--line)}
+.steps .num{font:400 3rem/1 var(--serif);color:var(--seal);display:block;margin-bottom:18px}
+.steps h3{margin-bottom:8px}
+.steps p{font-size:.93rem;color:var(--ink-2)}
+.steps .who{display:block;margin-top:14px;font:500 .76rem/1.5 var(--mono);color:var(--ink-3)}
+.cash-t{margin:44px 0 12px;font:600 .78rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.cash{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.cash div{padding:14px 16px;font-size:.86rem;line-height:1.35;color:var(--ink-2);background:var(--paper)}
+.cash div+div{border-left:1px solid var(--line)}
+.cash div.hold{background:var(--seal-soft);color:var(--seal-ink)}
+.cash div.free{background:var(--g-soft);color:var(--g)}
+.cash b{display:block;font:600 .68rem/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+.cash .step-l{display:none}
+
+.diag-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,88px);align-items:start}
+.diag-aside h2{margin-top:14px}
+.diag-aside .lead{margin:18px 0 28px}
+.diag-aside ul{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.diag-aside li{display:grid;grid-template-columns:22px 1fr;gap:12px;font-size:.95rem;color:var(--ink-2)}
+.diag-aside li svg{width:20px;height:20px;color:var(--seal);margin-top:3px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:clamp(22px,3vw,36px)}
+.progress{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 28px;padding:0;list-style:none}
+.progress li{font:600 .78rem/1.3 var(--sans);color:var(--ink-3);padding-top:10px;border-top:3px solid var(--line)}
+.progress li.on{color:var(--ink);border-top-color:var(--seal)}
+.progress li.ok{color:var(--ink-2);border-top-color:var(--seal)}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+legend{font:500 1.6rem/1.2 var(--serif);letter-spacing:-.01em;margin-bottom:6px;padding:0}
+.hint{font-size:.9rem;color:var(--ink-3);margin-bottom:20px}
+.choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.choice{position:relative}
+.choice input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.choice label{display:grid;grid-template-columns:24px 1fr;gap:12px;min-height:84px;padding:16px;border:1.5px solid var(--line);border-radius:10px;cursor:pointer;transition:border-color .15s,background .15s}
+.choice label svg{width:22px;height:22px;color:var(--seal);margin-top:1px}
+.choice label b{display:block;font-weight:600;font-size:.98rem;line-height:1.3}
+.choice label span span{display:block;font-size:.84rem;color:var(--ink-3);line-height:1.4;margin-top:3px}
+.choice input:hover+label{border-color:var(--line-2)}
+.choice input:checked+label{border-color:var(--seal);background:var(--seal-soft)}
+.choice input:focus-visible+label{outline:3px solid var(--seal);outline-offset:2px}
+.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 14px}
+.field label{display:block;font:600 .88rem/1.3 var(--sans);margin-bottom:6px}
+.field input,.field select{width:100%;height:50px;border:1.5px solid var(--line-2);border-radius:var(--radius);background:#fff;padding:0 14px;font:400 1rem var(--sans);color:var(--ink)}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23434957' stroke-width='1.6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.field input:focus,.field select:focus{outline:3px solid var(--seal-soft);border-color:var(--seal)}
+.field .err{display:none;color:var(--r);font-size:.82rem;margin-top:6px}
+.field.invalid input,.field.invalid select{border-color:var(--r)}
+.field.invalid .err{display:block}
+.prefix{display:flex}
+.prefix span{display:grid;place-items:center;padding:0 12px;border:1.5px solid var(--line-2);border-right:0;border-radius:var(--radius) 0 0 var(--radius);font:500 .95rem var(--mono);color:var(--ink-2);background:var(--paper)}
+.prefix input{border-radius:0 var(--radius) var(--radius) 0}
+.flags{grid-column:1/-1;margin-top:6px}
+.flags legend{font:600 .88rem/1.3 var(--sans);margin-bottom:10px;letter-spacing:0}
+.flags legend span{font-weight:400;color:var(--ink-3)}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{position:relative}
+.tag input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.tag label{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border:1.5px solid var(--line-2);border-radius:999px;font-size:.88rem;cursor:pointer}
+.tag input:checked+label{background:var(--ink);border-color:var(--ink);color:#fff}
+.tag input:focus-visible+label{outline:3px solid var(--seal);outline-offset:2px}
+.consent{grid-column:1/-1;display:grid;grid-template-columns:22px 1fr;gap:10px;font-size:.86rem;color:var(--ink-2);align-items:start}
+.consent input{width:20px;height:20px;margin:2px 0 0;accent-color:var(--seal)}
+.consent.invalid{color:var(--r)}
+.actions{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:28px;flex-wrap:wrap}
+.actions .btn-primary{margin-left:auto}
+.back{background:none;border:0;padding:10px 0;font:600 .95rem var(--sans);color:var(--ink-2);cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+.privacy{display:flex;gap:8px;align-items:flex-start;font-size:.82rem;color:var(--ink-3);margin-top:20px}
+.privacy svg{width:16px;height:16px;flex:none;margin-top:2px}
+.pane[hidden],[hidden]{display:none!important}
+.result-head{display:flex;gap:14px;align-items:flex-start;margin-bottom:18px}
+.result-head h3{font:500 1.6rem/1.2 var(--serif)}
+.result-list{list-style:none;margin:0 0 18px;padding:0;border-top:1px solid var(--line)}
+.result-list li{display:grid;grid-template-columns:30px 1fr;gap:12px;padding:14px 0;border-bottom:1px solid var(--line);font-size:.94rem}
+.result-list b{display:block}
+.result-list span{color:var(--ink-2);font-size:.88rem}
+
+.sym{width:24px;height:24px;flex:none}
+.sym.g{color:var(--g)} .sym.a{color:var(--a-fill)} .sym.r{color:var(--r)} .sym.n{color:var(--seal)}
+.legend{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:28px}
+.lg{border:1px solid var(--line);border-radius:10px;padding:20px 22px;background:var(--card);border-top:4px solid}
+.lg.g{border-top-color:var(--g)} .lg.a{border-top-color:var(--a-fill)} .lg.r{border-top-color:var(--r)}
+.lg header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.lg header b{font-weight:700;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
+.lg.g b{color:var(--g)} .lg.a b{color:var(--a)} .lg.r b{color:var(--r)}
+.lg h3{font:500 1.3rem/1.2 var(--serif);margin-bottom:6px}
+.lg p{font-size:.92rem;color:var(--ink-2)}
+.report{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow);overflow:hidden}
+.report-top{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;padding:28px 32px;border-bottom:1px solid var(--line);align-items:center}
+.report-top small{font:600 .72rem/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.report-top h3{font:500 1.75rem/1.15 var(--serif);margin:8px 0 6px}
+.report-top .meta{font-family:var(--mono);font-size:.8rem;color:var(--ink-3)}
+.verdict{display:flex;gap:14px;align-items:center;padding:14px 18px;border-radius:10px;background:var(--a-soft);max-width:380px}
+.verdict .sym{width:34px;height:34px}
+.verdict b{display:block;color:var(--a);font-size:.76rem;letter-spacing:.12em;text-transform:uppercase}
+.verdict span{display:block;font-weight:600;line-height:1.35;font-size:.98rem}
+.rows{list-style:none;margin:0;padding:0}
+.rows details{border-bottom:1px solid var(--line)}
+.rows summary{display:grid;grid-template-columns:24px minmax(0,1.3fr) minmax(0,1fr) 20px;gap:16px;align-items:center;padding:16px 32px;cursor:pointer;list-style:none}
+.rows summary::-webkit-details-marker{display:none}
+.rows summary:hover{background:#FBFAF7}
+.rows .item{font-weight:600;font-size:.98rem}
+.rows .state{font-size:.9rem;color:var(--ink-2)}
+.rows .chev{width:18px;height:18px;color:var(--ink-3);transition:transform .2s}
+.rows details[open] .chev{transform:rotate(180deg)}
+.rows .body{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:16px;padding:0 72px 20px 72px;font-size:.9rem;color:var(--ink-2)}
+.rows .src{font-family:var(--mono);font-size:.78rem;color:var(--ink-3);line-height:1.55}
+.rows .todo b{color:var(--ink);font-weight:600}
+.report-foot{display:flex;justify-content:space-between;gap:16px 24px;flex-wrap:wrap;padding:20px 32px;background:var(--paper);font-size:.86rem;color:var(--ink-2)}
+.signer{display:flex;gap:12px;align-items:center}
+.initials{width:40px;height:40px;flex:none;border-radius:50%;background:var(--seal);color:#fff;display:grid;place-items:center;font:500 1rem var(--serif)}
+.note{font-size:.86rem;color:var(--ink-3);margin-top:18px;max-width:56em}
+
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch}
+.plan{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-lg);padding:28px;position:relative}
+.plan.feat{border:2px solid var(--seal);background:var(--card)}
+.plan .tagline{position:absolute;top:-13px;left:24px;background:var(--seal);color:#fff;font:600 .72rem/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;padding:7px 10px;border-radius:3px}
+.plan h3{font:500 1.5rem/1.2 var(--serif)}
+.plan .for{font-size:.9rem;color:var(--ink-3);margin:4px 0 20px}
+.price{font:500 2.4rem/1 var(--serif);letter-spacing:-.02em;display:flex;align-items:baseline;flex-wrap:wrap;gap:8px;position:relative;margin-top:30px}
+.price .prov{position:absolute;left:0;top:-26px}
+.price small{font:500 .9rem var(--sans);color:var(--ink-3);letter-spacing:0}
+.when-pay{font-size:.84rem;color:var(--ink-2);margin:14px 0 20px;padding:10px 12px;background:var(--seal-soft);border-radius:var(--radius)}
+.plan ul{list-style:none;margin:0 0 24px;padding:0;display:grid;gap:10px;font-size:.93rem;color:var(--ink-2)}
+.plan li{display:grid;grid-template-columns:18px 1fr;gap:10px}
+.plan li svg{width:16px;height:16px;color:var(--seal);margin-top:4px}
+.plan .btn{margin-top:auto}
+.costs{margin-top:20px;font-size:.86rem;color:var(--ink-3)}
+
+.duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.duo article{border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(24px,3.5vw,44px);background:var(--card)}
+.duo article.dark{background:var(--ink);color:#E9E7E1;border-color:var(--ink)}
+.duo h3{font:500 clamp(1.6rem,1.2rem + 1vw,2.1rem)/1.15 var(--serif);margin:12px 0 14px}
+.duo p{color:var(--ink-2)}
+.duo .dark p{color:#C3C5CC}
+.duo .dark .kicker{color:#AEB6F5}
+.duo ul{list-style:none;margin:22px 0 28px;padding:0;display:grid;gap:10px;font-size:.95rem}
+.duo li{display:grid;grid-template-columns:18px 1fr;gap:10px}
+.duo li svg{width:16px;height:16px;margin-top:5px;color:var(--seal)}
+.duo .dark li svg{color:#AEB6F5}
+.duo .dark .btn-quiet{color:#fff;border-color:#5A6070}
+.duo .dark .btn-quiet:hover{border-color:#fff}
+.duo .dark .prov{background:#3A3220;color:#F2C873;border-color:#7A6430}
+
+.cover-grid,.faq-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,88px)}
+.regions{columns:3;column-gap:28px;list-style:none;margin:0;padding:0;font-size:.95rem}
+.regions li{break-inside:avoid;padding:10px 0;border-bottom:1px solid var(--line)}
+.regions a{text-decoration:none;display:flex;justify-content:space-between;gap:8px}
+.regions a:hover{color:var(--seal)}
+.regions a span{font:500 .74rem var(--mono);color:var(--ink-3)}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{display:flex;justify-content:space-between;gap:20px;align-items:center;padding:22px 0;cursor:pointer;list-style:none;font:500 1.22rem/1.35 var(--serif)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary svg{width:20px;height:20px;flex:none;color:var(--ink-3);transition:transform .2s}
+.faq details[open] summary svg{transform:rotate(45deg)}
+.faq details p{padding:0 0 22px;color:var(--ink-2);max-width:42em}
+
+.closing{background:var(--seal);color:#fff}
+.closing .wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:40px;align-items:end}
+.closing h2{color:#fff}
+.closing p{color:#D7DBF5;margin-top:16px}
+.closing .ctas{justify-content:flex-end}
+.closing .btn-primary{background:#fff;color:var(--seal-ink)}
+.closing .btn-primary:hover{background:var(--paper)}
+.closing .btn-quiet{color:#fff;border-color:#8590D6}
+.closing .btn-quiet:hover{border-color:#fff}
+.closing .btn-wa svg{color:#fff}
+footer{padding:56px 0 64px;font-size:.88rem;color:var(--ink-2)}
+.foot{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
+.foot h4{font:600 .76rem/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:14px}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.foot a{text-decoration:none}
+.foot a:hover{text-decoration:underline}
+.legal{margin-top:40px;padding-top:24px;border-top:1px solid var(--line);font-size:.8rem;color:var(--ink-3);display:flex;justify-content:space-between;gap:12px 20px;flex-wrap:wrap}
+.mbar{display:none}
+
+@media (max-width:1100px){
+  .menu{display:none}
+  .nav-cta{margin-left:auto}
+  .steps{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:40px}
+  .steps li:nth-child(4){padding-left:0;border-left:0}
+  .cash{grid-template-columns:1fr}
+  .cash div+div{border-left:0;border-top:1px solid var(--line)}
+  .cash div{display:grid;grid-template-columns:170px 1fr;align-items:baseline}
+  .cash .step-l{display:block}
+  .cash .hide-s{display:none}
+}
+@media (max-width:900px){
+  :root{--gut:20px}
+  body{font-size:16px}
+  .hero-grid,.diag-grid,.cover-grid,.faq-grid,.sec-head,.closing .wrap{grid-template-columns:1fr}
+  .sec-head{gap:16px}
+  .truth .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .truth .wrap>div:nth-child(3){padding-left:0;border-left:0}
+  .truth .wrap>div:nth-child(n+3){border-top:1px solid #2C303B}
+  .plans,.duo,.legend{grid-template-columns:1fr}
+  .plans{gap:28px}
+  .plan.feat{order:-1}
+  .regions{columns:2}
+  .foot{grid-template-columns:1fr 1fr}
+  .closing .ctas{justify-content:flex-start}
+  .tel{display:none}
+  .rows .body{padding:0 32px 20px 72px;grid-template-columns:1fr;gap:8px}
+}
+@media (max-width:640px){
+  .nav{height:64px;gap:12px}
+  .nav-cta .btn{display:none}
+  .brand-word{font-size:1.35rem}
+  .hero{padding-top:28px}
+  .persona{margin-bottom:22px}
+  .promises{grid-template-columns:1fr;margin-top:32px}
+  .promises li,.promises li+li{padding:14px 0;border-left:0;border-bottom:1px solid var(--line)}
+  .ctas .btn{flex:1 1 100%}
+  .risk{grid-template-columns:1fr;gap:6px;padding:22px 0}
+  .risk .n{font-size:.85rem}
+  .risk h3{font-size:1.3rem}
+  .steps{grid-template-columns:1fr;row-gap:0}
+  .steps li,.steps li+li,.steps li:nth-child(4){padding:0;border-left:0}
+  .steps li+li,.steps li:nth-child(4){padding-top:24px;margin-top:24px;border-top:1px solid var(--line)}
+  .steps .num{font-size:2.2rem;margin-bottom:8px}
+  .cash div{grid-template-columns:1fr}
+  .cash .step-l{margin-bottom:2px}
+  .choices,.fields{grid-template-columns:1fr}
+  .choice label{min-height:0}
+  .actions .btn-primary{flex:1 1 100%;order:-1}
+  .report-top{grid-template-columns:1fr;padding:22px 20px;gap:16px}
+  .verdict{max-width:none}
+  .rows summary{grid-template-columns:24px minmax(0,1fr) 18px;padding:14px 20px;gap:4px 12px}
+  .rows summary .state{grid-column:2;grid-row:2;font-size:.85rem}
+  .rows summary .chev{grid-column:3;grid-row:1}
+  .rows .body{padding:0 20px 18px 56px}
+  .report-foot{padding:18px 20px}
+  .truth .wrap{grid-template-columns:1fr}
+  .truth .wrap>div,.truth .wrap>div+div,.truth .wrap>div:nth-child(3){padding:22px 0;border-left:0;border-top:1px solid #2C303B}
+  .truth .wrap>div:first-child{border-top:0}
+  .regions{columns:2;column-gap:20px;font-size:.9rem}
+  .foot{grid-template-columns:1fr}
+  footer{padding-bottom:110px}
+  .file-head{padding:24px 18px 16px}
+  .track{padding:18px 18px 4px}
+  .track li{grid-template-columns:28px 1fr}
+  .track time,.track .when{grid-column:2;grid-row:2;margin-top:-6px}
+  .money{margin:4px 12px 12px;grid-template-columns:1fr;padding:18px 18px 18px}
+  .money > div{padding-right:70px}
+  .stamp{position:absolute;right:8px;top:8px;width:72px;height:72px}
+  .mbar{display:grid;grid-template-columns:1fr auto;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(244,241,234,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+  .mbar .btn{--h:48px}
+  .mbar .btn-quiet{padding:0 14px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></g></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-buy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 11l8-6 8 6v8a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M9 15l2 2 4-4"/></g></symbol>
+  <symbol id="i-sell" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.5"/></g></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></g></symbol>
+  <symbol id="i-brief" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5h6v2M3 13h18"/></g></symbol>
+  <symbol id="s-g" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.4l3.2 3.2L17 8.8" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="s-a" viewBox="0 0 24 24"><path d="M12 2.2L22.6 21H1.4z" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 9.2v5.4" stroke="#1a1300" stroke-width="2.3" stroke-linecap="round"/><circle cx="12" cy="17.7" r="1.35" fill="#1a1300"/></symbol>
+  <symbol id="s-n" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="3.2 2.6"/><circle cx="12" cy="12" r="2.2" fill="currentColor"/></symbol>
+  <symbol id="s-r" viewBox="0 0 24 24"><path d="M7.4 1h9.2L23 7.4v9.2L16.6 23H7.4L1 16.6V7.4z" fill="currentColor"/><path d="M8 8l8 8M16 8l-8 8" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></symbol>
+</svg>
+
+<header class="hdr" id="hdr">
+  <div class="wrap nav">
+    <a class="brand" href="#" aria-label="Resguardo, inicio">
+      <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14.5" fill="none" stroke="#2E3C96" stroke-width="1.6"/><circle cx="16" cy="16" r="10.5" fill="none" stroke="#2E3C96" stroke-width="1" stroke-dasharray="1.6 1.6"/><path d="M11 16.5l3.4 3.4L21.5 12" fill="none" stroke="#2E3C96" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="brand-word">Resguardo</span><span class="prov">provisorio</span>
+    </a>
+    <nav aria-label="Principal">
+      <ul class="menu">
+        <li><a href="#como">Cómo funciona</a></li>
+        <li><a href="#informe">Informe semáforo</a></li>
+        <li><a href="#precios">Precios</a></li>
+        <li><a href="#vender">Vendedores</a></li>
+        <li><a href="#corredores">Corredores</a></li>
+        <li><a href="#faq">Preguntas</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a class="tel" href="tel:+56900000000" aria-label="Llamar al +56 9 0000 0000 (número provisorio)">+56 9 0000 0000</a>
+      <a class="btn btn-primary btn-sm" href="#diagnostico">Diagnóstico gratis</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" aria-labelledby="h-title">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="persona" role="group" aria-label="¿Qué quieres hacer?">
+        <button type="button" aria-pressed="true" data-p="compro">Voy a comprar</button>
+        <button type="button" aria-pressed="false" data-p="vendo">Voy a vender</button>
+      </div>
+      <h1 id="h-title" aria-live="polite">Tu plata no se mueve hasta que la propiedad es <em>tuya</em>.</h1>
+      <p class="lead" id="h-sub">Revisamos los títulos con criterio bancario, redactamos la escritura y dejamos el pago en custodia en la notaría con instrucción notarial. Te acompañamos hasta la inscripción en el Conservador, en cualquier región de Chile.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="#diagnostico">Hacer mi diagnóstico gratis <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-quiet btn-wa" href="#"><svg aria-hidden="true"><use href="#i-wa"/></svg> Hablar con el equipo</a>
+      </div>
+      <ul class="promises">
+        <li><b>Si la operación no se concreta, no pagas*</b>Cobramos cuando la escritura se envía a la notaría, no antes.</li>
+        <li><b>Revisión con pauta escrita</b>Cada punto se revisa con la misma lista de control. No es un reporte automático.</li>
+        <li><b>Todo Chile, desde tu teléfono</b>Coordinamos con la notaría y el Conservador de tu comuna.</li>
+      </ul>
+      <p class="fn">* <b>Operación concretada</b> = cuando enviamos la escritura a la notaría para su firma. Si se cae antes, no pagas honorarios; desde ese momento sí corresponden. Certificados, derechos notariales y del Conservador son costos de terceros.</p>
+    </div>
+
+    <aside class="file" aria-label="Ejemplo de seguimiento de una operación">
+      <div class="file-head">
+        <div>
+          <small>Tu expediente</small>
+          <h2>Casa en Puerto Varas</h2>
+          <p class="meta">Exp. 2026-0142 · CBR Puerto Varas</p>
+        </div>
+        <span class="sample">Ejemplo ficticio</span>
+      </div>
+      <ol class="track">
+        <li class="done"><span class="dot"><svg aria-hidden="true"><use href="#i-check"/></svg></span><div><b>Diagnóstico</b><span>Llamada de 15 minutos con el equipo.</span></div><time datetime="2026-08-04">04 ago</time></li>
+        <li class="done"><span class="dot"><svg aria-hidden="true"><use href="#i-check"/></svg></span><div><b>Estudio de títulos</b><span>10 años de títulos y 30 de gravámenes.</span><em class="chip a"><svg class="sym a" aria-hidden="true"><use href="#s-a"/></svg>Amarillo · 2 puntos ya resueltos</em></div><time datetime="2026-08-11">11 ago</time></li>
+        <li class="done"><span class="dot"><svg aria-hidden="true"><use href="#i-check"/></svg></span><div><b>Escritura e instrucción notarial</b><span>Firmadas por ambas partes en notaría.</span></div><time datetime="2026-08-22">22 ago</time></li>
+        <li class="now"><span class="dot" aria-hidden="true"></span><div><b>Inscripción en el Conservador</b><span>Ingresada. Te avisamos apenas salga.</span></div><span class="when">en curso</span></li>
+        <li><span class="dot" aria-hidden="true"></span><div><b>Pago liberado al vendedor</b><span>Cuando la propiedad figure a tu nombre.</span></div><span class="when">pendiente</span></li>
+      </ol>
+      <div class="money">
+        <div>
+          <small>Estado de tu plata</small>
+          <strong>Vale vista en custodia</strong>
+          <p>En la notaría, bajo instrucción notarial. Se entrega al vendedor solo cuando la inscripción está a tu nombre.</p>
+        </div>
+        <svg class="stamp" viewBox="0 0 120 120" aria-hidden="true">
+          <defs><path id="arc" d="M60 60m-45 0a45 45 0 1 1 90 0a45 45 0 1 1-90 0"/></defs>
+          <circle cx="60" cy="60" r="57" fill="none" stroke="currentColor" stroke-width="2.5"/>
+          <circle cx="60" cy="60" r="33" fill="none" stroke="currentColor" stroke-width="1.2"/>
+          <text font-family="IBM Plex Mono,monospace" font-size="10" font-weight="500" letter-spacing="2.1" fill="currentColor"><textPath href="#arc">EN CUSTODIA · INSTRUCCIÓN NOTARIAL ·</textPath></text>
+          <path d="M47 61l9 9 18-20" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<div class="truth" role="region" aria-label="Lo que hacemos y lo que no">
+  <div class="wrap">
+    <div><b>No reemplazamos a la notaría</b><span>La firma ante notario y la inscripción en el Conservador siguen siendo obligatorias. Las preparamos y coordinamos.</span></div>
+    <div><b>Pauta de revisión escrita</b><span>Cada estudio sigue la misma lista de control, punto por punto. Nada queda a criterio del día.</span></div>
+    <div><b>Criterio bancario</b><span>10 años de títulos y certificado de gravámenes de 30 años, como para un crédito hipotecario.</span></div>
+    <div><b>Operaciones acompañadas</b><span>Cifra real y verificable <span class="prov">por confirmar</span>. No publicamos números que no podamos respaldar.</span></div>
+  </div>
+</div>
+
+<section aria-labelledby="riesgos-t">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="kicker">Dónde se pierde la plata</p><h2 id="riesgos-t">Las estafas casi nunca parecen estafas.</h2></div>
+      <p class="lead">Parecen un vendedor amable, una carpeta incompleta o un “después lo firmamos”. Estos son los problemas que más se repiten entre particulares, y cómo los revisamos antes de que pongas un peso.</p>
+    </div>
+    <ol class="risks">
+      <li class="risk"><span class="n" aria-hidden="true">01</span><h3>Quien vende no es el dueño inscrito</h3><p>Suplantación, poderes revocados o un “dueño” que en realidad es heredero sin inscripción especial de herencia.<span class="how"><b>Cómo lo revisamos:</b> dominio vigente con certificado de no más de 90 días, cadena de títulos de 10 años y vigencia de los mandatos.</span></p></li>
+      <li class="risk"><span class="n" aria-hidden="true">02</span><h3>Falta una firma que nadie mencionó</h3><p>Vendedor casado en sociedad conyugal, divorciado sin liquidarla o un inmueble declarado bien familiar. Sin esa firma, el Conservador puede rechazar la inscripción.<span class="how"><b>Cómo lo revisamos:</b> certificado de matrimonio con subinscripciones y régimen patrimonial de cada parte.</span></p></li>
+      <li class="risk"><span class="n" aria-hidden="true">03</span><h3>Deudas que viajan con la propiedad</h3><p>Hipotecas, embargos, medidas precautorias, prohibiciones SERVIU, contribuciones o gastos comunes impagos.<span class="how"><b>Cómo lo revisamos:</b> certificado de hipotecas, gravámenes y prohibiciones de 30 años, Tesorería y administración del condominio.</span></p></li>
+      <li class="risk"><span class="n" aria-hidden="true">04</span><h3>Pagar antes de tiempo</h3><p>Transferencias “para reservar”, cheques o pagos directos al vendedor que no se recuperan si algo falla.<span class="how"><b>Cómo lo evitamos:</b> vale vista en custodia en la notaría, con instrucciones escritas de cuándo y a quién se entrega.</span></p></li>
+      <li class="risk"><span class="n" aria-hidden="true">05</span><h3>La propiedad no es la que crees</h3><p>Ampliaciones sin regularizar, sin recepción final o afecta a expropiación municipal o SERVIU.<span class="how"><b>Cómo lo revisamos:</b> certificados municipales y de no expropiación. Te explicamos el riesgo y tú decides.</span></p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="band" id="como" aria-labelledby="como-t">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="kicker">Cómo funciona</p><h2 id="como-t">Cinco pasos. El mismo equipo en todos.</h2></div>
+      <p class="lead">No te derivamos de una persona a otra. Quien estudia tus títulos redacta la escritura y sigue la inscripción hasta el final.</p>
+    </div>
+    <ol class="steps">
+      <li><span class="num" aria-hidden="true">1</span><h3>Diagnóstico gratis</h3><p>Nos cuentas el caso y te decimos qué revisar primero y qué documentos pedir.</p><span class="who">1 día hábil <span class="prov">por confirmar</span></span></li>
+      <li><span class="num" aria-hidden="true">2</span><h3>Estudio de títulos</h3><p>Revisamos 10 años de títulos y 30 de gravámenes. Recibes el informe semáforo explicado.</p><span class="who">3 a 5 días hábiles <span class="prov">por confirmar</span></span></li>
+      <li><span class="num" aria-hidden="true">3</span><h3>Escritura e instrucción notarial</h3><p>Redactamos ambas y acordamos con las partes cuándo se libera el pago.</p><span class="who">Al enviarla a la notaría, la operación queda concretada</span></li>
+      <li><span class="num" aria-hidden="true">4</span><h3>Firma en notaría</h3><p>El vale vista queda en custodia. Si hay hipoteca, coordinamos el alzamiento con el banco.</p><span class="who">En la notaría que elijan</span></li>
+      <li><span class="num" aria-hidden="true">5</span><h3>Inscripción en el Conservador</h3><p>Seguimos el ingreso, respondemos reparos y te entregamos el dominio a tu nombre.</p><span class="who">Plazo según cada Conservador</span></li>
+    </ol>
+    <p class="cash-t" id="cash-t">Dónde está tu plata en cada paso</p>
+    <div class="cash" role="group" aria-labelledby="cash-t">
+      <div><b class="step-l">Paso 1</b><span>Sigue en tu cuenta</span></div>
+      <div><b class="step-l">Paso 2</b><span>Sigue en tu cuenta</span></div>
+      <div><b class="step-l">Paso 3</b><span>Tu banco emite el vale vista</span></div>
+      <div class="hold"><b class="step-l">Paso 4</b><span>En custodia en la notaría</span></div>
+      <div class="free"><b class="step-l">Paso 5</b><span>Se entrega al vendedor al inscribir</span></div>
+    </div>
+  </div>
+</section>
+<section id="diagnostico" aria-labelledby="diag-t">
+  <div class="wrap diag-grid">
+    <div class="diag-aside">
+      <p class="kicker">Diagnóstico gratis</p>
+      <h2 id="diag-t">Antes de firmar nada, cuéntanos tu caso.</h2>
+      <p class="lead">Tres pasos, unos dos minutos. Al final verás qué revisaríamos primero en tu caso. Después te escribe una persona, no un bot.</p>
+      <ul>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Sin compromiso y sin pedirte documentos todavía.</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Sirve si vas a comprar, a vender o si ya firmaste una promesa.</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Respondemos en horario hábil <span class="prov">por confirmar</span>.</span></li>
+      </ul>
+    </div>
+
+    <div class="panel">
+      <ol class="progress" aria-hidden="true">
+        <li class="on" data-s="1">1 · Tu objetivo</li>
+        <li data-s="2">2 · La propiedad</li>
+        <li data-s="3">3 · Contacto</li>
+      </ol>
+      <p class="sr" id="d-status" aria-live="polite">Paso 1 de 3</p>
+      <form id="diag" novalidate>
+        <div class="pane" data-pane="1">
+          <fieldset>
+            <legend tabindex="-1">¿Qué necesitas?</legend>
+            <p class="hint">Elige la opción que más se parezca a tu situación.</p>
+            <div class="choices">
+              <div class="choice"><input type="radio" name="goal" id="g1" value="comprar" checked><label for="g1"><svg aria-hidden="true"><use href="#i-buy"/></svg><span><b>Comprar sin riesgos</b><span>Ya encontré una propiedad y quiero revisarla antes de pagar.</span></span></label></div>
+              <div class="choice"><input type="radio" name="goal" id="g2" value="vender"><label for="g2"><svg aria-hidden="true"><use href="#i-sell"/></svg><span><b>Vender con todo resuelto</b><span>Publicación y toda la parte legal a precio fijo.</span></span></label></div>
+              <div class="choice"><input type="radio" name="goal" id="g3" value="estudio"><label for="g3"><svg aria-hidden="true"><use href="#i-doc"/></svg><span><b>Solo el estudio de títulos</b><span>Informe semáforo explicado punto por punto.</span></span></label></div>
+              <div class="choice"><input type="radio" name="goal" id="g4" value="corredor"><label for="g4"><svg aria-hidden="true"><use href="#i-brief"/></svg><span><b>Soy corredor</b><span>Quiero derivar la parte legal de mis operaciones.</span></span></label></div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="pane" data-pane="2" hidden>
+          <fieldset>
+            <legend tabindex="-1">Cuéntanos de la propiedad</legend>
+            <p class="hint">Con esto sabemos qué Conservador y qué certificados corresponden.</p>
+            <div class="fields">
+              <div class="field"><label for="region">Región</label>
+                <select id="region" name="region" required aria-describedby="region-err">
+                  <option value="">Elige una región</option>
+                  <option>Arica y Parinacota</option><option>Tarapacá</option><option>Antofagasta</option><option>Atacama</option><option>Coquimbo</option><option>Valparaíso</option><option>Metropolitana de Santiago</option><option>O’Higgins</option><option>Maule</option><option>Ñuble</option><option>Biobío</option><option>La Araucanía</option><option>Los Ríos</option><option>Los Lagos</option><option>Aysén</option><option>Magallanes</option>
+                </select><p class="err" id="region-err">Elige la región de la propiedad.</p></div>
+              <div class="field"><label for="comuna">Comuna</label><input id="comuna" name="comuna" autocomplete="address-level2" placeholder="Ej.: Ñuñoa" required aria-describedby="comuna-err"><p class="err" id="comuna-err">Escribe la comuna.</p></div>
+              <div class="field"><label for="tipo">Tipo de propiedad</label>
+                <select id="tipo" name="tipo"><option>Departamento</option><option>Casa</option><option>Terreno o sitio</option><option>Parcela</option><option>Local u oficina</option></select></div>
+              <div class="field"><label for="pago">¿Cómo se paga?</label>
+                <select id="pago" name="pago"><option value="contado">Al contado</option><option value="credito">Con crédito hipotecario</option><option value="subsidio">Con subsidio habitacional</option><option value="nose">Aún no lo sé</option></select></div>
+              <fieldset class="flags">
+                <legend>¿Sabes si aplica algo de esto? <span>(opcional)</span></legend>
+                <div class="tags">
+                  <div class="tag"><input type="checkbox" id="f1" name="flag" value="herencia"><label for="f1">Viene de una herencia</label></div>
+                  <div class="tag"><input type="checkbox" id="f2" name="flag" value="casado"><label for="f2">Vendedor casado o divorciado</label></div>
+                  <div class="tag"><input type="checkbox" id="f3" name="flag" value="hipoteca"><label for="f3">Tiene hipoteca</label></div>
+                  <div class="tag"><input type="checkbox" id="f4" name="flag" value="poder"><label for="f4">Firma alguien con poder</label></div>
+                  <div class="tag"><input type="checkbox" id="f5" name="flag" value="ampliacion"><label for="f5">Tiene ampliaciones</label></div>
+                  <div class="tag"><input type="checkbox" id="f6" name="flag" value="juicio"><label for="f6">Hay un juicio o embargo</label></div>
+                  <div class="tag"><input type="checkbox" id="f7" name="flag" value="promesa"><label for="f7">Ya firmé una promesa</label></div>
+                </div>
+              </fieldset>
+            </div>
+          </fieldset>
+        </div>
+        <div class="pane" data-pane="3" hidden>
+          <fieldset>
+            <legend tabindex="-1">¿Cómo te contactamos?</legend>
+            <p class="hint">Te escribiremos por WhatsApp para revisar tu caso. Nada más.</p>
+            <div class="fields">
+              <div class="field"><label for="nombre">Nombre</label><input id="nombre" name="nombre" autocomplete="given-name" required aria-describedby="nombre-err"><p class="err" id="nombre-err">Escribe tu nombre.</p></div>
+              <div class="field"><label for="wa">WhatsApp</label><div class="prefix"><span aria-hidden="true">+56</span><input id="wa" name="wa" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="9 1234 5678" required aria-describedby="wa-err"></div><p class="err" id="wa-err">Escribe un celular de 9 dígitos que empiece con 9.</p></div>
+              <div class="field" style="grid-column:1/-1"><label for="email">Correo <span style="font-weight:400;color:var(--ink-3)">(opcional)</span></label><input id="email" name="email" type="email" autocomplete="email"></div>
+              <div class="consent" id="consent"><input type="checkbox" id="ok" required><label for="ok">Acepto que usen estos datos solo para contactarme sobre mi caso, según la <a class="link" href="#">política de privacidad</a>.</label></div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="pane" data-pane="4" hidden>
+          <div class="result-head"><svg class="sym g" style="width:34px;height:34px" aria-hidden="true"><use href="#s-g"/></svg><div><h3 tabindex="-1" id="r-title">Recibimos tu caso.</h3><p class="hint" style="margin:6px 0 0">Te escribiremos por WhatsApp. Mientras, esto es lo que revisaríamos primero:</p></div></div>
+          <ul class="result-list" id="r-list"></ul>
+          <p class="note" style="margin-top:0">Es una orientación preliminar con lo que nos contaste, no un estudio de títulos. El semáforo definitivo sale de los certificados.</p>
+          <div class="actions"><button type="button" class="back" data-go="1">Empezar de nuevo</button><a class="btn btn-quiet btn-wa" href="#"><svg aria-hidden="true"><use href="#i-wa"/></svg> Escribir ahora por WhatsApp</a></div>
+        </div>
+        <div class="actions" id="d-actions">
+          <button type="button" class="back" id="d-back" hidden>← Volver</button>
+          <button type="submit" class="btn btn-primary" id="d-next"><span id="d-next-l">Continuar</span> <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        </div>
+        <p class="privacy"><svg aria-hidden="true"><use href="#i-lock"/></svg>Tus datos se tratan conforme a la ley chilena de protección de datos personales y no se comparten con terceros.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section id="informe" style="padding-top:0" aria-labelledby="inf-t">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="kicker">El informe semáforo</p><h2 id="inf-t">Un estudio de títulos que se entiende sin ser abogado.</h2></div>
+      <p class="lead">Cada punto dice qué encontramos, en qué documento consta y qué hacemos al respecto. El color resume; la explicación decide.</p>
+    </div>
+    <div class="legend">
+      <article class="lg g"><header><svg class="sym g" aria-hidden="true"><use href="#s-g"/></svg><b>Verde</b></header><h3>En regla.</h3><p>Los títulos están conformes. Puedes avanzar a la escritura.</p></article>
+      <article class="lg a"><header><svg class="sym a" aria-hidden="true"><use href="#s-a"/></svg><b>Amarillo</b></header><h3>Se puede, con condiciones.</h3><p>Hay puntos que se resuelven antes o en la firma. Te decimos cuáles y quién los resuelve.</p></article>
+      <article class="lg r"><header><svg class="sym r" aria-hidden="true"><use href="#s-r"/></svg><b>Rojo</b></header><h3>No pagues todavía.</h3><p>Hay un riesgo que hoy impide una compra segura. Te decimos si tiene solución y cuánto toma.</p></article>
+    </div>
+
+    <article class="report" aria-labelledby="rep-t">
+      <div class="report-top">
+        <div>
+          <small>Informe de títulos · Ejemplo ficticio</small>
+          <h3 id="rep-t">Departamento 804, Ñuñoa</h3>
+          <p class="meta">Rol 01234-00567 · CBR Santiago · Emitido el 14 oct 2026</p>
+        </div>
+        <div class="verdict"><svg class="sym a" aria-hidden="true"><use href="#s-a"/></svg><div><b>Resultado: amarillo</b><span>Se puede comprar, con 3 condiciones antes de firmar.</span></div></div>
+      </div>
+      <ul class="rows">
+        <li><details>
+          <summary><svg class="sym g" role="img" aria-label="Verde"><use href="#s-g"/></svg><span class="item">El vendedor es el dueño inscrito</span><span class="state">En regla</span><svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
+          <div class="body"><p class="src">Dominio vigente a fs. 48.910 N° 70.144 del año 2019, Registro de Propiedad del CBR de Santiago. Certificado de 12 días.</p><p class="todo"><b>Qué hacemos:</b> nada adicional. Verificamos la identidad del vendedor en la firma.</p></div>
+        </details></li>
+        <li><details open>
+          <summary><svg class="sym a" role="img" aria-label="Amarillo"><use href="#s-a"/></svg><span class="item">Hipoteca vigente a favor de un banco</span><span class="state">Se alza en la misma escritura</span><svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
+          <div class="body"><p class="src">Hipoteca y prohibición a fs. 31.207 N° 25.880 del año 2019, Registro de Hipotecas del CBR de Santiago.</p><p class="todo"><b>Qué hacemos:</b> pedimos al banco su cláusula de alzamiento y el saldo de la deuda. El vale vista paga primero la deuda y el resto va al vendedor.</p></div>
+        </details></li>
+        <li><details>
+          <summary><svg class="sym a" role="img" aria-label="Amarillo"><use href="#s-a"/></svg><span class="item">Vendedor casado en sociedad conyugal</span><span class="state">Debe autorizar su cónyuge</span><svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
+          <div class="body"><p class="src">Certificado de matrimonio con subinscripciones. Art. 1749 del Código Civil.</p><p class="todo"><b>Qué hacemos:</b> incluimos la cláusula de autorización y coordinamos que la cónyuge firme el mismo día.</p></div>
+        </details></li>
+        <li><details>
+          <summary><svg class="sym a" role="img" aria-label="Amarillo"><use href="#s-a"/></svg><span class="item">Terraza cerrada sin regularizar</span><span class="state">Decides tú, con la información</span><svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
+          <div class="body"><p class="src">Recepción final del edificio sin la ampliación. Fotos del aviso de venta.</p><p class="todo"><b>Qué hacemos:</b> te explicamos el riesgo y el costo aproximado de regularizar, por si quieres negociarlo en el precio.</p></div>
+        </details></li>
+        <li><details>
+          <summary><svg class="sym g" role="img" aria-label="Verde"><use href="#s-g"/></svg><span class="item">Embargos, precautorias y prohibiciones</span><span class="state">Sin anotaciones vigentes</span><svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
+          <div class="body"><p class="src">Certificado de hipotecas, gravámenes y prohibiciones de 30 años, de 12 días.</p><p class="todo"><b>Qué hacemos:</b> pedimos uno nuevo justo antes de firmar.</p></div>
+        </details></li>
+        <li><details>
+          <summary><svg class="sym g" role="img" aria-label="Verde"><use href="#s-g"/></svg><span class="item">Contribuciones, expropiación y gastos comunes</span><span class="state">Al día y sin afectación</span><svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
+          <div class="body"><p class="src">Certificado de deuda de Tesorería; no expropiación municipal y SERVIU; certificado de la administración.</p><p class="todo"><b>Qué hacemos:</b> los insertamos en la escritura cuando corresponde.</p></div>
+        </details></li>
+      </ul>
+      <div class="report-foot">
+        <div class="signer"><span class="initials" aria-hidden="true"><svg width="20" height="20"><use href="#i-check"/></svg></span><div><b style="color:var(--ink)">Revisado por el equipo legal de Resguardo</b><br>Con la pauta de estudio de títulos de criterio bancario</div></div>
+        <div style="align-self:center">Títulos revisados: 10 años · Gravámenes: 30 años</div>
+      </div>
+    </article>
+    <p class="note">Los datos registrales de este ejemplo son ficticios. El informe se basa en los certificados vigentes a la fecha de emisión; si cambian antes de firmar, lo actualizamos.</p>
+  </div>
+</section>
+
+<section id="precios" class="band" aria-labelledby="pre-t">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="kicker">Precios</p><h2 id="pre-t">Precio fijo, conocido antes de empezar.</h2></div>
+      <p class="lead">Sabes cuánto pagas, qué incluye y cuándo se cobra. Los gastos de notaría y Conservador te los detallamos aparte, con los valores reales de tu operación.</p>
+    </div>
+    <div class="plans">
+      <article class="plan">
+        <h3>Estudio de títulos</h3><p class="for">Para saber si la propiedad está en regla.</p>
+        <p class="price">$190.000 <small>honorario</small> <span class="prov">provisorio</span></p>
+        <p class="when-pay">Servicio independiente: se paga al encargarlo. Si después compras con nosotros, se descuenta.</p>
+        <ul><li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Informe semáforo explicado</span></li><li><svg aria-hidden="true"><use href="#i-check"/></svg><span>10 años de títulos y 30 de gravámenes</span></li><li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Llamada para explicarte el resultado</span></li></ul>
+        <a class="btn btn-quiet" href="#diagnostico">Pedir estudio</a>
+      </article>
+      <article class="plan feat">
+        <span class="tagline">Lo más completo</span>
+        <h3>Compra protegida</h3><p class="for">De la revisión a la inscripción a tu nombre.</p>
+        <p class="price">UF 14 <small>honorario</small> <span class="prov">provisorio</span></p>
+        <p class="when-pay">Si la operación no se concreta, no pagas. Se cobra cuando enviamos la escritura a la notaría.*</p>
+        <ul><li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Estudio de títulos con informe semáforo</span></li><li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Escritura e instrucción notarial</span></li><li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Coordinación del alzamiento bancario</span></li><li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Seguimiento hasta la inscripción</span></li></ul>
+        <a class="btn btn-primary" href="#diagnostico">Empezar con el diagnóstico</a>
+      </article>
+      <article class="plan">
+        <h3>Venta protegida</h3><p class="for">Publicamos y hacemos toda la parte legal.</p>
+        <p class="price">UF 18 <small>precio fijo</small> <span class="prov">provisorio</span></p>
+        <p class="when-pay">Sin comisión porcentual. Si la operación no se concreta, no pagas.*</p>
+        <ul><li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Publicación en portales</span></li><li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Carpeta legal lista para compradores y bancos</span></li><li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Escritura y pago protegido con vale vista</span></li></ul>
+        <a class="btn btn-quiet" href="#vender">Quiero vender</a>
+      </article>
+    </div>
+    <p class="costs">* La operación se considera concretada cuando enviamos la escritura a la notaría para su firma. Montos provisorios; los valores en UF se convierten a pesos el día del pago.</p>
+  </div>
+</section>
+
+<section id="vender" aria-labelledby="ven-t">
+  <div class="wrap duo">
+    <article>
+      <p class="kicker">Para quien vende</p>
+      <h3 id="ven-t">Firmas sabiendo que la plata ya existe.</h3>
+      <p>El comprador deja el pago en vale vista en la notaría antes de que entregues nada. Preparamos tu carpeta legal para que ningún banco ni comprador la objete.</p>
+      <ul><li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Publicación en los principales portales</span></li><li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Certificados del Conservador y municipales al día</span></li><li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Precio fijo en vez de comisión porcentual</span></li></ul>
+      <a class="btn btn-primary" href="#diagnostico">Quiero vender mi propiedad</a>
+    </article>
+    <article class="dark" id="corredores">
+      <p class="kicker">Para corredores</p>
+      <h3>Tú cierras el negocio. Nosotros, la parte legal.</h3>
+      <p>Derivas la operación y tu cliente recibe estudio, escritura e instrucción notarial con seguimiento. Tu comisión no se toca y ves el estado del expediente.</p>
+      <ul><li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Tarifa preferente por volumen <span class="prov">por confirmar</span></span></li><li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Estado de cada operación compartido contigo</span></li><li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Convenio escrito, sin exclusividad</span></li></ul>
+      <a class="btn btn-quiet" href="#diagnostico">Conversemos una alianza</a>
+    </article>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="cob-t">
+  <div class="wrap cover-grid">
+    <div><p class="kicker">Cobertura</p><h2 id="cob-t" style="margin-top:14px">De Arica a Magallanes.</h2><p class="lead" style="margin-top:18px">Trabajamos con el Conservador que corresponde a cada comuna y con la notaría que elijan las partes. La firma es presencial en notaría; todo lo demás, a distancia.</p></div>
+    <ul class="regions">
+      <li><a href="#">Arica y Parinacota <span>XV</span></a></li><li><a href="#">Tarapacá <span>I</span></a></li><li><a href="#">Antofagasta <span>II</span></a></li><li><a href="#">Atacama <span>III</span></a></li><li><a href="#">Coquimbo <span>IV</span></a></li><li><a href="#">Valparaíso <span>V</span></a></li>
+      <li><a href="#">Metropolitana <span>RM</span></a></li><li><a href="#">O’Higgins <span>VI</span></a></li><li><a href="#">Maule <span>VII</span></a></li><li><a href="#">Ñuble <span>XVI</span></a></li><li><a href="#">Biobío <span>VIII</span></a></li><li><a href="#">La Araucanía <span>IX</span></a></li>
+      <li><a href="#">Los Ríos <span>XIV</span></a></li><li><a href="#">Los Lagos <span>X</span></a></li><li><a href="#">Aysén <span>XI</span></a></li><li><a href="#">Magallanes <span>XII</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<section id="faq" aria-labelledby="faq-t">
+  <div class="wrap faq-grid">
+    <div><p class="kicker">Preguntas frecuentes</p><h2 id="faq-t" style="margin-top:14px">Lo que conviene saber antes de firmar.</h2></div>
+    <div class="faq">
+      <details open><summary>¿Qué es una instrucción notarial y por qué me protege?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Es un documento que queda en la notaría junto con el pago, normalmente un vale vista. Dice por escrito a quién y cuándo se entrega la plata: por lo general, cuando el Conservador inscribe la propiedad a nombre del comprador. El vendedor sabe que la plata existe y el comprador, que no se entrega antes de tiempo.</p></details>
+      <details open><summary>¿Cuándo pago y qué pasa si la operación no se concreta?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Si la operación no se concreta, no pagas. Para nosotros, una operación está concretada cuando enviamos la escritura a la notaría para su firma: ese día se cobran los honorarios. Si se cae antes, no pagas nada de honorarios; si se cae después, los honorarios ya corresponden. Los certificados del Conservador o del municipio son costos de terceros y se pagan aparte.</p></details>
+      <details><summary>Compro con crédito hipotecario. ¿Igual los necesito?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>El banco estudia los títulos para protegerse a sí mismo, no a ti. Podemos acompañarte en la promesa y el pie, revisar lo que el banco no mira (como gastos comunes o ampliaciones) y coordinar los plazos con la notaría.</p></details>
+      <details><summary>¿Atienden fuera de Santiago?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Sí, en todo Chile. Pedimos los certificados al Conservador de la comuna y coordinamos con la notaría que elijan las partes. Solo la firma de la escritura es presencial.</p></details>
+      <details><summary>¿Cómo revisan los títulos?<svg aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Con una pauta escrita, la misma en cada caso: 10 años de títulos, 30 años de gravámenes, certificados vigentes, estado civil de las partes, poderes y certificados municipales. Cada punto del informe dice en qué documento consta, para que puedas verificarlo.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="closing" aria-labelledby="cta-t">
+  <div class="wrap">
+    <div><h2 id="cta-t">Antes de transferir un peso, revisemos juntos.</h2><p>El diagnóstico es gratis y te responde una persona.</p></div>
+    <div class="ctas"><a class="btn btn-primary" href="#diagnostico">Hacer mi diagnóstico gratis</a><a class="btn btn-quiet btn-wa" href="#"><svg aria-hidden="true"><use href="#i-wa"/></svg> WhatsApp</a></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><a class="brand" href="#"><span class="brand-word">Resguardo</span></a><p style="margin-top:12px;max-width:30em">Servicio legal para compraventas de propiedades entre particulares en todo Chile. No somos notaría ni Conservador.</p></div>
+      <nav aria-label="Servicios"><h4>Servicios</h4><ul><li><a href="#">Compra protegida</a></li><li><a href="#">Venta protegida</a></li><li><a href="#">Estudio de títulos</a></li><li><a href="#">Corredores</a></li></ul></nav>
+      <nav aria-label="Guías"><h4>Guías</h4><ul><li><a href="#">Documentos para comprar</a></li><li><a href="#">Qué es un vale vista</a></li><li><a href="#">Vender una herencia</a></li><li><a href="#">Costos de notaría y CBR</a></li></ul></nav>
+      <nav aria-label="Empresa"><h4>Empresa</h4><ul><li><a href="#">Quiénes somos</a></li><li><a href="#">Política de privacidad</a></li><li><a href="#">Términos del servicio</a></li><li><a href="#">Contacto</a></li></ul></nav>
+    </div>
+    <div class="legal"><span>Razón social y RUT <span class="prov">por confirmar</span></span><span>Boceto de portada v4 · nombre, cifras y precios provisorios</span></div>
+  </div>
+</footer>
+
+<div class="mbar" role="region" aria-label="Acciones rápidas">
+  <a class="btn btn-primary" href="#diagnostico">Diagnóstico gratis</a>
+  <a class="btn btn-quiet btn-wa" href="#" aria-label="Escribir por WhatsApp"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
+</div>
+
+<script>
+(function(){
+  var copy={
+    compro:{t:'Tu plata no se mueve hasta que la propiedad es <em>tuya</em>.',s:'Revisamos los títulos con criterio bancario, redactamos la escritura y dejamos el pago en custodia en la notaría con instrucción notarial. Te acompañamos hasta la inscripción en el Conservador, en cualquier región de Chile.'},
+    vendo:{t:'Firmas sabiendo que la plata <em>ya existe</em>.',s:'Publicamos tu propiedad, preparamos la carpeta legal y redactamos la escritura. El comprador deja el pago en vale vista en la notaría antes de que entregues nada. Precio fijo, sin comisión porcentual.'}
+  };
+  var pb=document.querySelectorAll('.persona button');
+  pb.forEach(function(b){b.addEventListener('click',function(){
+    pb.forEach(function(x){x.setAttribute('aria-pressed','false')});
+    b.setAttribute('aria-pressed','true');
+    document.getElementById('h-title').innerHTML=copy[b.dataset.p].t;
+    document.getElementById('h-sub').textContent=copy[b.dataset.p].s;
+  })});
+
+  var form=document.getElementById('diag'),step=1,
+      panes=form.querySelectorAll('.pane'),prog=document.querySelectorAll('.progress li'),
+      back=document.getElementById('d-back'),acts=document.getElementById('d-actions'),
+      nextL=document.getElementById('d-next-l'),status=document.getElementById('d-status');
+  var labels={1:'Continuar',2:'Continuar',3:'Enviar y ver mi orientación'};
+  function show(n,focus){
+    step=n;
+    panes.forEach(function(p){p.hidden=(+p.dataset.pane!==n)});
+    prog.forEach(function(li){var s=+li.dataset.s;li.className=(s<n||n===4)?'ok':(s===n?'on':'')});
+    back.hidden=(n===1); acts.hidden=(n===4);
+    if(labels[n])nextL.textContent=labels[n];
+    status.textContent=n<4?('Paso '+n+' de 3'):'Diagnóstico enviado';
+    if(focus){var f=form.querySelector('[data-pane="'+n+'"] legend, [data-pane="'+n+'"] h3');if(f)f.focus()}
+  }
+  function check(ids){
+    var ok=true,first=null;
+    ids.forEach(function(id){
+      var el=document.getElementById(id),f=el.closest('.field'),v=el.value.trim(),good=!!v;
+      if(id==='wa'){good=/^9\d{8}$/.test(v.replace(/\D/g,''))}
+      f.classList.toggle('invalid',!good);
+      el.setAttribute('aria-invalid',good?'false':'true');
+      if(!good&&!first)first=el; ok=ok&&good;
+    });
+    if(first)first.focus(); return ok;
+  }
+  var map={
+    base:{s:'n',t:'Dominio vigente y cadena de 10 años',d:'Confirmamos que quien vende es hoy el dueño inscrito.'},
+    herencia:{s:'a',t:'Posesión efectiva e inscripción especial de herencia',d:'Todos los herederos deben estar inscritos y firmar, o haber cedido sus derechos.'},
+    casado:{s:'a',t:'Régimen matrimonial del vendedor',d:'Puede requerir la autorización del cónyuge, o la firma del ex cónyuge si no se liquidó la sociedad conyugal.'},
+    hipoteca:{s:'a',t:'Alzamiento de la hipoteca',d:'Pedimos al banco su cláusula y el saldo; la deuda se paga con el mismo vale vista.'},
+    poder:{s:'a',t:'Vigencia y facultades del poder',d:'Revisamos que el mandato permita vender y que no esté revocado.'},
+    ampliacion:{s:'a',t:'Recepción final y ampliaciones',d:'Te explicamos el riesgo de lo no regularizado antes de que ofrezcas un precio.'},
+    juicio:{s:'r',t:'Embargo o juicio vigente',d:'No pagues nada todavía. Revisamos la causa y si el acreedor o el juez puede autorizar la venta.'},
+    promesa:{s:'a',t:'Tu promesa de compraventa',d:'Revisamos plazos, multas y condiciones para que no arriesgues el pie.'},
+    subsidio:{s:'a',t:'Prohibiciones ligadas al subsidio',d:'Algunas viviendas con subsidio tienen prohibición SERVIU de enajenar por un plazo.'}
+  };
+  function esc(s){return s.replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+  function result(){
+    var keys=['base'];
+    form.querySelectorAll('input[name="flag"]:checked').forEach(function(c){keys.push(c.value)});
+    if(document.getElementById('pago').value==='subsidio')keys.push('subsidio');
+    var name={g:'Verde',a:'Amarillo',r:'Rojo',n:'Siempre se revisa'},html='';
+    keys.forEach(function(k){var m=map[k];html+='<li><svg class="sym '+m.s+'" role="img" aria-label="'+name[m.s]+'"><use href="#s-'+m.s+'"/></svg><div><b>'+m.t+'</b><span>'+m.d+'</span></div></li>'});
+    document.getElementById('r-list').innerHTML=html;
+    var n=document.getElementById('nombre').value.trim().split(' ')[0];
+    document.getElementById('r-title').textContent='Gracias, '+n+'. Recibimos tu caso.';
+  }
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(step===2&&!check(['region','comuna']))return;
+    if(step===3){
+      if(!check(['nombre','wa']))return;
+      var ok=document.getElementById('ok'),c=document.getElementById('consent');
+      c.classList.toggle('invalid',!ok.checked);
+      if(!ok.checked){ok.focus();return}
+      result();
+      /* Producción: POST a /api/diagnostico (Route Handler) y evento "diagnostico_enviado" */
+    }
+    show(step+1,true);
+  });
+  back.addEventListener('click',function(){show(step-1,true)});
+  form.querySelector('[data-go="1"]').addEventListener('click',function(){form.reset();show(1,true)});
+  show(1,false);
+
+  var hdr=document.getElementById('hdr');
+  addEventListener('scroll',function(){hdr.classList.toggle('scrolled',scrollY>8)},{passive:true});
+})();
+</script>
+</body>
+</html>

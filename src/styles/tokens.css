@@ -1,0 +1,42 @@
+/* Tokens de diseño · sistema "Papel notarial y timbre" (docs/estrategia.md §5). Valores idénticos al boceto. */
+:root {
+  --paper: #f4f1ea;
+  --paper-2: #ece7dc;
+  --card: #ffffff;
+  --line: #ddd6c8;
+  --line-2: #c9c0ae;
+
+  --ink: #14171f;
+  --ink-2: #434957;
+  --ink-3: #62677a;
+
+  --seal: #2e3c96;
+  --seal-ink: #1f2a72;
+  --seal-soft: #e7e9f6;
+
+  --g: #1d6b45;
+  --g-soft: #e3f0e8;
+  --a: #875700;
+  --a-fill: #bf820c;
+  --a-soft: #fbf1dc;
+  --r: #a8231b;
+  --r-soft: #f8e4e1;
+
+  --wa: #127a3f;
+
+  --radius: 6px;
+  --radius-lg: 14px;
+
+  --shadow: 0 1px 0 rgba(20, 23, 31, 0.04), 0 12px 32px -12px rgba(20, 23, 31, 0.18);
+
+  --serif: var(--font-newsreader), "Newsreader", Georgia, "Times New Roman", serif;
+
+  --sans:
+    var(--font-instrument-sans), "Instrument Sans", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+
+  --mono: var(--font-plex-mono), "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --max: 1200px;
+  --gut: 24px;
+}
