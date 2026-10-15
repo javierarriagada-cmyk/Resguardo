@@ -23,20 +23,26 @@ test.describe("páginas regionales /cobertura/[region] con axe y contenido únic
     {
       slug: "metropolitana",
       nombre: "Metropolitana",
+      nombreConArticulo: "la Región Metropolitana",
       titular: "Estudio de títulos y cierre legal en la Región Metropolitana",
       cbrPrueba: "Conservador de Bienes Raíces de Santiago",
+      fuenteTexto: "Fuente: conservador.cl",
     },
     {
       slug: "valparaiso",
       nombre: "Valparaíso",
+      nombreConArticulo: "la Región de Valparaíso",
       titular: "Estudio de títulos y custodia notarial en la Región de Valparaíso",
       cbrPrueba: "Conservador de Bienes Raíces de Viña del Mar",
+      fuenteTexto: "Fuente: cbrvina.cl",
     },
     {
       slug: "biobio",
       nombre: "Biobío",
+      nombreConArticulo: "la Región del Biobío",
       titular: "Servicios legales inmobiliarios en la Región del Biobío",
       cbrPrueba: "Conservador de Bienes Raíces de Concepción",
+      fuenteTexto: "Fuente: cbrconcepcion.cl",
     },
   ];
 
@@ -47,8 +53,9 @@ test.describe("páginas regionales /cobertura/[region] con axe y contenido únic
       // Verificar H1 específico
       await expect(page.getByRole("heading", { level: 1 })).toHaveText(reg.titular);
 
-      // Verificar presencia del CBR representativo
+      // Verificar presencia del CBR representativo y texto de la fuente
       await expect(page.getByRole("heading", { name: reg.cbrPrueba })).toBeVisible();
+      await expect(page.getByText(reg.fuenteTexto)).toBeVisible();
 
       // Verificar Breadcrumb semántico
       const breadcrumb = page.getByRole("navigation", { name: "Breadcrumb" });
@@ -68,8 +75,10 @@ test.describe("páginas regionales /cobertura/[region] con axe y contenido únic
       expect(serviceLd).toBeDefined();
       expect(serviceLd.name).toBe(reg.titular);
 
-      // Verificar CTA al diagnóstico
-      const cta = page.getByRole("link", { name: new RegExp(`Iniciar diagnóstico`, "i") });
+      // Verificar CTA al diagnóstico con el artículo
+      const cta = page.getByRole("link", {
+        name: new RegExp(`Iniciar diagnóstico en ${reg.nombreConArticulo}`, "i"),
+      });
       await expect(cta).toBeVisible();
       await expect(cta).toHaveAttribute("href", "/#diagnostico");
 

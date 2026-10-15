@@ -3,12 +3,13 @@ import type { RegionData } from "./types";
 export const tarapaca: RegionData = {
   slug: "tarapaca",
   nombre: "Tarapacá",
+  nombreConArticulo: "la Región de Tarapacá",
   numero: "I",
-  titular: "Seguridad jurídica en compraventas inmobiliarias en Tarapacá",
+  titular: "Revisión de títulos y escrituras en la Región de Tarapacá",
   bajada:
-    "Protegemos tus operaciones en Iquique, Alto Hospicio y la Provincia del Tamarugal con estudio exhaustivo de títulos.",
+    "Acompañamos tus operaciones en Iquique, Alto Hospicio y la Provincia del Tamarugal con estudio riguroso de títulos.",
   descripcion:
-    "En la Región de Tarapacá, el dinámico mercado de Iquique y Alto Hospicio requiere revisar cuidadosamente los deslindes, inscripciones de dominio y gravámenes. Gestionamos la revisión registral en los Conservadores de Iquique y Pozo Almonte.",
+    "En la Región de Tarapacá, el dinámico mercado de Iquique y Alto Hospicio requiere revisar cuidadosamente los deslindes, inscripciones de dominio y gravámenes en los Conservadores competentes.",
   conservadores: [
     {
       nombre: "Conservador de Bienes Raíces de Iquique",
@@ -19,13 +20,12 @@ export const tarapaca: RegionData = {
     {
       nombre: "Conservador de Bienes Raíces de Pozo Almonte",
       comunas: ["Pozo Almonte", "Camiña", "Colchane", "Huara", "Pica"],
-      fuente: "https://www.pjud.cl",
-      verificado: true,
+      verificado: false,
     },
   ],
   faq: [
     {
-      q: "¿Qué aspectos particulares se revisan en los títulos de Alto Hospicio?",
+      q: "¿Qué aspectos se revisan en los títulos de Alto Hospicio?",
       a: "En Alto Hospicio se verifica especialmente la regularidad de las transferencias originales del Serviu o Bienes Nacionales, asegurando que no existan prohibiciones de enajenar vigentes.",
     },
     {

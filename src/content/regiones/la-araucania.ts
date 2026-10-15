@@ -3,12 +3,13 @@ import type { RegionData } from "./types";
 export const laAraucania: RegionData = {
   slug: "la-araucania",
   nombre: "La Araucanía",
+  nombreConArticulo: "la Región de La Araucanía",
   numero: "IX",
-  titular: "Estudio de títulos y resguardo notarial en La Araucanía",
+  titular: "Estudio de títulos y resguardo notarial en la Región de La Araucanía",
   bajada:
-    "Seguridad legal garantizada para compraventas en Temuco, Padre Las Casas, Villarrica, Pucón, Angol y Lautaro.",
+    "Acompañamiento en compraventas en Temuco, Padre Las Casas, Villarrica, Pucón, Angol y Lautaro.",
   descripcion:
-    "La Región de La Araucanía combina sectores urbanos con alta demanda lacustre y rural. Verificamos la calidad del título, deslindes, exención o sujeción a la Ley Indígena N° 19.253 y gravámenes en los Conservadores de Temuco, Villarrica, Pucón, Angol y Lautaro.",
+    "La Región de La Araucanía combina sectores urbanos con alta demanda lacustre y rural. Verificamos la calidad del título, deslindes, exención o sujeción a la Ley Indígena N° 19.253 y gravámenes en los Conservadores locales.",
   conservadores: [
     {
       nombre: "Conservador de Bienes Raíces de Temuco",
@@ -31,8 +32,7 @@ export const laAraucania: RegionData = {
     {
       nombre: "Conservador de Bienes Raíces de Angol",
       comunas: ["Angol", "Renaico"],
-      fuente: "https://www.pjud.cl",
-      verificado: true,
+      verificado: false,
     },
     {
       nombre: "Conservador de Bienes Raíces de Lautaro",

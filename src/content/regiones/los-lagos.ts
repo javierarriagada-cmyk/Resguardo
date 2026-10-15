@@ -3,12 +3,13 @@ import type { RegionData } from "./types";
 export const losLagos: RegionData = {
   slug: "los-lagos",
   nombre: "Los Lagos",
+  nombreConArticulo: "la Región de Los Lagos",
   numero: "X",
   titular: "Estudio de títulos y resguardo de compraventas en la Región de Los Lagos",
   bajada:
     "Cierre seguro en Puerto Montt, Puerto Varas, Osorno, Castro, Ancud, Quellón y la provincia de Palena.",
   descripcion:
-    "La Región de Los Lagos exige alta rigurosidad legal tanto en zonas urbanas densas como en predios insulares y de borde costero. Analizamos los títulos en los Conservadores de Puerto Montt, Puerto Varas, Osorno, Castro, Ancud y Calbuco.",
+    "La Región de Los Lagos exige rigurosidad legal tanto en zonas urbanas como en predios insulares y de borde costero. Analizamos los títulos en los Conservadores de Puerto Montt, Puerto Varas, Osorno, Castro, Ancud y Calbuco.",
   conservadores: [
     {
       nombre: "Conservador de Bienes Raíces de Puerto Montt",
@@ -37,8 +38,7 @@ export const losLagos: RegionData = {
     {
       nombre: "Conservador de Bienes Raíces de Ancud",
       comunas: ["Ancud", "Quemchi"],
-      fuente: "https://www.pjud.cl",
-      verificado: true,
+      verificado: false,
     },
     {
       nombre: "Conservador de Bienes Raíces de Calbuco",

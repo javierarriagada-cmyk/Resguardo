@@ -3,10 +3,11 @@ import type { RegionData } from "./types";
 export const metropolitana: RegionData = {
   slug: "metropolitana",
   nombre: "Metropolitana",
+  nombreConArticulo: "la Región Metropolitana",
   numero: "RM",
   titular: "Estudio de títulos y cierre legal en la Región Metropolitana",
   bajada:
-    "Garantía total para tu compraventa en el Gran Santiago, Provincia de Cordillera, Maipo, Talagante, Melipilla y Chacabuco.",
+    "Acompañamiento en tu compraventa en el Gran Santiago, Provincia de Cordillera, Maipo, Talagante, Melipilla y Chacabuco.",
   descripcion:
     "En la Región Metropolitana confluyen el Conservador de Santiago y múltiples Conservadores de comunas periféricas. Analizamos detalladamente inscripciones de dominio, certificados de deslindes, escrituras de alzamiento y deudas en copropiedad inmobiliaria.",
   conservadores: [
@@ -53,18 +54,6 @@ export const metropolitana: RegionData = {
       verificado: true,
     },
     {
-      nombre: "Conservador de Bienes Raíces de Puente Alto",
-      comunas: ["Puente Alto", "Pirque"],
-      fuente: "https://www.cbrpuentealto.cl",
-      verificado: true,
-    },
-    {
-      nombre: "Conservador de Bienes Raíces de San José de Maipo",
-      comunas: ["San José de Maipo"],
-      fuente: "https://www.pjud.cl",
-      verificado: true,
-    },
-    {
       nombre: "Conservador de Bienes Raíces de Colina",
       comunas: ["Colina", "Lampa", "Til Til"],
       fuente: "https://www.cbrcolina.cl",
@@ -74,12 +63,6 @@ export const metropolitana: RegionData = {
       nombre: "Conservador de Bienes Raíces de Talagante",
       comunas: ["Talagante", "El Monte", "Isla de Maipo"],
       fuente: "https://www.cbrtalagante.cl",
-      verificado: true,
-    },
-    {
-      nombre: "Conservador de Bienes Raíces de Peñaflor",
-      comunas: ["Peñaflor", "Padre Hurtado"],
-      fuente: "https://www.pjud.cl",
       verificado: true,
     },
     {
@@ -95,16 +78,30 @@ export const metropolitana: RegionData = {
       verificado: true,
     },
     {
+      nombre: "Conservador de Bienes Raíces de Puente Alto",
+      comunas: ["Puente Alto", "Pirque"],
+      verificado: false,
+    },
+    {
+      nombre: "Conservador de Bienes Raíces de San José de Maipo",
+      comunas: ["San José de Maipo"],
+      verificado: false,
+    },
+    {
+      nombre: "Conservador de Bienes Raíces de Peñaflor",
+      comunas: ["Peñaflor", "Padre Hurtado"],
+      verificado: false,
+    },
+    {
       nombre: "Conservador de Bienes Raíces de Curacaví",
       comunas: ["Curacaví", "María Pinto"],
-      fuente: "https://www.pjud.cl",
-      verificado: true,
+      verificado: false,
     },
   ],
   faq: [
     {
-      q: "¿Cómo opera el certificado de deslindes en el CBR de Santiago?",
-      a: "El CBRS exige verificar que los deslindes del título coincidan exactamente con la plana registral y los planos archivados, revisión que realizamos exhaustivamente en el estudio.",
+      q: "¿Cómo opera la revisión de deslindes en el CBR de Santiago?",
+      a: "El estudio de títulos revisa que los deslindes de la escritura coincidan con la inscripción de dominio y los planos aprobados en el Conservador.",
     },
     {
       q: "¿Cuál es el beneficio de la instrucción notarial en Santiago?",

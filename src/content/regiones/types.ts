@@ -13,6 +13,7 @@ export interface FAQData {
 export interface RegionData {
   slug: string;
   nombre: string;
+  nombreConArticulo: string;
   numero: string;
   titular: string;
   bajada: string;

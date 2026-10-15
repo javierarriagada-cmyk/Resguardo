@@ -3,19 +3,14 @@ import type { RegionData } from "./types";
 export const valparaiso: RegionData = {
   slug: "valparaiso",
   nombre: "Valparaíso",
+  nombreConArticulo: "la Región de Valparaíso",
   numero: "V",
   titular: "Estudio de títulos y custodia notarial en la Región de Valparaíso",
   bajada:
-    "Protegemos tus transacciones en Viña del Mar, Valparaíso, Concón, Quilpué, Quillota, San Antonio y Los Andes.",
+    "Acompañamos tus transacciones en Viña del Mar, Valparaíso, Concón, Quilpué, Quillota, San Antonio y Los Andes.",
   descripcion:
-    "La Región de Valparaíso cuenta con una gran diversidad de Conservadores. Revisamos cuidadosamente certificados de deslindes, recepciones municipales, gravámenes y afectaciones a utilidad pública en Viña del Mar, Valparaíso, Marga Marga y el Litoral Central.",
+    "La Región de Valparaíso cuenta con una gran diversidad de Conservadores. Revisamos cuidadosamente certificados de deslindes, recepciones municipales y gravámenes en Viña del Mar, Valparaíso, Marga Marga y el Litoral Central.",
   conservadores: [
-    {
-      nombre: "Conservador de Bienes Raíces de Valparaíso",
-      comunas: ["Valparaíso", "Juan Fernández"],
-      fuente: "https://www.cbrvalparaiso.cl",
-      verificado: true,
-    },
     {
       nombre: "Conservador de Bienes Raíces de Viña del Mar",
       comunas: ["Viña del Mar", "Concón"],
@@ -29,22 +24,25 @@ export const valparaiso: RegionData = {
       verificado: true,
     },
     {
-      nombre: "Conservador de Bienes Raíces de Villa Alemana",
-      comunas: ["Villa Alemana"],
-      fuente: "https://www.pjud.cl",
-      verificado: true,
-    },
-    {
-      nombre: "Conservador de Bienes Raíces de Quillota",
-      comunas: ["Quillota", "La Cruz", "La Calera", "Nogales", "Hijkena"],
-      fuente: "https://www.pjud.cl",
-      verificado: true,
-    },
-    {
       nombre: "Conservador de Bienes Raíces de San Antonio",
       comunas: ["San Antonio", "Santo Domingo", "Cartagena"],
       fuente: "https://www.cbrsanantonio.cl",
       verificado: true,
+    },
+    {
+      nombre: "Conservador de Bienes Raíces de Valparaíso",
+      comunas: ["Valparaíso", "Juan Fernández"],
+      verificado: false,
+    },
+    {
+      nombre: "Conservador de Bienes Raíces de Villa Alemana",
+      comunas: ["Villa Alemana"],
+      verificado: false,
+    },
+    {
+      nombre: "Conservador de Bienes Raíces de Quillota",
+      comunas: ["Quillota", "La Cruz", "La Calera", "Nogales", "Hijuelas"],
+      verificado: false,
     },
     {
       nombre: "Conservador de Bienes Raíces de Los Andes",

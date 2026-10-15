@@ -3,10 +3,11 @@ import type { RegionData } from "./types";
 export const biobio: RegionData = {
   slug: "biobio",
   nombre: "Biobío",
+  nombreConArticulo: "la Región del Biobío",
   numero: "VIII",
   titular: "Servicios legales inmobiliarios en la Región del Biobío",
   bajada:
-    "Protegemos tus transacciones en Concepción, Talcahuano, San Pedro de la Paz, Los Ángeles, Coronel, Chiguayante y Arauco.",
+    "Acompañamiento en tus transacciones en Concepción, Talcahuano, San Pedro de la Paz, Los Ángeles, Coronel, Chiguayante y Arauco.",
   descripcion:
     "El mercado inmobiliario e industrial del Biobío exige un estudio riguroso. Revisamos 10 años de dominio y 30 años de gravámenes en los Conservadores de Concepción, Talcahuano, San Pedro de la Paz, Chiguayante, Los Ángeles, Coronel y Cañete.",
   conservadores: [
@@ -29,12 +30,6 @@ export const biobio: RegionData = {
       verificado: true,
     },
     {
-      nombre: "Conservador de Bienes Raíces de Chiguayante",
-      comunas: ["Chiguayante"],
-      fuente: "https://www.pjud.cl",
-      verificado: true,
-    },
-    {
       nombre: "Conservador de Bienes Raíces de Los Ángeles",
       comunas: ["Los Ángeles", "Quilleco"],
       fuente: "https://www.cbrlosangeles.cl",
@@ -45,6 +40,11 @@ export const biobio: RegionData = {
       comunas: ["Coronel"],
       fuente: "https://www.cbrcoronel.cl",
       verificado: true,
+    },
+    {
+      nombre: "Conservador de Bienes Raíces de Chiguayante",
+      comunas: ["Chiguayante"],
+      verificado: false,
     },
     {
       nombre: "Conservador de Bienes Raíces de Lota",

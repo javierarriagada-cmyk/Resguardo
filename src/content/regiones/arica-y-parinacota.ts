@@ -3,12 +3,13 @@ import type { RegionData } from "./types";
 export const aricaParinacota: RegionData = {
   slug: "arica-y-parinacota",
   nombre: "Arica y Parinacota",
+  nombreConArticulo: "la Región de Arica y Parinacota",
   numero: "XV",
   titular: "Estudio de títulos y escrituras en la Región de Arica y Parinacota",
   bajada:
     "Acompañamos tu compraventa en el extremo norte de Chile, coordinando revisiones registrales y notariales en Arica y Putre.",
   descripcion:
-    "La Región de Arica y Parinacota cuenta con particularidades territoriales y fronterizas en sus títulos. Revisamos la cadena de dominio y prohibiciones en los Conservadores locales para garantizar que tu inversión esté 100% protegida antes de enviar la escritura a notaría.",
+    "La Región de Arica y Parinacota cuenta con particularidades territoriales y fronterizas en sus títulos. Revisamos la cadena de dominio y prohibiciones en los Conservadores locales antes de enviar la escritura a notaría.",
   conservadores: [
     {
       nombre: "Conservador de Bienes Raíces de Arica",
@@ -17,10 +18,9 @@ export const aricaParinacota: RegionData = {
       verificado: true,
     },
     {
-      nombre: "Conservador de Bienes Raíces y Letras de Putre",
+      nombre: "Conservador de Bienes Raíces de Putre",
       comunas: ["Putre", "General Lagos"],
-      fuente: "https://www.pjud.cl",
-      verificado: true,
+      verificado: false,
     },
   ],
   faq: [

@@ -8,6 +8,15 @@ import { getAllRegiones, getRegionBySlug } from "@/content/regiones";
 import { empresa } from "@/content/empresa";
 import type { Metadata } from "next";
 
+function obtenerDominio(url: string): string {
+  try {
+    const parsed = new URL(url);
+    return parsed.hostname.replace(/^www\./, "");
+  } catch {
+    return url;
+  }
+}
+
 export function generateStaticParams() {
   return getAllRegiones().map((r) => ({
     region: r.slug,
@@ -99,11 +108,12 @@ export default async function RegionPage(props: { params: Promise<{ region: stri
             {regionData.conservadores.map((cbr) => (
               <article
                 key={cbr.nombre}
-                className="card p-24"
                 style={{
-                  border: "1px solid var(--border, #e2e8f0)",
-                  borderRadius: "8px",
+                  backgroundColor: "var(--card)",
+                  border: "1px solid var(--line)",
+                  borderRadius: "var(--radius)",
                   padding: "24px",
+                  boxShadow: "var(--shadow)",
                 }}
               >
                 <div
@@ -115,11 +125,46 @@ export default async function RegionPage(props: { params: Promise<{ region: stri
                     gap: "12px",
                   }}
                 >
-                  <div>
+                  <div style={{ flex: "1 1 300px" }}>
                     <h3 style={{ fontSize: "18px", fontWeight: 600, margin: 0 }}>{cbr.nombre}</h3>
-                    <p style={{ fontSize: "14px", color: "var(--ink-2)", marginTop: "6px" }}>
-                      Comunas: {cbr.comunas.join(", ")}
-                    </p>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "8px",
+                        flexWrap: "wrap",
+                        marginTop: "12px",
+                      }}
+                    >
+                      <span style={{ fontSize: "13px", color: "var(--ink-2)" }}>Comunas:</span>
+                      <ul
+                        style={{
+                          display: "inline-flex",
+                          flexWrap: "wrap",
+                          gap: "6px",
+                          listStyle: "none",
+                          padding: 0,
+                          margin: 0,
+                        }}
+                      >
+                        {cbr.comunas.map((comuna) => (
+                          <li
+                            key={comuna}
+                            style={{
+                              fontFamily: "var(--mono)",
+                              fontSize: "12px",
+                              backgroundColor: "var(--paper-2)",
+                              border: "1px solid var(--line)",
+                              borderRadius: "var(--radius)",
+                              padding: "2px 8px",
+                              color: "var(--ink)",
+                            }}
+                          >
+                            {comuna}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                   <div>
                     {cbr.verificado && cbr.fuente ? (
@@ -131,9 +176,10 @@ export default async function RegionPage(props: { params: Promise<{ region: stri
                           fontSize: "13px",
                           color: "var(--seal)",
                           textDecoration: "underline",
+                          fontFamily: "var(--sans)",
                         }}
                       >
-                        Fuente pública verificada
+                        Fuente: {obtenerDominio(cbr.fuente)}
                       </a>
                     ) : (
                       <Prov>Datos del Conservador por confirmar</Prov>
@@ -152,11 +198,12 @@ export default async function RegionPage(props: { params: Promise<{ region: stri
               {regionData.faq.map((item) => (
                 <div
                   key={item.q}
-                  className="card p-24"
                   style={{
-                    border: "1px solid var(--border, #e2e8f0)",
-                    borderRadius: "8px",
+                    backgroundColor: "var(--card)",
+                    border: "1px solid var(--line)",
+                    borderRadius: "var(--radius)",
                     padding: "20px",
+                    boxShadow: "var(--shadow)",
                   }}
                 >
                   <dt style={{ fontWeight: 600, fontSize: "16px", color: "var(--ink)" }}>
@@ -172,20 +219,21 @@ export default async function RegionPage(props: { params: Promise<{ region: stri
         )}
 
         <section
-          className="card mt-64 p-32"
+          className="mt-64"
           style={{
-            backgroundColor: "var(--paper-dark, #f8f9fa)",
-            borderRadius: "12px",
+            backgroundColor: "var(--paper-2)",
+            border: "1px solid var(--line)",
+            borderRadius: "var(--radius-lg)",
             padding: "32px",
           }}
         >
-          <h2>¿Vas a comprar o vender una propiedad en {regionData.nombre}?</h2>
+          <h2>¿Vas a comprar o vender una propiedad en {regionData.nombreConArticulo}?</h2>
           <p className="lead mt-14">
             Te guiamos desde el diagnóstico inicial hasta la entrega del dominio en el Conservador.
           </p>
           <div className="mt-24">
             <Link href="/#diagnostico" className="btn btn-primary">
-              Iniciar diagnóstico en {regionData.nombre}
+              Iniciar diagnóstico en {regionData.nombreConArticulo}
             </Link>
           </div>
         </section>

@@ -3,12 +3,13 @@ import type { RegionData } from "./types";
 export const antofagasta: RegionData = {
   slug: "antofagasta",
   nombre: "Antofagasta",
+  nombreConArticulo: "la Región de Antofagasta",
   numero: "II",
   titular: "Estudio de títulos y firma protegida en la Región de Antofagasta",
   bajada:
     "Cierre legal transparente para compraventas en Antofagasta, Calama, Tocopilla y comunas mineras.",
   descripcion:
-    "El mercado inmobiliario en Antofagasta y Calama se caracteriza por inmuebles de alto valor y complejas cadenas de dominio. Evaluamos gravámenes de 30 años, concesiones o servidumbres aplicables y vigencias de dominio en toda la región.",
+    "El mercado inmobiliario en Antofagasta y Calama requiere revisar cadenas de dominio, gravámenes de 30 años y vigencias en toda la región.",
   conservadores: [
     {
       nombre: "Conservador de Bienes Raíces de Antofagasta",
@@ -25,8 +26,7 @@ export const antofagasta: RegionData = {
     {
       nombre: "Conservador de Bienes Raíces de Tocopilla",
       comunas: ["Tocopilla", "María Elena"],
-      fuente: "https://www.pjud.cl",
-      verificado: true,
+      verificado: false,
     },
     {
       nombre: "Conservador de Bienes Raíces de Taltal",

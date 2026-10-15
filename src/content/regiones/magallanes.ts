@@ -3,10 +3,11 @@ import type { RegionData } from "./types";
 export const magallanes: RegionData = {
   slug: "magallanes",
   nombre: "Magallanes",
+  nombreConArticulo: "la Región de Magallanes",
   numero: "XII",
   titular: "Estudio de títulos y firma respaldada en Magallanes y Antártica Chilena",
   bajada:
-    "Seguridad plena en compraventas urbanas y rústicas en Punta Arenas, Puerto Natales, Porvenir y Cabo de Hornos.",
+    "Acompañamiento en compraventas urbanas y rústicas en Punta Arenas, Puerto Natales, Porvenir y Cabo de Hornos.",
   descripcion:
     "En la región austral de Chile revisamos detenidamente la legalidad de los títulos, servidumbres y gravámenes en los Conservadores de Punta Arenas, Puerto Natales, Porvenir y Cabo de Hornos.",
   conservadores: [
@@ -19,8 +20,7 @@ export const magallanes: RegionData = {
     {
       nombre: "Conservador de Bienes Raíces y Letras de Puerto Natales",
       comunas: ["Natales", "Torres del Paine"],
-      fuente: "https://www.pjud.cl",
-      verificado: true,
+      verificado: false,
     },
     {
       nombre: "Conservador de Bienes Raíces y Letras de Porvenir",

@@ -3,11 +3,13 @@ import type { RegionData } from "./types";
 export const atacama: RegionData = {
   slug: "atacama",
   nombre: "Atacama",
+  nombreConArticulo: "la Región de Atacama",
   numero: "III",
   titular: "Cobertura registral e instruccional en la Región de Atacama",
-  bajada: "Garantizamos compras y ventas seguras en Copiapó, Vallenar, Caldera y Chañaral.",
+  bajada:
+    "Acompañamiento en compras y ventas de inmuebles en Copiapó, Vallenar, Caldera y Chañaral.",
   descripcion:
-    "Atacama combina áreas urbanas, agrícolas y costeras. Estudiamos títulos de 10 años e hipotecas/gravámenes de 30 años en los Conservadores de Copiapó, Vallenar, Freirina y Chañaral para prevenir cualquier vicio o deuda latente.",
+    "Atacama combina áreas urbanas, agrícolas y costeras. Estudiamos títulos de 10 años e hipotecas/gravámenes de 30 años en los Conservadores de Copiapó, Vallenar, Freirina y Chañaral.",
   conservadores: [
     {
       nombre: "Conservador de Bienes Raíces de Copiapó",
@@ -18,8 +20,7 @@ export const atacama: RegionData = {
     {
       nombre: "Conservador de Bienes Raíces de Vallenar",
       comunas: ["Vallenar", "Alto del Carmen"],
-      fuente: "https://www.pjud.cl",
-      verificado: true,
+      verificado: false,
     },
     {
       nombre: "Conservador de Bienes Raíces de Freirina",

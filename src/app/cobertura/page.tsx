@@ -51,62 +51,15 @@ export default function CoberturaIndexPage() {
           <h2 id="regiones-tit" className="sr-only">
             Regiones de Chile
           </h2>
-          <ul
-            className="regions"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-              gap: "16px",
-              padding: 0,
-              listStyle: "none",
-            }}
-          >
+          <ul className="regions">
             {regiones.map((reg) => (
               <li key={reg.slug}>
                 <Link
                   href={`/cobertura/${reg.slug}`}
-                  className="card"
-                  style={{
-                    display: "block",
-                    padding: "20px",
-                    textDecoration: "none",
-                    color: "inherit",
-                    border: "1px solid var(--border, #e2e8f0)",
-                    borderRadius: "8px",
-                  }}
+                  className="reg"
+                  style={{ textDecoration: "none" }}
                 >
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "baseline",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontSize: "20px",
-                        fontWeight: 600,
-                        fontFamily: "var(--font-serif)",
-                      }}
-                    >
-                      {reg.nombre}
-                    </span>
-                    <span
-                      style={{
-                        fontFamily: "var(--font-mono)",
-                        fontSize: "14px",
-                        color: "var(--ink-2)",
-                      }}
-                    >
-                      {reg.numero}
-                    </span>
-                  </div>
-                  <p style={{ fontSize: "14px", color: "var(--ink-2)", marginTop: "8px" }}>
-                    {reg.conservadores.length}{" "}
-                    {reg.conservadores.length === 1
-                      ? "Conservador registrado"
-                      : "Conservadores registrados"}
-                  </p>
+                  {reg.nombre} <span>{reg.numero}</span>
                 </Link>
               </li>
             ))}
@@ -116,9 +69,10 @@ export default function CoberturaIndexPage() {
         <section
           className="card mt-64 p-32"
           style={{
-            backgroundColor: "var(--paper-dark, #f8f9fa)",
-            borderRadius: "12px",
+            backgroundColor: "var(--paper-2)",
+            borderRadius: "var(--radius-lg)",
             padding: "32px",
+            border: "1px solid var(--line)",
           }}
         >
           <h2>¿Necesitas comprar o vender una propiedad en regiones?</h2>

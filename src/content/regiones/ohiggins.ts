@@ -3,12 +3,13 @@ import type { RegionData } from "./types";
 export const ohiggins: RegionData = {
   slug: "ohiggins",
   nombre: "O’Higgins",
+  nombreConArticulo: "la Región de O’Higgins",
   numero: "VI",
   titular: "Estudio de títulos y resguardo legal en la Región de O’Higgins",
   bajada:
-    "Acompañamiento integral en Rancagua, Machalí, San Fernando, Pichilemu y comunas agrícolas de Cachapoal, Colchagua y Cardenal Caro.",
+    "Acompañamiento en Rancagua, Machalí, San Fernando, Pichilemu y comunas agrícolas de Cachapoal, Colchagua y Cardenal Caro.",
   descripcion:
-    "En la Región de O’Higgins es habitual encontrar propiedades urbanas y terrenos agrícolas o loteos rústicos. Auditamos títulos de 10 años, derechos de aguas y gravámenes registrales en Rancagua, San Fernando, Rengo, Pichilemu y Peralillo.",
+    "En la Región de O’Higgins es habitual encontrar propiedades urbanas y terrenos agrícolas o loteos rústicos. Auditamos títulos de 10 años, derechos de aguas y gravámenes registrales en los Conservadores locales.",
   conservadores: [
     {
       nombre: "Conservador de Bienes Raíces de Rancagua",
@@ -25,14 +26,12 @@ export const ohiggins: RegionData = {
     {
       nombre: "Conservador de Bienes Raíces de Rengo",
       comunas: ["Rengo", "Malloa", "Requínoa"],
-      fuente: "https://www.pjud.cl",
-      verificado: true,
+      verificado: false,
     },
     {
       nombre: "Conservador de Bienes Raíces de Pichilemu",
       comunas: ["Pichilemu", "Marchigüe", "La Estrella"],
-      fuente: "https://www.pjud.cl",
-      verificado: true,
+      verificado: false,
     },
     {
       nombre: "Conservador de Bienes Raíces de Santa Cruz",

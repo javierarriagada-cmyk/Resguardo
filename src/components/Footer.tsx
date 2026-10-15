@@ -31,6 +31,9 @@ export function Footer() {
               <li>
                 <Link href="/#corredores">Corredores</Link>
               </li>
+              <li>
+                <Link href="/cobertura">Cobertura nacional</Link>
+              </li>
             </ul>
           </nav>
           {/* TODO(T11): enlazar a /guias/[slug] cuando existan las guías. */}

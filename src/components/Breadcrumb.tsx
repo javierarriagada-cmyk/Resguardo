@@ -24,7 +24,7 @@ export function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData).replace(/</g, "\\u003c") }}
       />
-      <nav aria-label="Breadcrumb" className="wrap mt-24">
+      <nav aria-label="Breadcrumb" className="wrap mt-24 mb-16">
         <ol
           style={{
             display: "flex",

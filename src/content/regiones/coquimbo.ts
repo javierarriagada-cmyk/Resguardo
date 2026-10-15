@@ -3,12 +3,13 @@ import type { RegionData } from "./types";
 export const coquimbo: RegionData = {
   slug: "coquimbo",
   nombre: "Coquimbo",
+  nombreConArticulo: "la Región de Coquimbo",
   numero: "IV",
-  titular: "Estudio de títulos y resguardo de fondos en Coquimbo y La Serena",
+  titular: "Estudio de títulos y resguardo de fondos en la Región de Coquimbo",
   bajada:
-    "Acompañamiento legal completo para compraventas en La Serena, Coquimbo, Ovalle, Illapel y el Valle del Elqui.",
+    "Acompañamiento legal para compraventas en La Serena, Coquimbo, Ovalle, Illapel y el Valle del Elqui.",
   descripcion:
-    "La Región de Coquimbo presenta un dinámico mercado residencial y vacacional. Analizamos la legalidad de parcelaciones, recepciones finales municipales y antecedentes registrales en los Conservadores de La Serena, Coquimbo, Ovalle, Vicuña e Illapel.",
+    "La Región de Coquimbo presenta un activo mercado residencial y vacacional. Analizamos la legalidad de parcelaciones, recepciones finales municipales y antecedentes registrales en los Conservadores locales.",
   conservadores: [
     {
       nombre: "Conservador de Bienes Raíces de La Serena",
@@ -31,8 +32,7 @@ export const coquimbo: RegionData = {
     {
       nombre: "Conservador de Bienes Raíces de Vicuña",
       comunas: ["Vicuña", "Paihuano"],
-      fuente: "https://www.pjud.cl",
-      verificado: true,
+      verificado: false,
     },
     {
       nombre: "Conservador de Bienes Raíces de Illapel",

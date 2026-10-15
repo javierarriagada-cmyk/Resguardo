@@ -3,19 +3,14 @@ import type { RegionData } from "./types";
 export const maule: RegionData = {
   slug: "maule",
   nombre: "Maule",
+  nombreConArticulo: "la Región del Maule",
   numero: "VII",
   titular: "Compraventas protegidas y estudio registral en la Región del Maule",
   bajada:
     "Cierre transparente de operaciones inmobiliarias en Talca, Curicó, Linares, Cauquenes y Constitución.",
   descripcion:
-    "El mercado maulino abarca zonas urbanas en expansión y amplio sector agrícola. Analizamos los títulos en los Conservadores de Talca, Curicó, Linares, Cauquenes, Constitución, San Javier, Parral y Molinetes.",
+    "El mercado maulino abarca zonas urbanas en expansión y un amplio sector agrícola. Analizamos los títulos en los Conservadores de Talca, Curicó, Linares, Cauquenes, Constitución, San Javier, Parral y Molinetes.",
   conservadores: [
-    {
-      nombre: "Conservador de Bienes Raíces de Talca",
-      comunas: ["Talca", "Pelarco", "Pencahue", "San Clemente", "Rio Claro"],
-      fuente: "https://www.cbrtalca.cl",
-      verificado: true,
-    },
     {
       nombre: "Conservador de Bienes Raíces de Curicó",
       comunas: ["Curicó", "Rauco", "Romeral", "Teno"],
@@ -29,10 +24,14 @@ export const maule: RegionData = {
       verificado: true,
     },
     {
+      nombre: "Conservador de Bienes Raíces de Talca",
+      comunas: ["Talca", "Pelarco", "Pencahue", "San Clemente", "Río Claro"],
+      verificado: false,
+    },
+    {
       nombre: "Conservador de Bienes Raíces de Cauquenes",
       comunas: ["Cauquenes"],
-      fuente: "https://www.pjud.cl",
-      verificado: true,
+      verificado: false,
     },
     {
       nombre: "Conservador de Bienes Raíces de Constitución",

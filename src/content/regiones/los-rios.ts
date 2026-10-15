@@ -3,12 +3,13 @@ import type { RegionData } from "./types";
 export const losRios: RegionData = {
   slug: "los-rios",
   nombre: "Los Ríos",
+  nombreConArticulo: "la Región de Los Ríos",
   numero: "XIV",
   titular: "Acompañamiento registral y legal en la Región de Los Ríos",
   bajada:
-    "Garantía en compraventas de propiedades urbanas y rurales en Valdivia, Panguipulli, La Unión, Río Bueno y Mariquina.",
+    "Estudio de títulos en compraventas de propiedades urbanas y rurales en Valdivia, Panguipulli, La Unión, Río Bueno y Mariquina.",
   descripcion:
-    "La Región de Los Ríos destaca por su mercado residencial, parcelaciones de agrado y desarrollos turísticos. Evaluamos títulos de 10 años, recepciones municipales y regulaciones de bienes rústicos en los Conservadores de Valdivia, Panguipulli, La Unión y Río Bueno.",
+    "La Región de Los Ríos destaca por su mercado residencial, parcelaciones de agrado y desarrollos turísticos. Evaluamos títulos de 10 años, recepciones municipales y regulaciones de bienes rústicos en los Conservadores de la región.",
   conservadores: [
     {
       nombre: "Conservador de Bienes Raíces de Valdivia",
@@ -25,14 +26,12 @@ export const losRios: RegionData = {
     {
       nombre: "Conservador de Bienes Raíces de La Unión",
       comunas: ["La Unión"],
-      fuente: "https://www.pjud.cl",
-      verificado: true,
+      verificado: false,
     },
     {
       nombre: "Conservador de Bienes Raíces de Río Bueno",
       comunas: ["Río Bueno", "Lago Ranco"],
-      fuente: "https://www.pjud.cl",
-      verificado: true,
+      verificado: false,
     },
     {
       nombre: "Conservador de Bienes Raíces de Los Lagos",

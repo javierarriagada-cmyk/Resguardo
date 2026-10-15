@@ -3,6 +3,7 @@ import type { RegionData } from "./types";
 export const aysen: RegionData = {
   slug: "aysen",
   nombre: "Aysén",
+  nombreConArticulo: "la Región de Aysén",
   numero: "XI",
   titular: "Cobertura legal e instruccional en la Región de Aysén",
   bajada: "Transacciones inmobiliarias seguras en Coyhaique, Puerto Aysén, Chile Chico y Cochrane.",
@@ -18,8 +19,7 @@ export const aysen: RegionData = {
     {
       nombre: "Conservador de Bienes Raíces y Letras de Puerto Aysén",
       comunas: ["Aysén", "Cisnes", "Guaitecas"],
-      fuente: "https://www.pjud.cl",
-      verificado: true,
+      verificado: false,
     },
     {
       nombre: "Conservador de Bienes Raíces y Letras de Chile Chico",
