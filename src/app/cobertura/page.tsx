@@ -28,7 +28,7 @@ export default function CoberturaIndexPage() {
   return (
     <>
       <Header />
-      <main id="contenido">
+      <main id="main">
         <section className="page-hero" aria-labelledby="cob-t">
           <div className="wrap">
             <Breadcrumb

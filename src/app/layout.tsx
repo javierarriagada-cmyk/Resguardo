@@ -55,6 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="es-CL"
+      data-scroll-behavior="smooth"
       className={`${newsreader.variable} ${instrumentSans.variable} ${plexMono.variable}`}
     >
       <body>
