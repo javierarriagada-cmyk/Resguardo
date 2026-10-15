@@ -5,6 +5,8 @@ const RUTAS = [
   "/precios",
   "/cobertura",
   "/cobertura/metropolitana",
+  "/guias",
+  "/guias/instruccion-notarial",
   "/legal/privacidad",
   "/legal/terminos",
 ];
