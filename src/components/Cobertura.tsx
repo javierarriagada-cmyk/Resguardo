@@ -1,9 +1,6 @@
-import Link from "next/link";
-import { getAllRegiones } from "@/content/regiones";
+import { regiones } from "@/content/home";
 
 export function Cobertura() {
-  const regionesData = getAllRegiones();
-
   return (
     <section className="band" aria-labelledby="cob-t">
       <div className="wrap cover-grid">
@@ -16,18 +13,14 @@ export function Cobertura() {
             Trabajamos con el Conservador que corresponde a cada comuna y con la notaría que elijan
             las partes. La firma es presencial en notaría; todo lo demás, a distancia.
           </p>
-          <div className="mt-24">
-            <Link href="/cobertura" className="btn btn-quiet">
-              Ver cobertura por región
-            </Link>
-          </div>
         </div>
+        {/* TODO(T10): enlazar cada región a /cobertura/[region] cuando existan las páginas regionales. */}
         <ul className="regions">
-          {regionesData.map((reg) => (
-            <li key={reg.slug}>
-              <Link href={`/cobertura/${reg.slug}`} className="reg">
-                {reg.nombre} <span>{reg.numero}</span>
-              </Link>
+          {regiones.map(([nombre, num]) => (
+            <li key={nombre}>
+              <span className="reg">
+                {nombre} <span>{num}</span>
+              </span>
             </li>
           ))}
         </ul>
