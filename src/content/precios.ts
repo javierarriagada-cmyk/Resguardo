@@ -1,58 +1,54 @@
 import { NOTA_CONCRETADA } from "./home";
 
-/**
- * Fuente única de planes: la usan la sección de precios de la portada y /precios.
- * Montos provisorios (estrategia §9, punto 4) hasta que Javier los confirme.
- */
-export type Plan = {
-  id: "estudio-titulos" | "compra-protegida" | "venta-protegida";
+export type PlanPrecio = {
+  id: string;
   titulo: string;
   para: string;
-  /** Monto en pesos, si el plan se cobra en CLP. */
-  precioCLP?: number;
-  /** Monto en UF, si el plan se cobra en UF. */
   precioUF?: number;
+  precioCLP?: number;
   precioTexto: string;
   unidad: string;
   cuando: string;
   incluye: string[];
-  cta: readonly [texto: string, href: string];
+  cta: [string, string];
   feat?: boolean;
   provisorio: boolean;
 };
 
-export const planes: Plan[] = [
+export const planesPrecios: PlanPrecio[] = [
   {
     id: "estudio-titulos",
     titulo: "Estudio de títulos",
-    para: "Para saber si la propiedad está en regla.",
+    para: "Para saber si la propiedad está libre de riesgos legales antes de promesar o pagar.",
     precioCLP: 190000,
     precioTexto: "$190.000",
-    unidad: "honorario",
+    unidad: "honorario fijo",
     cuando:
-      "Servicio independiente: se paga al encargarlo. Si después compras con nosotros, se descuenta.",
+      "Servicio independiente: se paga al encargarlo. Si después compras con nosotros, se descuenta del plan de Compra protegida.",
     incluye: [
-      "Informe semáforo explicado",
-      "10 años de títulos y 30 de gravámenes",
-      "Llamada para explicarte el resultado",
+      "Informe semáforo explicado punto por punto",
+      "Revisión de 10 años de títulos y 30 de gravámenes",
+      "Llamada con el equipo legal para revisar hallazgos",
+      "Copia en PDF con citas a fojas, números y años",
     ],
-    cta: ["Pedir estudio", "/#diagnostico"],
+    cta: ["Pedir estudio de títulos", "/#diagnostico"],
     provisorio: true,
   },
   {
     id: "compra-protegida",
     titulo: "Compra protegida",
-    para: "De la revisión a la inscripción a tu nombre.",
+    para: "Acompañamiento legal completo desde el estudio de títulos hasta la inscripción a tu nombre.",
     precioUF: 14,
     precioTexto: "UF 14",
-    unidad: "honorario",
+    unidad: "honorario fijo",
     cuando:
-      "Si la operación no se concreta, no pagas. Se cobra cuando enviamos la escritura a la notaría.*",
+      "Si la operación no se concreta, no pagas honorarios. Se cobra cuando enviamos la escritura a la notaría para su firma.",
     incluye: [
-      "Estudio de títulos con informe semáforo",
-      "Escritura e instrucción notarial",
-      "Coordinación del alzamiento bancario",
-      "Seguimiento hasta la inscripción",
+      "Estudio de títulos completo con informe semáforo",
+      "Redacción de la promesa y escritura de compraventa",
+      "Redacción de la instrucción notarial para custodia del pago",
+      "Coordinación del alzamiento de hipotecas bancarias",
+      "Ingreso y seguimiento hasta la inscripción en el Conservador",
     ],
     cta: ["Empezar con el diagnóstico", "/#diagnostico"],
     feat: true,
@@ -61,66 +57,74 @@ export const planes: Plan[] = [
   {
     id: "venta-protegida",
     titulo: "Venta protegida",
-    para: "Publicamos y hacemos toda la parte legal.",
+    para: "Para vendedores que buscan cerrar rápido, con la carpeta legal lista y el pago garantizado.",
     precioUF: 18,
     precioTexto: "UF 18",
-    unidad: "precio fijo",
-    cuando: "Sin comisión porcentual. Si la operación no se concreta, no pagas.*",
+    unidad: "precio fijo sin comisión",
+    cuando:
+      "Sin comisión porcentual. Si la operación no se concreta, no pagas honorarios. Se cobra al enviar la escritura a la notaría.",
     incluye: [
-      "Publicación en portales",
-      "Carpeta legal lista para compradores y bancos",
-      "Escritura y pago protegido con vale vista",
+      "Publicación profesional de la propiedad",
+      "Armado de carpeta legal lista para compradores y bancos",
+      "Redacción de escritura e instrucción notarial con vale vista en custodia",
+      "Coordinación de firmas y seguimiento de inscripción",
     ],
-    cta: ["Quiero vender", "/#vender"],
+    cta: ["Quiero vender mi propiedad", "/#diagnostico"],
     provisorio: true,
   },
 ];
 
 export type CostoTercero = {
   item: string;
-  quienCobra: string;
-  detalle: string;
+  entidad: string;
+  montoTexto: string;
+  porConfirmar: boolean;
+  nota: string;
 };
 
-/** Montos sin confirmar: se muestran siempre como "Por confirmar" (no dependen de NEXT_PUBLIC_SHOW_PROVISIONAL). */
 export const costosTerceros: CostoTercero[] = [
   {
-    item: "Escritura de compraventa y copias",
-    quienCobra: "Notaría",
-    detalle: "Según el arancel de la notaría que elijan las partes y el número de copias.",
+    item: "Derechos y arancel notarial",
+    entidad: "Notaría pública",
+    montoTexto: "POR CONFIRMAR",
+    porConfirmar: true,
+    nota: "Varía según arancel notarial vigente (Ley 21.772), extensión de la escritura y copias autorizadas requeridas.",
   },
   {
-    item: "Inscripción de dominio (y de hipoteca, si hay crédito)",
-    quienCobra: "Conservador de Bienes Raíces",
-    detalle: "Según el arancel del Conservador de la comuna y el valor de la operación.",
+    item: "Inscripción de dominio y gravámenes",
+    entidad: "Conservador de Bienes Raíces (CBR)",
+    montoTexto: "POR CONFIRMAR",
+    porConfirmar: true,
+    nota: "Calculado según el precio de venta acordado y la tabla de aranceles oficial del Conservador correspondiente a la comuna.",
   },
   {
-    item: "Certificados del inmueble",
-    quienCobra: "Conservador, Tesorería y municipalidad",
-    detalle:
-      "Dominio vigente, hipotecas y gravámenes, deuda de contribuciones y certificados municipales.",
+    item: "Certificados de dominio, GP y municipales",
+    entidad: "CBR / Tesorería / Municipio / SERVIU",
+    montoTexto: "POR CONFIRMAR",
+    porConfirmar: true,
+    nota: "Certificados de dominio vigente, hipotecas y gravámenes (30 años), deuda de contribuciones y no expropiación.",
   },
 ];
 
 export const faqPagos = [
   {
-    q: "¿Qué significa “si la operación no se concreta, no pagas”?",
-    a: `Si la compraventa se cae antes de enviar la escritura a la notaría, no pagas honorarios de Compra protegida ni de Venta protegida. ${NOTA_CONCRETADA}`,
+    q: "¿Cómo funciona la garantía “si la operación no se concreta, no pagas”?",
+    a: `Nuestra promesa es clara: si por algún motivo la compraventa no puede realizarse, no pagas honorarios legales por el cierre. La operación se considera concretada cuando se envía el documento (la escritura de compraventa e instrucción notarial) a la notaría para la firma de las partes. ${NOTA_CONCRETADA}`,
   },
   {
-    q: "¿Cuándo se paga cada plan?",
-    a: "Compra protegida y Venta protegida se cobran cuando enviamos la escritura a la notaría para su firma. El estudio de títulos suelto se paga al encargarlo.",
+    q: "¿Cuándo y cómo se realiza el pago de los honorarios?",
+    a: "Para los planes de Compra Protegida y Venta Protegida, los honorarios se cobran exactamente en el momento en que enviamos la borrador final de la escritura a la notaría seleccionada para su firma. Para el Estudio de Títulos suelto, al ser un servicio independiente de diagnóstico previo, el valor se paga al momento de solicitar el informe.",
   },
   {
-    q: "Si pago el estudio de títulos y después compro con ustedes, ¿lo pago dos veces?",
-    a: "No. Si contratas Compra protegida para esa misma propiedad, descontamos lo que pagaste por el estudio.",
+    q: "¿Los gastos de notaría y Conservador están incluidos en los planes?",
+    a: "No. Los aranceles notariales, derechos del Conservador de Bienes Raíces y costos de emisión de certificados oficiales son cobrados directamente por cada institución y no forman parte de nuestros honorarios. En cada caso te entregamos un desglose estimado transparente de dichos costos de terceros antes de firmar.",
   },
   {
-    q: "¿Los gastos de notaría y del Conservador están incluidos?",
-    a: "No. Los cobran directamente la notaría, el Conservador y quienes emiten los certificados. Antes de firmar te detallamos esos montos con los valores reales de tu operación.",
+    q: "¿Qué ocurre si contraté el Estudio de Títulos y luego decido contratar Compra Protegida?",
+    a: "Si contratas primero el Estudio de Títulos suelto ($190.000) y el informe resulta conforme (verde) o corregible (amarillo) y decides avanzar en la compra con nuestro plan de Compra Protegida, descontamos el 100% de lo que pagaste por el estudio del valor total de la Compra Protegida.",
   },
   {
-    q: "¿Cómo se pasa a pesos un plan en UF?",
-    a: "Con el valor de la UF del día en que se emite el cobro. El valor de referencia que mostramos en esta página es solo informativo.",
+    q: "¿Cómo se calcula el valor en pesos si el precio está fijado en UF?",
+    a: "Los planes expresados en UF (Compra Protegida y Venta Protegida) se convierten a pesos chilenos (CLP) utilizando el valor oficial de la UF informado por el Banco Central / Servicio de Impuestos Internos correspondiente al día en que se emite la orden de cobro.",
   },
 ] as const;

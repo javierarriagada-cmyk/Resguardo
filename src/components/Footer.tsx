@@ -20,7 +20,7 @@ export function Footer() {
             <h4>Servicios</h4>
             <ul>
               <li>
-                <Link href="/precios">Precios</Link>
+                <Link href="/precios">Planes y Precios</Link>
               </li>
               <li>
                 <Link href="/precios#compra-protegida">Compra protegida</Link>

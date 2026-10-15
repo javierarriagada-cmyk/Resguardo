@@ -1,6 +1,6 @@
 import { empresa } from "@/content/empresa";
 import { faq } from "@/content/home";
-import { planes } from "@/content/precios";
+import { planesPrecios } from "@/content/precios";
 
 type Json = Record<string, unknown>;
 
@@ -54,27 +54,28 @@ export function faqJsonLd(preguntas: readonly ItemPregunta[] = faq): Json {
   };
 }
 
-/** Un `Service` por plan con su `Offer`. Montos en UF con el código ISO 4217 "CLF". */
-export function serviciosJsonLd(): Json {
+export function offerCatalogJsonLd(): Json {
   return {
     "@context": "https://schema.org",
-    "@graph": planes.map((plan) => {
-      const monto = plan.precioCLP ?? plan.precioUF;
-      const moneda = plan.precioCLP ? "CLP" : "CLF";
-      return {
-        "@type": "Service",
-        "@id": `${empresa.url}/precios#${plan.id}`,
-        name: plan.titulo,
-        description: plan.para,
-        serviceType: plan.titulo,
-        areaServed: { "@type": "Country", name: empresa.areaServed },
-        provider: { "@id": `${empresa.url}/#organizacion` },
-        offers: {
-          "@type": "Offer",
-          url: `${empresa.url}/precios#${plan.id}`,
-          ...(monto ? { price: monto, priceCurrency: moneda } : {}),
-        },
-      };
-    }),
+    "@type": "OfferCatalog",
+    name: "Planes de servicio legal Resguardo",
+    url: `${empresa.url}/precios`,
+    itemListElement: planesPrecios.map((plan) => ({
+      "@type": "Offer",
+      name: plan.titulo,
+      description: plan.para,
+      price: plan.precioCLP ? plan.precioCLP : plan.precioUF ? plan.precioUF : 0,
+      priceCurrency: plan.precioCLP ? "CLP" : "UF",
+      priceSpecification: {
+        "@type": "PriceSpecification",
+        price: plan.precioCLP ? plan.precioCLP : plan.precioUF ? plan.precioUF : 0,
+        priceCurrency: plan.precioCLP ? "CLP" : "UF",
+        valueAddedTaxIncluded: true,
+      },
+      seller: {
+        "@type": "Organization",
+        name: empresa.nombre,
+      },
+    })),
   };
 }
