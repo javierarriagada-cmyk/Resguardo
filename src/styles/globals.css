@@ -2416,3 +2416,12 @@ footer {
     transition: none;
   }
 }
+.g-body section.g-sec,
+.g-body section.g-fuentes {
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+.g-body section.g-sec {
+  padding-top: 0;
+}
