@@ -1,7 +1,13 @@
 import { empresa } from "@/content/empresa";
 import { faq } from "@/content/home";
+import { planesPrecios } from "@/content/precios";
 
 type Json = Record<string, unknown>;
+
+export type ItemPregunta = {
+  readonly q: string;
+  readonly a: string;
+};
 
 /** Inserta JSON-LD escapando "<" para que el contenido no pueda cerrar el <script>. */
 export function JsonLd({ data }: { data: Json }) {
@@ -36,14 +42,40 @@ export function organizacionJsonLd(): Json {
   };
 }
 
-export function faqJsonLd(): Json {
+export function faqJsonLd(preguntas: readonly ItemPregunta[] = faq): Json {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faq.map((f) => ({
+    mainEntity: preguntas.map((f) => ({
       "@type": "Question",
       name: f.q,
       acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+}
+
+export function offerCatalogJsonLd(): Json {
+  return {
+    "@context": "https://schema.org",
+    "@type": "OfferCatalog",
+    name: "Planes de servicio legal Resguardo",
+    url: `${empresa.url}/precios`,
+    itemListElement: planesPrecios.map((plan) => ({
+      "@type": "Offer",
+      name: plan.titulo,
+      description: plan.para,
+      price: plan.precioCLP ? plan.precioCLP : plan.precioUF ? plan.precioUF : 0,
+      priceCurrency: plan.precioCLP ? "CLP" : "UF",
+      priceSpecification: {
+        "@type": "PriceSpecification",
+        price: plan.precioCLP ? plan.precioCLP : plan.precioUF ? plan.precioUF : 0,
+        priceCurrency: plan.precioCLP ? "CLP" : "UF",
+        valueAddedTaxIncluded: true,
+      },
+      seller: {
+        "@type": "Organization",
+        name: empresa.nombre,
+      },
     })),
   };
 }

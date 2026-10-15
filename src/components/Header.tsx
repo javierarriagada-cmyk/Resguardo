@@ -4,12 +4,12 @@ import { HeaderScroll } from "./HeaderScroll";
 import { Prov } from "./ui/Prov";
 
 const menu = [
-  ["#como", "Cómo funciona"],
-  ["#informe", "Informe semáforo"],
-  ["#precios", "Precios"],
-  ["#vender", "Vendedores"],
-  ["#corredores", "Corredores"],
-  ["#faq", "Preguntas"],
+  ["/#como", "Cómo funciona"],
+  ["/#informe", "Informe semáforo"],
+  ["/precios", "Precios"],
+  ["/#vender", "Vendedores"],
+  ["/#corredores", "Corredores"],
+  ["/#faq", "Preguntas"],
 ] as const;
 
 export function BrandMark() {
@@ -50,7 +50,7 @@ export function Header() {
           <ul className="menu">
             {menu.map(([href, label]) => (
               <li key={href}>
-                <Link href={`/${href}`}>{label}</Link>
+                <Link href={href}>{label}</Link>
               </li>
             ))}
           </ul>
