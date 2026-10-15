@@ -20,34 +20,50 @@ export function Footer() {
             <h4>Servicios</h4>
             <ul>
               <li>
-                <Link href="/#precios">Compra protegida</Link>
+                <Link href="/precios">Precios</Link>
               </li>
               <li>
-                <Link href="/#vender">Venta protegida</Link>
+                <Link href="/precios#compra-protegida">Compra protegida</Link>
               </li>
               <li>
-                <Link href="/#informe">Estudio de títulos</Link>
+                <Link href="/precios#venta-protegida">Venta protegida</Link>
+              </li>
+              <li>
+                <Link href="/precios#estudio-titulos">Estudio de títulos</Link>
               </li>
               <li>
                 <Link href="/#corredores">Corredores</Link>
               </li>
+              <li>
+                <Link href="/cobertura">Cobertura por región</Link>
+              </li>
             </ul>
           </nav>
-          {/* TODO(T11): enlazar a /guias/[slug] cuando existan las guías. */}
-          <div role="group" aria-labelledby="foot-guias">
-            <h4 id="foot-guias">Guías</h4>
+          <nav aria-label="Guías">
+            <h4>Guías</h4>
             <ul>
-              <li>Documentos para comprar</li>
-              <li>Qué es un vale vista</li>
-              <li>Vender una herencia</li>
-              <li>Costos de notaría y CBR</li>
+              <li>
+                <Link href="/guias/documentos-antes-de-comprar">Documentos para comprar</Link>
+              </li>
+              <li>
+                <Link href="/guias/vale-vista">Cómo funciona el vale vista</Link>
+              </li>
+              <li>
+                <Link href="/guias/instruccion-notarial">La instrucción notarial</Link>
+              </li>
+              <li>
+                <Link href="/guias">Todas las guías</Link>
+              </li>
             </ul>
-          </div>
+          </nav>
           <nav aria-label="Empresa">
             <h4>Empresa</h4>
             <ul>
               <li>
                 <Link href="/#como">Quiénes somos</Link>
+              </li>
+              <li>
+                <Link href="/#faq">Preguntas frecuentes</Link>
               </li>
               <li>
                 <Link href="/legal/privacidad">Política de privacidad</Link>

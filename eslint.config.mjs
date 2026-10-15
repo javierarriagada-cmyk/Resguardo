@@ -7,6 +7,23 @@ export default defineConfig([
   ...nextVitals,
   ...nextTs,
   prettier,
+  {
+    files: ["src/**/*.{ts,tsx}"],
+    ignores: ["src/lib/zod.ts"],
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        {
+          paths: [
+            {
+              name: "zod",
+              message: "Importa Zod desde @/lib/zod (configura jitless para la CSP).",
+            },
+          ],
+        },
+      ],
+    },
+  },
   globalIgnores([
     ".next/**",
     "out/**",
