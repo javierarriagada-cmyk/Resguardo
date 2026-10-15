@@ -47,7 +47,7 @@ export const laAraucania: RegionData = {
   faq: [
     {
       q: "¿Por qué importa si un terreno es tierra indígena?",
-      a: "Porque la Ley 19.253, art. 13, prohíbe enajenar, embargar, gravar o adquirir por prescripción las tierras indígenas, salvo entre comunidades o personas indígenas de una misma etnia. Si el terreno lo es, una compra fuera de esa regla no es válida.",
+      a: "Porque la Ley 19.253, art. 13, impide enajenar, embargar o adquirir por prescripción las tierras indígenas, salvo entre comunidades o personas indígenas de una misma etnia; gravarlas requiere autorización de la CONADI. Un contrato que infrinja esa regla adolece de nulidad absoluta.",
     },
     {
       q: "Compro en Padre Las Casas. ¿Es el mismo Conservador que Temuco?",

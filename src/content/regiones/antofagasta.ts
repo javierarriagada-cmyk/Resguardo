@@ -31,7 +31,7 @@ export const antofagasta: RegionData = {
   faq: [
     {
       q: "¿Qué cambia si compro un terreno en San Pedro de Atacama?",
-      a: "Revisamos si el terreno es tierra indígena. La Ley 19.253, art. 13, impide enajenar, embargar o gravar esas tierras, salvo entre comunidades o personas indígenas de una misma etnia. Si aplica, te lo decimos antes de que pagues nada.",
+      a: "Revisamos si el terreno es tierra indígena. Según la Ley 19.253, art. 13, esas tierras no pueden enajenarse, embargarse ni adquirirse por prescripción, salvo entre comunidades o personas indígenas de una misma etnia, y solo pueden gravarse con autorización de la CONADI. Si aplica, te lo decimos antes de que pagues nada.",
     },
     {
       q: "Trabajo por turnos. ¿Cómo coordinamos la firma?",
