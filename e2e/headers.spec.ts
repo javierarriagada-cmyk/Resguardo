@@ -1,106 +1,87 @@
-import { expect, test } from "@playwright/test";
+import { expect, test, type Page } from "@playwright/test";
+
+const RUTAS = ["/", "/legal/privacidad", "/legal/terminos"];
+
+/**
+ * Registra cualquier violación de CSP y cualquier error de consola. No filtra nada:
+ * una sola violación hace fallar la prueba.
+ */
+async function vigilar(page: Page) {
+  const violaciones: string[] = [];
+  const errores: string[] = [];
+  await page.exposeFunction("__reportarCsp", (v: string) => violaciones.push(v));
+  await page.addInitScript(() => {
+    document.addEventListener("securitypolicyviolation", (e) => {
+      (window as unknown as { __reportarCsp: (v: string) => void }).__reportarCsp(
+        `${e.violatedDirective} bloqueó ${e.blockedURI || "(inline)"} en ${e.sourceFile}:${e.lineNumber}`,
+      );
+    });
+  });
+  page.on("console", (msg) => {
+    if (msg.type() === "error") errores.push(msg.text());
+  });
+  page.on("pageerror", (err) => errores.push(err.message));
+  return { violaciones, errores };
+}
 
 test.describe("Cabeceras de seguridad y CSP", () => {
-  test("las respuestas HTTP incluyen cabeceras de seguridad requeridas en / y /legal/privacidad", async ({
-    request,
-  }) => {
-    for (const path of ["/", "/legal/privacidad"]) {
+  test("todas las rutas entregan las cabeceras requeridas", async ({ request }) => {
+    for (const path of RUTAS) {
       const response = await request.get(path);
       expect(response.status()).toBe(200);
-
-      const headers = response.headers();
-      expect(headers["x-content-type-options"]).toBe("nosniff");
-      expect(headers["referrer-policy"]).toBe("strict-origin-when-cross-origin");
-      expect(headers["permissions-policy"]).toContain("payment=()");
-      expect(headers["permissions-policy"]).toContain("usb=()");
-      expect(headers["permissions-policy"]).toContain("browsing-topics=()");
-      expect(headers["permissions-policy"]).toContain("display-capture=()");
-      expect(headers["permissions-policy"]).not.toContain("interest-cohort");
-
-      expect(headers["strict-transport-security"]).toBe("max-age=63072000; includeSubDomains");
-      expect(headers["strict-transport-security"]).not.toContain("preload");
-
-      expect(headers["content-security-policy"]).toContain("default-src 'self'");
-      expect(headers["content-security-policy"]).not.toContain("https://va.vercel-scripts.com");
+      const h = response.headers();
+      expect(h["x-content-type-options"]).toBe("nosniff");
+      expect(h["referrer-policy"]).toBe("strict-origin-when-cross-origin");
+      expect(h["strict-transport-security"]).toBe("max-age=63072000; includeSubDomains");
+      for (const f of ["camera=()", "microphone=()", "geolocation=()", "payment=()", "usb=()"]) {
+        expect(h["permissions-policy"]).toContain(f);
+      }
+      expect(h["permissions-policy"]).not.toContain("interest-cohort");
+      const csp = h["content-security-policy"] ?? "";
+      expect(csp).toContain("default-src 'self'");
+      expect(csp).toContain("object-src 'none'");
+      expect(csp).toContain("frame-ancestors 'none'");
+      expect(csp).not.toContain("'unsafe-eval'");
+      expect(csp).not.toContain("vercel-scripts.com");
     }
   });
 
-  test("sin errores de consola ni violaciones de CSP en la portada, /legal/* y diagnóstico completo", async ({
+  test("la CSP bloquea de verdad un script externo (la vigilancia detecta violaciones)", async ({
     page,
   }) => {
-    const consoleErrors: string[] = [];
-    const cspViolations: string[] = [];
-
-    page.on("console", (msg) => {
-      if (msg.type() === "error") {
-        consoleErrors.push(msg.text());
-      }
+    const { violaciones } = await vigilar(page);
+    await page.goto("/");
+    await page.evaluate(() => {
+      const s = document.createElement("script");
+      s.src = "https://ejemplo.invalid/x.js";
+      document.body.appendChild(s);
     });
+    await expect.poll(() => violaciones.length).toBeGreaterThan(0);
+  });
 
-    page.on("pageerror", (err) => {
-      consoleErrors.push(err.message);
-    });
+  test("sin violaciones de CSP ni errores en portada, /legal/* y diagnóstico completo", async ({
+    page,
+  }) => {
+    const { violaciones, errores } = await vigilar(page);
 
-    await page.addInitScript(() => {
-      document.addEventListener("securitypolicyviolation", (e) => {
-        // Ignorar 'eval' disparado en el contexto del navegador por utilidades internas de Playwright al usar page.evaluate/addInitScript
-        if (e.blockedURI === "eval" || e.violatedDirective.includes("script-src")) {
-          if (!e.sample || e.sample === "") {
-            return;
-          }
-        }
-        // @ts-expect-error - Custom property attached for Playwright inspection
-        window.__cspViolations = window.__cspViolations || [];
-        // @ts-expect-error - Custom property attached for Playwright inspection
-        window.__cspViolations.push(
-          `${e.blockedURI} violated ${e.violatedDirective} (${e.originalPolicy})`,
-        );
-      });
-    });
-
-    async function checkCspViolations() {
-      const violations = await page.evaluate(
-        // @ts-expect-error - Reading custom window property
-        () => window.__cspViolations || [],
-      );
-      if (violations.length > 0) {
-        cspViolations.push(...violations);
-      }
+    for (const path of RUTAS) {
+      await page.goto(path, { waitUntil: "networkidle" });
     }
 
-    // 1. Portada
     await page.goto("/");
-    await checkCspViolations();
-    expect(consoleErrors).toEqual([]);
-    expect(cspViolations).toEqual([]);
-
-    // 2. /legal/*
-    for (const legalPath of ["/legal/privacidad", "/legal/terminos"]) {
-      await page.goto(legalPath);
-      await checkCspViolations();
-      expect(consoleErrors).toEqual([]);
-      expect(cspViolations).toEqual([]);
-    }
-
-    // 3. Diagnóstico completo
-    await page.goto("/");
-    await page.locator("#diagnostico").scrollIntoViewIfNeeded();
-
     const form = page.locator("#diagnostico form");
+    await form.scrollIntoViewIfNeeded();
     await form.getByRole("button", { name: "Continuar" }).click();
-
     await form.getByLabel("Región").selectOption("Valparaíso");
     await form.getByLabel("Comuna").fill("Viña del Mar");
     await form.getByRole("button", { name: "Continuar" }).click();
-
     await form.getByLabel("Nombre").fill("Prueba CSP");
     await form.getByLabel("WhatsApp").fill("912345678");
     await form.getByLabel(/Acepto que usen estos datos/).check();
     await form.getByRole("button", { name: "Enviar y ver mi orientación" }).click();
-
     await expect(page.locator("#r-title")).toContainText("Gracias, Prueba. Recibimos tu caso.");
-    await checkCspViolations();
-    expect(consoleErrors).toEqual([]);
-    expect(cspViolations).toEqual([]);
+
+    expect(violaciones).toEqual([]);
+    expect(errores).toEqual([]);
   });
 });

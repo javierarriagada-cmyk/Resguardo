@@ -3,32 +3,28 @@ import type { NextConfig } from "next";
 const isProd = process.env.NODE_ENV === "production";
 const isVercelPreview = process.env.VERCEL_ENV === "preview";
 
-const scriptSrc = ["'self'", "'unsafe-inline'"];
-if (!isProd) {
-  scriptSrc.push("'unsafe-eval'");
-}
-if (isVercelPreview) {
-  scriptSrc.push("https://vercel.live");
-}
+// Barra de Vercel solo en vistas previas: https://vercel.com/docs/vercel-toolbar/managing-toolbar
+const toolbar = isVercelPreview
+  ? {
+      script: ["https://vercel.live"],
+      connect: ["https://vercel.live", "wss://ws-us3.pusher.com"],
+      img: ["https://vercel.live", "https://vercel.com"],
+      style: ["https://vercel.live"],
+      font: ["https://vercel.live", "https://assets.vercel.com"],
+      frame: ["https://vercel.live"],
+    }
+  : { script: [], connect: [], img: [], style: [], font: [], frame: [] };
 
-const connectSrc = ["'self'"];
-if (isVercelPreview) {
-  connectSrc.push("https://vercel.live");
-}
-
-const frameSrc = ["'self'"];
-if (isVercelPreview) {
-  frameSrc.push("https://vercel.live");
-}
+const src = (...values: string[]) => values.join(" ");
 
 const cspDirectives = [
   "default-src 'self'",
-  `script-src ${scriptSrc.join(" ")}`,
-  "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob:",
-  "font-src 'self' data:",
-  `connect-src ${connectSrc.join(" ")}`,
-  `frame-src ${frameSrc.join(" ")}`,
+  `script-src ${src("'self'", "'unsafe-inline'", ...(isProd ? [] : ["'unsafe-eval'"]), ...toolbar.script)}`,
+  `style-src ${src("'self'", "'unsafe-inline'", ...toolbar.style)}`,
+  `img-src ${src("'self'", "data:", "blob:", ...toolbar.img)}`,
+  `font-src ${src("'self'", "data:", ...toolbar.font)}`,
+  `connect-src ${src("'self'", ...toolbar.connect)}`,
+  `frame-src ${src("'self'", ...toolbar.frame)}`,
   "frame-ancestors 'none'",
   "base-uri 'self'",
   "form-action 'self'",
