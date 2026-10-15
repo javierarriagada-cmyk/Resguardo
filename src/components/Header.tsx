@@ -55,6 +55,24 @@ export function Header() {
             ))}
           </ul>
         </nav>
+        <details className="m-menu">
+          <summary>Menú</summary>
+          <nav aria-label="Principal (móvil)" className="m-menu-panel">
+            <ul>
+              {menu.map(([href, label]) => (
+                <li key={href}>
+                  <Link href={href}>{label}</Link>
+                </li>
+              ))}
+              <li>
+                <Link href="/cobertura">Cobertura</Link>
+              </li>
+              <li>
+                <Link href="/#faq">Preguntas frecuentes</Link>
+              </li>
+            </ul>
+          </nav>
+        </details>
         <div className="nav-cta">
           <a
             className="tel"

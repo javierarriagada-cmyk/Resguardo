@@ -61,3 +61,21 @@ test("el enlace de salto lleva al contenido principal", async ({ page }) => {
     await expect(page.locator('a.skip[href="#main"]')).toHaveCount(1);
   }
 });
+
+test("menú móvil: abre, lleva a /precios y la vista arranca arriba", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/");
+  await page.locator(".m-menu summary").click();
+  for (const href of ["/precios", "/guias", "/cobertura", "/#faq"]) {
+    await expect(page.locator(`.m-menu-panel a[href="${href}"]`)).toBeVisible();
+  }
+  await page.locator('.m-menu-panel a[href="/precios"]').click();
+  await verificarDestino(page, "/precios");
+  await expect(page.locator(".m-menu")).not.toHaveAttribute("open", "");
+});
+
+test("en escritorio el menú móvil no se muestra", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/");
+  await expect(page.locator(".m-menu")).toBeHidden();
+});
