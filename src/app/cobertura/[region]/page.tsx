@@ -93,7 +93,7 @@ export default async function RegionPage({ params }: Props) {
         }}
       />
       <Header />
-      <main id="contenido">
+      <main id="main">
         <section className="page-hero" aria-labelledby="reg-t">
           <div className="wrap">
             <Breadcrumb

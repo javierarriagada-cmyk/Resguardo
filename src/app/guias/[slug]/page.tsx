@@ -81,7 +81,7 @@ export default async function GuiaPage({ params }: { params: Promise<{ slug: str
           publisher: org,
         }}
       />
-      <main id="contenido">
+      <main id="main">
         <header className="page-hero g-hero">
           <div className="wrap">
             <Breadcrumb

@@ -37,7 +37,7 @@ export default async function PreciosPage() {
       <JsonLd data={serviciosJsonLd()} />
       <JsonLd data={faqJsonLd(faqPagos)} />
       <Header />
-      <main id="contenido">
+      <main id="main">
         <section className="page-hero" aria-labelledby="precios-t">
           <div className="wrap page-hero-grid">
             <div>

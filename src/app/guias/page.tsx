@@ -28,7 +28,7 @@ export default function GuiasPage() {
   return (
     <>
       <Header />
-      <main id="contenido">
+      <main id="main">
         <section className="page-hero" aria-labelledby="guias-t">
           <div className="wrap">
             <Breadcrumb
